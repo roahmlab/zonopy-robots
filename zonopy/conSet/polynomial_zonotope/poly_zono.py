@@ -163,7 +163,7 @@ class polyZonotope:
         self: <polyZonotope>
         return <polyZonotope>
         '''
-        return polyZonotope(torch.vstack((-self.Z[:1+self.n_dep_gens]),self.Grest),self.n_dep_gens,self.expMat, self.id)
+        return polyZonotope(torch.vstack((-self.Z[:1+self.n_dep_gens],self.Grest)),self.n_dep_gens,self.expMat, self.id)
 
     def __iadd__(self,other): 
         return self+other
@@ -256,7 +256,37 @@ class polyZonotope:
         idRed = self.id[ind]
         if self.dimension == 1:
             ZRed = torch.vstack((ZRed[0],ZRed[1:n_dg_red+1].sum(0),ZRed[n_dg_red+1:]))
+            n_dg_red = 1
         return polyZonotope(ZRed,n_dg_red,expMatRed,idRed)
+
+    def reduce_dep(self,order,option='girard'):
+        # extract dimensions
+        N = self.dimension
+        Q = self.n_indep_gens
+            
+        # number of gens kept (N gens will be added back after reudction)
+        K = int(N*order-N)
+        # check if the order need to be reduced
+        if Q > N*order and K >=0:
+            G = self.Grest
+            # caculate the length of the gens with a special metric
+            len = torch.sum(G**2,1)
+            # determine the smallest gens to remove            
+            ind = torch.argsort(len,descending=True)
+            ind_red,ind_rem = ind[:K], ind[K:]
+            # construct a zonotope from the gens that are removed
+            Ztemp = zp.zonotope(torch.vstack((torch.zeros(N),G[ind_rem])))
+            # reduce the constructed zonotope with the reducetion techniques for linear zonotopes
+            zonoRed = Ztemp.reduce(1,option)
+            # add the reduced gens as new indep gens
+            ZRed = torch.vstack((self.c + zonoRed.center,self.G,G[ind_red],zonoRed.generators))
+        else:
+            ZRed = self.Z
+        n_dg_red = self.n_dep_gens
+        if self.dimension == 1 and n_dg_red != 1:
+            ZRed = torch.vstack((ZRed[0],ZRed[1:n_dg_red+1].sum(0),ZRed[n_dg_red+1:]))
+            n_dg_red = 1
+        return polyZonotope(ZRed,n_dg_red,self.expMat,self.id)
 
     def exactCartProd(self,other):
         '''
@@ -265,38 +295,11 @@ class polyZonotope:
         return <polyZonotope>
         '''    
         if isinstance(other,polyZonotope):
-            dim1, dim2 = self.dimension, other.dimension 
-            empty_tensor = torch.tensor([])
             c = torch.hstack((self.c,other.c))
-            if self.n_dep_gens == 0:
-                if other.n_dep_gens == 0:
-                    G = empty_tensor
-                    expMat = None
-                    id = None
-                else:
-                    G = torch.hstack((torch.zeros(other.n_dep_gens,dim1),other.G))
-                    expMat = other.expMat
-                    id = other.id
-            else:
-                if other.n_dep_gens == 0:
-                    G = torch.hstack((self.G,torch.zeros(self.n_dep_gens,dim2)))
-                    expMat = self.expMat
-                    id = self.id
-                else:
-                    id,expMat1, expMat2 = mergeExpMatrix(self.id,other.id,self.expMat,other.expMat)
-                    G = torch.block_diag(self.G,other.G)
-                    expMat = torch.vstack((expMat1,expMat2))
-            
-            if self.n_indep_gens == 0:
-                if other.n_indep_gens == 0:
-                    Grest = empty_tensor
-                else:
-                    Grest = torch.vstack((torch.zeros(other.n_indep_gens,dim1),other.Grest))
-            else:
-                if other.n_indep_gens == 0:
-                    Grest = torch.vstack((self.Grest, torch.zeros(self.n_indep_gens,dim2)))
-                else:
-                    Grest = torch.block_diag(self.Grest,other.Grest)
+            id,expMat1, expMat2 = mergeExpMatrix(self.id,other.id,self.expMat,other.expMat)
+            G = torch.block_diag(self.G,other.G)
+            expMat = torch.vstack((expMat1,expMat2))
+            Grest = torch.block_diag(self.Grest,other.Grest)
         Z = torch.vstack((c,G,Grest))
         n_dep_gens = self.n_dep_gens+other.n_dep_gens
         return polyZonotope(Z,n_dep_gens,expMat,id)
