@@ -6,6 +6,7 @@ import torch
 import zonopy as zp
 from zonopyrobots.robots.utils import normal_vec_to_basis
 import copy
+import networkx as nx
 
 # Some variables for computing the joint radius
 JOINT_MOTION_UNION_ANGLES = np.array([30, 60, 90], dtype=float) * np.pi / 180.0
@@ -24,6 +25,8 @@ class ZonoArmRobot:
         'dtype',
         'joint_axis',
         'joint_origins',
+        'joint_origins_all',
+        'actuated_mask',
         'pos_lim',
         'vel_lim',
         'eff_lim',
@@ -33,8 +36,12 @@ class ZonoArmRobot:
         'link_child_joints',
         'joint_data',
         'link_data',
+        'is_single_chain',
+        'has_closed_loop',
         '__joint_axis',
         '__joint_origins',
+        '__joint_origins_all',
+        '__actuated_mask',
         '__pos_lim',
         '__vel_lim',
         '__eff_lim',
@@ -42,6 +49,8 @@ class ZonoArmRobot:
         '__pos_lim_mask',
         '__joint_axis_np',
         '__joint_origins_np',
+        '__joint_origins_all_np',
+        '__actuated_mask_np',
         '__pos_lim_np',
         '__vel_lim_np',
         '__eff_lim_np',
@@ -74,6 +83,8 @@ class ZonoArmRobot:
         constructed = ZonoArmRobot()
         constructed.urdf = robot
         constructed.dof = len(robot.actuated_joints)
+        # robot._G is from end effector to base
+        constructed.is_single_chain = nx.is_branching(robot._G)
         constructed._setup_robot_actuated_joint_data(robot, np_dtype, np_itype)
         constructed._setup_robot_joint_data(robot, dtype, create_joint_occupancy)
         constructed._setup_robot_link_data(robot, dtype)
@@ -90,23 +101,32 @@ class ZonoArmRobot:
         eff_lim = [np.Inf]*self.dof
         joint_axis = []
         joint_origins = []
-        for i,joint in enumerate(robot.actuated_joints):
+        actuated_idxs = []
+        offset = 0
+        for i,joint in enumerate(robot.joints):
             if joint.joint_type == 'continuous':
-                continuous_joints.append(i)
+                continuous_joints.append(i-offset)
             elif joint.joint_type in ['floating', 'planar']:
                 raise NotImplementedError
             if joint.limit is not None:
                 lower = joint.limit.lower if joint.limit.lower is not None else -np.Inf
                 upper = joint.limit.upper if joint.limit.upper is not None else np.Inf
-                pos_lim[i] = [lower, upper]
-                vel_lim[i] = joint.limit.velocity
-                eff_lim[i] = joint.limit.effort
-            joint_axis.append(joint.axis)
+                pos_lim[i-offset] = [lower, upper]
+                vel_lim[i-offset] = joint.limit.velocity
+                eff_lim[i-offset] = joint.limit.effort
             joint_origins.append(joint.origin)
+            if joint.joint_type != "fixed":
+                joint_axis.append(joint.axis)
+                actuated_idxs.append(i)
+            else:
+                offset += 1
         
         # initial numpy conversion
+        self.__actuated_mask_np = np.zeros(len(robot.joints), dtype=bool)
+        self.__actuated_mask_np[actuated_idxs] = True
         self.__joint_axis_np = np.array(joint_axis, dtype=np_dtype)
-        self.__joint_origins_np = np.array(joint_origins, dtype=np_dtype)
+        self.__joint_origins_all_np = np.array(joint_origins, dtype=np_dtype)
+        self.__joint_origins_np = self.__joint_origins_all_np[self.__actuated_mask_np]
         self.__pos_lim_np = np.array(pos_lim, dtype=np_dtype).T
         self.__vel_lim_np = np.array(vel_lim, dtype=np_dtype)
         self.__eff_lim_np = np.array(eff_lim, dtype=np_dtype) # Unused for now
@@ -114,8 +134,10 @@ class ZonoArmRobot:
         self.__pos_lim_mask_np = np.isfinite(self.__pos_lim_np).any(axis=0)
 
         # Create tensor references to that memory
+        self.__actuated_mask = torch.from_numpy(self.__actuated_mask_np)
         self.__joint_axis = torch.from_numpy(self.__joint_axis_np)
         self.__joint_origins = torch.from_numpy(self.__joint_origins_np)
+        self.__joint_origins_all = torch.from_numpy(self.__joint_origins_all_np)
         self.__pos_lim = torch.from_numpy(self.__pos_lim_np)
         self.__vel_lim = torch.from_numpy(self.__vel_lim_np)
         self.__eff_lim = torch.from_numpy(self.__eff_lim_np)
@@ -207,6 +229,8 @@ class ZonoArmRobot:
         # update references to all the properties we care about
         ret.joint_axis = self.__joint_axis_np
         ret.joint_origins = self.__joint_origins_np
+        ret.joint_origins_all = self.__joint_origins_all_np
+        ret.actuated_mask = self.__actuated_mask_np
         ret.pos_lim = self.__pos_lim_np
         ret.vel_lim = self.__vel_lim_np
         ret.eff_lim = self.__eff_lim_np
@@ -228,6 +252,8 @@ class ZonoArmRobot:
         # update references to all the properties we care about
         ret.joint_axis = self.__joint_axis.to(device=device)
         ret.joint_origins = self.__joint_origins.to(device=device)
+        ret.joint_origins_all = self.__joint_origins_all.to(device=device)
+        ret.actuated_mask = self.__actuated_mask.to(device=device)
         ret.pos_lim = self.__pos_lim.to(device=device)
         ret.vel_lim = self.__vel_lim.to(device=device)
         ret.eff_lim = self.__eff_lim.to(device=device)
