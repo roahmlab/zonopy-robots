@@ -53,6 +53,18 @@ def forward_kinematics(
             link_set.add(urdf._link_map[lnk])
     else:
         link_set = __all_links_as_set(urdf)
+    
+    # Setup initial condition
+    bpz_mask = np.array([isinstance(rotato, batchMatPolyZonotope) for rotato in rotatotopes])
+    if np.any(bpz_mask):
+        for idx, tf in enumerate(bpz_mask):
+            if tf:
+                batch_shape = rotatotopes[idx].batch_shape
+                break
+        link_rot = [batchMatPolyZonotope.eye(batch_shape, 3, dtype=robot.dtype, device=robot.device)]
+        link_pos = [batchPolyZonotope.zeros(batch_shape, 3, dtype=robot.dtype, device=robot.device)]
+    else:
+        batch_shape = None
 
     # Compute forward kinematics in reverse topological order, base to end
     fk = OrderedDict()
@@ -61,8 +73,12 @@ def forward_kinematics(
             continue
         # Get the path back to the base and build with that
         path = urdf._paths_to_base[lnk]
-        pos = polyZonotope.zeros(3, dtype=robot.dtype, device=robot.device)
-        rot = matPolyZonotope.eye(3, dtype=robot.dtype, device=robot.device)
+        if batch_shape is not None:
+            pos = batchPolyZonotope.zeros(batch_shape, 3, dtype=robot.dtype, device=robot.device)
+            rot = batchMatPolyZonotope.eye(batch_shape, 3, dtype=robot.dtype, device=robot.device)
+        else:
+            pos = polyZonotope.zeros(3, dtype=robot.dtype, device=robot.device)
+            rot = matPolyZonotope.eye(3, dtype=robot.dtype, device=robot.device)
         for i in range(len(path) - 1):
             child = path[i]
             parent = path[i + 1]

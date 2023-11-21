@@ -103,7 +103,8 @@ class ZonoArmRobot:
         joint_origins = []
         actuated_idxs = []
         offset = 0
-        for i,joint in enumerate(robot.joints):
+        sorted_joints = robot._sort_joints(robot.joints)
+        for i,joint in enumerate(sorted_joints):
             if joint.joint_type == 'continuous':
                 continuous_joints.append(i-offset)
             elif joint.joint_type in ['floating', 'planar']:
