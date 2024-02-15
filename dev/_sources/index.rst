@@ -12,6 +12,7 @@ This project is still early in development, so much of the API is subject to cha
 
    robots
    trajectories
+   reachablesets
    kinematics
    dynamics
    utils

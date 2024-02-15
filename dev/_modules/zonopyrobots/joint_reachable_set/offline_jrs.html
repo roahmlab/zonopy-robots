@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>zonopyrobots.util.make_config_dict &#8212; zonopy-robots (development) v0.0.1-dev</title>
+    <title>zonopyrobots.joint_reachable_set.offline_jrs &#8212; zonopy-robots (development) v0.0.1-dev</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script src="../../../_static/design-tabs.js?v=36754332"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/zonopyrobots/util/make_config_dict';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/zonopyrobots/joint_reachable_set/offline_jrs';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://roahmlab.github.io/zonopy-robots/versions.json';
@@ -329,68 +329,51 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <h1>Source code for zonopyrobots.util.make_config_dict</h1><div class="highlight"><pre>
+  <h1>Source code for zonopyrobots.joint_reachable_set.offline_jrs</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">.jrs_trig.process_jrs_trig</span> <span class="kn">import</span> <span class="n">process_batch_JRS_trig</span> <span class="k">as</span> <span class="n">_process_batch_JRS_trig</span>
+<span class="kn">from</span> <span class="nn">.jrs_trig.load_jrs_trig</span> <span class="kn">import</span> <span class="n">preload_batch_JRS_trig</span> <span class="k">as</span> <span class="n">_preload_batch_JRS_trig</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">zonopy.internal</span> <span class="k">as</span> <span class="nn">zpi</span>
-<span class="kn">import</span> <span class="nn">functools</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">urchin</span> <span class="kn">import</span> <span class="n">URDF</span>
-    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span>
-    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">OrderedDict</span> <span class="k">as</span> <span class="n">OrderedDictType</span>
-    <span class="kn">from</span> <span class="nn">zonopy</span> <span class="kn">import</span> <span class="n">polyZonotope</span> <span class="k">as</span> <span class="n">PZType</span>
-    <span class="kn">from</span> <span class="nn">zonopy</span> <span class="kn">import</span> <span class="n">matPolyZonotope</span> <span class="k">as</span> <span class="n">MPZType</span>
-    <span class="kn">from</span> <span class="nn">zonopy</span> <span class="kn">import</span> <span class="n">batchPolyZonotope</span> <span class="k">as</span> <span class="n">BPZType</span>
-    <span class="kn">from</span> <span class="nn">zonopy</span> <span class="kn">import</span> <span class="n">batchMatPolyZonotope</span> <span class="k">as</span> <span class="n">BMPZType</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ndarray</span>
+    <span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">Tensor</span>
+    <span class="n">Array</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 
+<div class="viewcode-block" id="OfflineJRS"><a class="viewcode-back" href="../../../generated/zonopyrobots.OfflineJRS.html#zonopyrobots.OfflineJRS">[docs]</a><span class="k">class</span> <span class="nc">OfflineJRS</span><span class="p">:</span>
+<div class="viewcode-block" id="OfflineJRS.__init__"><a class="viewcode-back" href="../../../generated/zonopyrobots.OfflineJRS.html#zonopyrobots.OfflineJRS.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cpu&#39;</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">,</span>
+        <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Wrapper for preloading and processing JRS tensors &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">.jrs_trig.load_jrs_trig</span> <span class="kn">import</span> <span class="n">g_ka</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">jrs_tensor</span> <span class="o">=</span> <span class="n">_preload_batch_JRS_trig</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">g_ka</span> <span class="o">=</span> <span class="n">g_ka</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">dtype</span></div>
 
-<div class="viewcode-block" id="make_cfg_dict"><a class="viewcode-back" href="../../../generated/zonopyrobots.make_cfg_dict.html#zonopyrobots.make_cfg_dict">[docs]</a><span class="k">def</span> <span class="nf">make_cfg_dict</span><span class="p">(</span>
-        <span class="n">configs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span>
-        <span class="n">robot</span><span class="p">:</span> <span class="n">URDF</span><span class="p">,</span>
-        <span class="n">allow_incomplete</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span> 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper function to create a config dictionary if a list is provided.</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">qpos</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span>
+        <span class="n">qvel</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span>
+        <span class="n">joint_axes</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Returns the JRS and the corresponding rotatotopes for a given configuration and velocity</span>
+<span class="sd">        Args:</span>
+<span class="sd">            qpos (torch.Tensor): The configuration of the robot</span>
+<span class="sd">            qvel (torch.Tensor): The velocity of the robot</span>
+<span class="sd">            joint_axes (torch.Tensor): The joint axes of the robot</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        configs (Union[Dict[str, Any], List[Any], None]): The configs.</span>
-<span class="sd">        robot (URDF): The URDF.</span>
-<span class="sd">        allow_incomplete (bool, optional): Whether to allow incomplete list configs. Defaults to False.</span>
-<span class="sd">    </span>
-<span class="sd">    Returns:</span>
-<span class="sd">        Dict[str, Any]: The config dictionary.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">configs</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">zpi</span><span class="o">.</span><span class="n">__debug_extra__</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">configs</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="s2">&quot;Keys for the config dict are not all strings!&quot;</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">configs</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
-        <span class="c1"># Assume that this is for all actuated joints</span>
-        <span class="n">joint_names</span> <span class="o">=</span> <span class="n">__robot_actuated_joint_names</span><span class="p">(</span><span class="n">robot</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">allow_incomplete</span><span class="p">:</span>
-            <span class="n">joint_names</span> <span class="o">=</span> <span class="n">joint_names</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">configs</span><span class="p">)]</span>
-        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">joint_names</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">configs</span><span class="p">),</span> <span class="s2">&quot;Unexpected number of configs!&quot;</span>
-        <span class="n">configs</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">cfgs</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">cfgs</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">joint_names</span><span class="p">,</span> <span class="n">configs</span><span class="p">)}</span>
-    <span class="k">elif</span> <span class="n">configs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">configs</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span>
-    <span class="k">return</span> <span class="n">configs</span></div>
-
-
-<span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span>
-<span class="k">def</span> <span class="nf">__robot_actuated_joint_names</span><span class="p">(</span>
-        <span class="n">robot</span><span class="p">:</span> <span class="n">URDF</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper function to get the joint names of a robot.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        robot (URDF): The URDF.</span>
-<span class="sd">    </span>
-<span class="sd">    Returns:</span>
-<span class="sd">        List[str]: The joint names.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">joint</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">joint</span> <span class="ow">in</span> <span class="n">robot</span><span class="o">.</span><span class="n">actuated_joints</span><span class="p">]</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Tuple[torch.Tensor, torch.Tensor]: The JRS and the corresponding rotatotopes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">qpos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">qpos</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">qvel</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">qvel</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">joint_axes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">joint_axes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_process_batch_JRS_trig</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jrs_tensor</span><span class="p">,</span> <span class="n">qpos</span><span class="p">,</span> <span class="n">qvel</span><span class="p">,</span> <span class="n">joint_axes</span><span class="p">)</span></div>
 </pre></div>
 
                 </article>

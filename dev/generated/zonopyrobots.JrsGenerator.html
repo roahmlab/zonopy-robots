@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>zonopyrobots.trajectory.BernsteinArmTrajectory &#8212; zonopy-robots (development) v0.0.1-dev</title>
+    <title>zonopyrobots.JrsGenerator &#8212; zonopy-robots (development) v0.0.1-dev</title>
   
   
   
@@ -48,7 +48,7 @@
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/zonopyrobots.trajectory.BernsteinArmTrajectory';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/zonopyrobots.JrsGenerator';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://roahmlab.github.io/zonopy-robots/versions.json';
@@ -57,8 +57,8 @@
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Reachable Sets" href="../reachablesets.html" />
-    <link rel="prev" title="zonopyrobots.trajectory.PiecewiseArmTrajectory" href="zonopyrobots.trajectory.PiecewiseArmTrajectory.html" />
+    <link rel="next" title="zonopyrobots.OfflineJRS" href="zonopyrobots.OfflineJRS.html" />
+    <link rel="prev" title="Reachable Sets" href="../reachablesets.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,13 +167,13 @@
 <li class="toctree-l2"><a class="reference internal" href="zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html">zonopyrobots.robots.armrobot.ZonoArmRobotJoint</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../trajectories.html">Common Trajectory Types</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../trajectories.html">Common Trajectory Types</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="zonopyrobots.trajectory.PiecewiseArmTrajectory.html">zonopyrobots.trajectory.PiecewiseArmTrajectory</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">zonopyrobots.trajectory.BernsteinArmTrajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.trajectory.BernsteinArmTrajectory.html">zonopyrobots.trajectory.BernsteinArmTrajectory</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../reachablesets.html">Reachable Sets</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.JrsGenerator.html">zonopyrobots.JrsGenerator</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../reachablesets.html">Reachable Sets</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">zonopyrobots.JrsGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zonopyrobots.OfflineJRS.html">zonopyrobots.OfflineJRS</a></li>
 </ul>
 </li>
@@ -282,7 +282,7 @@ document.write(`
       
       
       
-      <li><a href="../_sources/generated/zonopyrobots.trajectory.BernsteinArmTrajectory.rst" target="_blank"
+      <li><a href="../_sources/generated/zonopyrobots.JrsGenerator.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -366,7 +366,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>zonopyrobots.trajectory.BernsteinArmTrajectory</h1>
+    <h1>zonopyrobots.JrsGenerator</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -376,9 +376,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.trajectory.BernsteinArmTrajectory"><code class="docutils literal notranslate"><span class="pre">BernsteinArmTrajectory</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.trajectory.BernsteinArmTrajectory.__init__"><code class="docutils literal notranslate"><span class="pre">BernsteinArmTrajectory.__init__()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.trajectory.BernsteinArmTrajectory.getReference"><code class="docutils literal notranslate"><span class="pre">BernsteinArmTrajectory.getReference()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.JrsGenerator"><code class="docutils literal notranslate"><span class="pre">JrsGenerator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.JrsGenerator.__init__"><code class="docutils literal notranslate"><span class="pre">JrsGenerator.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.JrsGenerator.device"><code class="docutils literal notranslate"><span class="pre">JrsGenerator.device</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.JrsGenerator.dtype"><code class="docutils literal notranslate"><span class="pre">JrsGenerator.dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.JrsGenerator.gen_JRS"><code class="docutils literal notranslate"><span class="pre">JrsGenerator.gen_JRS()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -392,31 +394,52 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="zonopyrobots-trajectory-bernsteinarmtrajectory">
-<h1>zonopyrobots.trajectory.BernsteinArmTrajectory<a class="headerlink" href="#zonopyrobots-trajectory-bernsteinarmtrajectory" title="Permalink to this heading">#</a></h1>
+  <section id="zonopyrobots-jrsgenerator">
+<h1>zonopyrobots.JrsGenerator<a class="headerlink" href="#zonopyrobots-jrsgenerator" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="zonopyrobots.trajectory.BernsteinArmTrajectory">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zonopyrobots.trajectory.</span></span><span class="sig-name descname"><span class="pre">BernsteinArmTrajectory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">qd0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">qdd0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">kparam</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">krange</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tbrake</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tfinal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/trajectory/arm.html#BernsteinArmTrajectory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.trajectory.BernsteinArmTrajectory" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseArmTrajectory</span></code></p>
+<dt class="sig sig-object py" id="zonopyrobots.JrsGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zonopyrobots.</span></span><span class="sig-name descname"><span class="pre">JrsGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_class=&lt;class</span> <span class="pre">'zonopyrobots.trajectory.arm.BernsteinArmTrajectory'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_center=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_range=0.08726646259971647</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tplan=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tfinal=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdiscretization=0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ultimate_bound=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_r=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique_tid=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/joint_reachable_set/gen_jrs.html#JrsGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.JrsGenerator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="zonopyrobots.trajectory.BernsteinArmTrajectory.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">qd0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">qdd0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">kparam</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">krange</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tbrake</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tfinal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/trajectory/arm.html#BernsteinArmTrajectory.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.trajectory.BernsteinArmTrajectory.__init__" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="zonopyrobots.JrsGenerator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_class=&lt;class</span> <span class="pre">'zonopyrobots.trajectory.arm.BernsteinArmTrajectory'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_center=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_range=0.08726646259971647</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tplan=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tfinal=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdiscretization=0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ultimate_bound=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_r=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batched=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique_tid=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/joint_reachable_set/gen_jrs.html#JrsGenerator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.JrsGenerator.__init__" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.trajectory.BernsteinArmTrajectory.__init__" title="zonopyrobots.trajectory.BernsteinArmTrajectory.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(q0, qd0, qdd0, kparam, krange[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.JrsGenerator.__init__" title="zonopyrobots.JrsGenerator.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(robot[, traj_class, param_center, ...])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.trajectory.BernsteinArmTrajectory.getReference" title="zonopyrobots.trajectory.BernsteinArmTrajectory.getReference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getReference</span></code></a>(times)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.JrsGenerator.gen_JRS" title="zonopyrobots.JrsGenerator.gen_JRS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_JRS</span></code></a>(q_in, qd_in[, qdd_in, ...])</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.JrsGenerator.device" title="zonopyrobots.JrsGenerator.device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.JrsGenerator.dtype" title="zonopyrobots.JrsGenerator.dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py property">
+<dt class="sig sig-object py" id="zonopyrobots.JrsGenerator.device">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">device</span></span><a class="headerlink" href="#zonopyrobots.JrsGenerator.device" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="zonopyrobots.JrsGenerator.dtype">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype</span></span><a class="headerlink" href="#zonopyrobots.JrsGenerator.dtype" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
-<dt class="sig sig-object py" id="zonopyrobots.trajectory.BernsteinArmTrajectory.getReference">
-<span class="sig-name descname"><span class="pre">getReference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.Tensor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://roahmlab.github.io/zonopy/latest/generated/zonopy.batchPolyZonotope.html#zonopy.batchPolyZonotope" title="(in zonopy v0.1.0)"><span class="pre">zonopy.batchPolyZonotope</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/trajectory/arm.html#BernsteinArmTrajectory.getReference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.trajectory.BernsteinArmTrajectory.getReference" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="zonopyrobots.JrsGenerator.gen_JRS">
+<span class="sig-name descname"><span class="pre">gen_JRS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qd_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qdd_in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taylor_degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">make_gens_independent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_R</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/joint_reachable_set/gen_jrs.html#JrsGenerator.gen_JRS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.JrsGenerator.gen_JRS" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -435,20 +458,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="zonopyrobots.trajectory.PiecewiseArmTrajectory.html"
+       href="../reachablesets.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">zonopyrobots.trajectory.PiecewiseArmTrajectory</p>
+        <p class="prev-next-title">Reachable Sets</p>
       </div>
     </a>
     <a class="right-next"
-       href="../reachablesets.html"
+       href="zonopyrobots.OfflineJRS.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Reachable Sets</p>
+        <p class="prev-next-title">zonopyrobots.OfflineJRS</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -468,9 +491,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.trajectory.BernsteinArmTrajectory"><code class="docutils literal notranslate"><span class="pre">BernsteinArmTrajectory</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.trajectory.BernsteinArmTrajectory.__init__"><code class="docutils literal notranslate"><span class="pre">BernsteinArmTrajectory.__init__()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.trajectory.BernsteinArmTrajectory.getReference"><code class="docutils literal notranslate"><span class="pre">BernsteinArmTrajectory.getReference()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.JrsGenerator"><code class="docutils literal notranslate"><span class="pre">JrsGenerator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.JrsGenerator.__init__"><code class="docutils literal notranslate"><span class="pre">JrsGenerator.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.JrsGenerator.device"><code class="docutils literal notranslate"><span class="pre">JrsGenerator.device</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.JrsGenerator.dtype"><code class="docutils literal notranslate"><span class="pre">JrsGenerator.dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.JrsGenerator.gen_JRS"><code class="docutils literal notranslate"><span class="pre">JrsGenerator.gen_JRS()</span></code></a></li>
 </ul>
 </li>
 </ul>
