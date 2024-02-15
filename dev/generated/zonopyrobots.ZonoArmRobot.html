@@ -1,0 +1,970 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>zonopyrobots.ZonoArmRobot &#8212; zonopy-robots (development) v0.0.1-dev</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/katex-math.css?v=91adb8b6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=64fd42a1" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=3f868395"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/zonopyrobots.ZonoArmRobot';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://roahmlab.github.io/zonopy/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="zonopyrobots.robots.armrobot.ZonoArmRobotLink" href="zonopyrobots.robots.armrobot.ZonoArmRobotLink.html" />
+    <link rel="prev" title="Robots Module" href="../robots.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">zonopy-robots (development) v0.0.1-dev</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../robots.html">Robots Module</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">zonopyrobots.ZonoArmRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.robots.armrobot.ZonoArmRobotLink.html">zonopyrobots.robots.armrobot.ZonoArmRobotLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html">zonopyrobots.robots.armrobot.ZonoArmRobotJoint</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../trajectories.html">Common Trajectory Types</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.trajectory.PiecewiseArmTrajectory.html">zonopyrobots.trajectory.PiecewiseArmTrajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.trajectory.BernsteinArmTrajectory.html">zonopyrobots.trajectory.BernsteinArmTrajectory</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../kinematics.html">Kinematics Module</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.kinematics.forward_kinematics.html">zonopyrobots.kinematics.forward_kinematics</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dynamics.html">Dynamics Module</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.dynamics.pzrnea.html">zonopyrobots.dynamics.pzrnea</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../utils.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.make_cfg_dict.html">zonopyrobots.make_cfg_dict</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/roahmlab/zonopy-robots" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/generated/zonopyrobots.ZonoArmRobot.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>zonopyrobots.ZonoArmRobot</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.urdf"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.urdf</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.dof"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.dof</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.np"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.np</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.tensor"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.tensor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.device"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.device</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.dtype"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.joint_axis"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_axis</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.joint_origins"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_origins</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.joint_origins_all"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_origins_all</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.actuated_mask"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.actuated_mask</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.pos_lim"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.pos_lim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.vel_lim"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.vel_lim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.eff_lim"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.eff_lim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.continuous_joints"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.continuous_joints</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.pos_lim_mask"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.pos_lim_mask</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.link_parent_joint"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.link_parent_joint</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.link_child_joints"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.link_child_joints</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.joint_data"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.link_data"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.link_data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.is_single_chain"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.is_single_chain</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.has_closed_loop"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.has_closed_loop</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.__init__"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.actuated_mask</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.continuous_joints</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.device</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.dof</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.eff_lim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.has_closed_loop</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.is_single_chain</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_axis</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_origins</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_origins_all</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.link_child_joints</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.link_data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.link_parent_joint</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.load"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.np</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.numpy"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.numpy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.pos_lim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.pos_lim_mask</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.tensor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.to"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.to()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.urdf</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.vel_lim</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="zonopyrobots-zonoarmrobot">
+<h1>zonopyrobots.ZonoArmRobot<a class="headerlink" href="#zonopyrobots-zonoarmrobot" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zonopyrobots.</span></span><span class="sig-name descname"><span class="pre">ZonoArmRobot</span></span><a class="reference internal" href="../_modules/zonopyrobots/robots/armrobot.html#ZonoArmRobot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.ZonoArmRobot" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Arm Robot definition for use with zonopy</p>
+<p>This class is a wrapper around the URDF class from urchin. It also computes
+some additional information about the robot that is useful for zonotopes.
+This includes the joint axis, joint origins, and joint limits. It also
+includes the link data for each link in the robot. This includes the
+bounding box of the link, the mass, center of mass, and inertia tensor.
+This class also includes the joint occupancy for each joint. This helps
+with later forward kinematic and occupancy computations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.urdf">
+<span class="sig-name descname"><span class="pre">urdf</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.urdf" title="Permalink to this definition">#</a></dt>
+<dd><p>The urchin URDF object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.dof">
+<span class="sig-name descname"><span class="pre">dof</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.dof" title="Permalink to this definition">#</a></dt>
+<dd><p>The number of actuated joints</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.np">
+<span class="sig-name descname"><span class="pre">np</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.np" title="Permalink to this definition">#</a></dt>
+<dd><p>A numpy version of the object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.tensor">
+<span class="sig-name descname"><span class="pre">tensor</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.tensor" title="Permalink to this definition">#</a></dt>
+<dd><p>A torch version of the object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.device">
+<span class="sig-name descname"><span class="pre">device</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.device" title="Permalink to this definition">#</a></dt>
+<dd><p>The device the primary data is on. None if numpy.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.dtype">
+<span class="sig-name descname"><span class="pre">dtype</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.dtype" title="Permalink to this definition">#</a></dt>
+<dd><p>The pytorch or numpy dtype of the class</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.joint_axis">
+<span class="sig-name descname"><span class="pre">joint_axis</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.joint_axis" title="Permalink to this definition">#</a></dt>
+<dd><p>The axis of each actuated joint in a (dof, 3) array. These
+are in topological order from the base to the end effector.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.joint_origins">
+<span class="sig-name descname"><span class="pre">joint_origins</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.joint_origins" title="Permalink to this definition">#</a></dt>
+<dd><p>The origin of each actuated joint in a topologically
+ordered (dof, 3) array.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.joint_origins_all">
+<span class="sig-name descname"><span class="pre">joint_origins_all</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.joint_origins_all" title="Permalink to this definition">#</a></dt>
+<dd><p>The origin of each joint including fixed joints in a
+topologically ordered (n_joints, 3) array.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.actuated_mask">
+<span class="sig-name descname"><span class="pre">actuated_mask</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.actuated_mask" title="Permalink to this definition">#</a></dt>
+<dd><p>A mask of which joints are actuated in an (n_joints,)
+array of booleans.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.pos_lim">
+<span class="sig-name descname"><span class="pre">pos_lim</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.pos_lim" title="Permalink to this definition">#</a></dt>
+<dd><p>The position limits of each actuatedjoint in a (2, dof) array
+where the first row is the lower limit and the second row is the
+upper limit. Continuous joints have [-Inf, Inf].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.vel_lim">
+<span class="sig-name descname"><span class="pre">vel_lim</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.vel_lim" title="Permalink to this definition">#</a></dt>
+<dd><p>The velocity limits of each actuated joint in a (dof,) array.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.eff_lim">
+<span class="sig-name descname"><span class="pre">eff_lim</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.eff_lim" title="Permalink to this definition">#</a></dt>
+<dd><p>The effort limits of each actuated joint in a (dof,) array.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.continuous_joints">
+<span class="sig-name descname"><span class="pre">continuous_joints</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.continuous_joints" title="Permalink to this definition">#</a></dt>
+<dd><p>The indices of the continuous joints in an
+(n_continuous_joints,) array.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.pos_lim_mask">
+<span class="sig-name descname"><span class="pre">pos_lim_mask</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.pos_lim_mask" title="Permalink to this definition">#</a></dt>
+<dd><p>A mask of which actuated joints have finite position
+limits in an (n_joints,) array of booleans.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.link_parent_joint">
+<span class="sig-name descname"><span class="pre">link_parent_joint</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.link_parent_joint" title="Permalink to this definition">#</a></dt>
+<dd><p>A map from each link to the parent joint. The base
+link has a parent joint of None. This is a map from the link name
+to the joint object.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.link_child_joints">
+<span class="sig-name descname"><span class="pre">link_child_joints</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.link_child_joints" title="Permalink to this definition">#</a></dt>
+<dd><p>A map from each link to the child joints. This is a
+map from the link name to a set of joint objects. The set is empty
+if there are no child joints.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.joint_data">
+<span class="sig-name descname"><span class="pre">joint_data</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.joint_data" title="Permalink to this definition">#</a></dt>
+<dd><p>A map from each joint to a ZonoArmRobotJoint object. This
+is a map from the joint object to the ZonoArmRobotJoint object.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.link_data">
+<span class="sig-name descname"><span class="pre">link_data</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.link_data" title="Permalink to this definition">#</a></dt>
+<dd><p>A map from each link to a ZonoArmRobotLink object. This is a
+map from the link object to the ZonoArmRobotLink object.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.is_single_chain">
+<span class="sig-name descname"><span class="pre">is_single_chain</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.is_single_chain" title="Permalink to this definition">#</a></dt>
+<dd><p>True if the robot is a single kinematic chain.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.has_closed_loop">
+<span class="sig-name descname"><span class="pre">has_closed_loop</span></span><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.has_closed_loop" title="Permalink to this definition">#</a></dt>
+<dd><p>True if the robot has a closed loop in the kinematic
+chain.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/robots/armrobot.html#ZonoArmRobot.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.ZonoArmRobot.__init__" title="zonopyrobots.ZonoArmRobot.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.ZonoArmRobot.load" title="zonopyrobots.ZonoArmRobot.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(robot[, device, dtype, itype, ...])</p></td>
+<td><p>Load a robot from a URDF file or URDF object</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.ZonoArmRobot.numpy" title="zonopyrobots.ZonoArmRobot.numpy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy</span></code></a>()</p></td>
+<td><p>Convert and return a numpy version of the object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.ZonoArmRobot.to" title="zonopyrobots.ZonoArmRobot.to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to</span></code></a>([device])</p></td>
+<td><p>Convert and return a torch version of the object.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id19" title="zonopyrobots.ZonoArmRobot.urdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">urdf</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id3" title="zonopyrobots.ZonoArmRobot.dof"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dof</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id15" title="zonopyrobots.ZonoArmRobot.np"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id18" title="zonopyrobots.ZonoArmRobot.tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tensor</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id2" title="zonopyrobots.ZonoArmRobot.device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id4" title="zonopyrobots.ZonoArmRobot.dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id8" title="zonopyrobots.ZonoArmRobot.joint_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joint_axis</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id10" title="zonopyrobots.ZonoArmRobot.joint_origins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joint_origins</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id11" title="zonopyrobots.ZonoArmRobot.joint_origins_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joint_origins_all</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id0" title="zonopyrobots.ZonoArmRobot.actuated_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">actuated_mask</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id16" title="zonopyrobots.ZonoArmRobot.pos_lim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pos_lim</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id20" title="zonopyrobots.ZonoArmRobot.vel_lim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vel_lim</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id5" title="zonopyrobots.ZonoArmRobot.eff_lim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eff_lim</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id1" title="zonopyrobots.ZonoArmRobot.continuous_joints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">continuous_joints</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id17" title="zonopyrobots.ZonoArmRobot.pos_lim_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pos_lim_mask</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id14" title="zonopyrobots.ZonoArmRobot.link_parent_joint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">link_parent_joint</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id12" title="zonopyrobots.ZonoArmRobot.link_child_joints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">link_child_joints</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id9" title="zonopyrobots.ZonoArmRobot.joint_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joint_data</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id13" title="zonopyrobots.ZonoArmRobot.link_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">link_data</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id7" title="zonopyrobots.ZonoArmRobot.is_single_chain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_single_chain</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id6" title="zonopyrobots.ZonoArmRobot.has_closed_loop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_closed_loop</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">actuated_mask</span></span><a class="headerlink" href="#id0" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">continuous_joints</span></span><a class="headerlink" href="#id1" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">device</span></span><a class="headerlink" href="#id2" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">dof</span></span><a class="headerlink" href="#id3" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">dtype</span></span><a class="headerlink" href="#id4" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">eff_lim</span></span><a class="headerlink" href="#id5" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">has_closed_loop</span></span><a class="headerlink" href="#id6" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">is_single_chain</span></span><a class="headerlink" href="#id7" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">joint_axis</span></span><a class="headerlink" href="#id8" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">joint_data</span></span><a class="headerlink" href="#id9" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">joint_origins</span></span><a class="headerlink" href="#id10" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">joint_origins_all</span></span><a class="headerlink" href="#id11" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">link_child_joints</span></span><a class="headerlink" href="#id12" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">link_data</span></span><a class="headerlink" href="#id13" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">link_parent_joint</span></span><a class="headerlink" href="#id14" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.load">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">urchin.URDF</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_joint_occupancy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/robots/armrobot.html#ZonoArmRobot.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.load" title="Permalink to this definition">#</a></dt>
+<dd><p>Load a robot from a URDF file or URDF object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>robot</strong> – The URDF file or URDF object to load</p></li>
+<li><p><strong>device</strong> – The device to put the tensors on. None for pytorch default.</p></li>
+<li><p><strong>dtype</strong> – The data type to use for the zonotopes. None for pytorch default.</p></li>
+<li><p><strong>itype</strong> – The index type to use for the zonotopes. None for pytorch default.</p></li>
+<li><p><strong>create_joint_occupancy</strong> – If true, create the joint occupancy zonotopes
+for each joint. This is useful for later occupancy computations.
+If false, those values are not populated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A ZonoArmRobot object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">np</span></span><a class="headerlink" href="#id15" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.numpy">
+<span class="sig-name descname"><span class="pre">numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/robots/armrobot.html#ZonoArmRobot.numpy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.numpy" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert and return a numpy version of the object. Does not copy data.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">pos_lim</span></span><a class="headerlink" href="#id16" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">pos_lim_mask</span></span><a class="headerlink" href="#id17" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id18">
+<span class="sig-name descname"><span class="pre">tensor</span></span><a class="headerlink" href="#id18" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zonopyrobots.ZonoArmRobot.to">
+<span class="sig-name descname"><span class="pre">to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/robots/armrobot.html#ZonoArmRobot.to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.ZonoArmRobot.to" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert and return a torch version of the object. Does not copy data.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id19">
+<span class="sig-name descname"><span class="pre">urdf</span></span><a class="headerlink" href="#id19" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id20">
+<span class="sig-name descname"><span class="pre">vel_lim</span></span><a class="headerlink" href="#id20" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../robots.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Robots Module</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="zonopyrobots.robots.armrobot.ZonoArmRobotLink.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">zonopyrobots.robots.armrobot.ZonoArmRobotLink</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.urdf"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.urdf</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.dof"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.dof</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.np"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.np</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.tensor"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.tensor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.device"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.device</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.dtype"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.joint_axis"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_axis</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.joint_origins"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_origins</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.joint_origins_all"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_origins_all</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.actuated_mask"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.actuated_mask</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.pos_lim"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.pos_lim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.vel_lim"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.vel_lim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.eff_lim"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.eff_lim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.continuous_joints"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.continuous_joints</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.pos_lim_mask"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.pos_lim_mask</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.link_parent_joint"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.link_parent_joint</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.link_child_joints"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.link_child_joints</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.joint_data"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.link_data"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.link_data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.is_single_chain"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.is_single_chain</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.has_closed_loop"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.has_closed_loop</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.__init__"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.actuated_mask</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.continuous_joints</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.device</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.dof</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.eff_lim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.has_closed_loop</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.is_single_chain</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_axis</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_origins</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.joint_origins_all</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.link_child_joints</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.link_data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.link_parent_joint</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.load"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.np</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.numpy"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.numpy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.pos_lim</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.pos_lim_mask</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.tensor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.ZonoArmRobot.to"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.to()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.urdf</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20"><code class="docutils literal notranslate"><span class="pre">ZonoArmRobot.vel_lim</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ROAHM Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, ROAHM Lab.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

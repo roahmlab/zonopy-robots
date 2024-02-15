@@ -1,0 +1,1075 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zonopyrobots.robots.armrobot &#8212; zonopy-robots (development) v0.0.1-dev</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/katex-math.css?v=91adb8b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=64fd42a1" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=3f868395"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/zonopyrobots/robots/armrobot';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://roahmlab.github.io/zonopy/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">zonopy-robots (development) v0.0.1-dev</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../robots.html">Robots Module</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.ZonoArmRobot.html">zonopyrobots.ZonoArmRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html">zonopyrobots.robots.armrobot.ZonoArmRobotLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html">zonopyrobots.robots.armrobot.ZonoArmRobotJoint</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../trajectories.html">Common Trajectory Types</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.trajectory.PiecewiseArmTrajectory.html">zonopyrobots.trajectory.PiecewiseArmTrajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.trajectory.BernsteinArmTrajectory.html">zonopyrobots.trajectory.BernsteinArmTrajectory</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../kinematics.html">Kinematics Module</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.kinematics.forward_kinematics.html">zonopyrobots.kinematics.forward_kinematics</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../dynamics.html">Dynamics Module</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.dynamics.pzrnea.html">zonopyrobots.dynamics.pzrnea</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../utils.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.make_cfg_dict.html">zonopyrobots.make_cfg_dict</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/roahmlab/zonopy-robots" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for zonopyrobots.robots.armrobot</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">urchin</span> <span class="kn">import</span> <span class="n">URDF</span><span class="p">,</span> <span class="n">xyz_rpy_to_matrix</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">trimesh</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">zonopy</span> <span class="k">as</span> <span class="nn">zp</span>
+<span class="kn">from</span> <span class="nn">zonopyrobots.robots.utils</span> <span class="kn">import</span> <span class="n">normal_vec_to_basis</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Some variables for computing the joint radius</span>
+<span class="n">JOINT_MOTION_UNION_ANGLES</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span>
+<span class="n">JOINT_INTERSECT_COUNT</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">INLINE_RATIO_CUTOFF</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">DEBUG_VIZ</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<div class="viewcode-block" id="ZonoArmRobot"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot">[docs]</a><span class="k">class</span> <span class="nc">ZonoArmRobot</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Arm Robot definition for use with zonopy</span>
+<span class="sd">    </span>
+<span class="sd">    This class is a wrapper around the URDF class from urchin. It also computes</span>
+<span class="sd">    some additional information about the robot that is useful for zonotopes.</span>
+<span class="sd">    This includes the joint axis, joint origins, and joint limits. It also</span>
+<span class="sd">    includes the link data for each link in the robot. This includes the</span>
+<span class="sd">    bounding box of the link, the mass, center of mass, and inertia tensor.</span>
+<span class="sd">    This class also includes the joint occupancy for each joint. This helps</span>
+<span class="sd">    with later forward kinematic and occupancy computations.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        urdf: The urchin URDF object</span>
+<span class="sd">        dof: The number of actuated joints</span>
+<span class="sd">        np: A numpy version of the object</span>
+<span class="sd">        tensor: A torch version of the object</span>
+<span class="sd">        device: The device the primary data is on. None if numpy.</span>
+<span class="sd">        dtype: The pytorch or numpy dtype of the class</span>
+<span class="sd">        joint_axis: The axis of each actuated joint in a (dof, 3) array. These</span>
+<span class="sd">            are in topological order from the base to the end effector.</span>
+<span class="sd">        joint_origins: The origin of each actuated joint in a topologically</span>
+<span class="sd">            ordered (dof, 3) array.</span>
+<span class="sd">        joint_origins_all: The origin of each joint including fixed joints in a</span>
+<span class="sd">            topologically ordered (n_joints, 3) array.</span>
+<span class="sd">        actuated_mask: A mask of which joints are actuated in an (n_joints,)</span>
+<span class="sd">            array of booleans.</span>
+<span class="sd">        pos_lim: The position limits of each actuatedjoint in a (2, dof) array</span>
+<span class="sd">            where the first row is the lower limit and the second row is the</span>
+<span class="sd">            upper limit. Continuous joints have [-Inf, Inf].</span>
+<span class="sd">        vel_lim: The velocity limits of each actuated joint in a (dof,) array.</span>
+<span class="sd">        eff_lim: The effort limits of each actuated joint in a (dof,) array.</span>
+<span class="sd">        continuous_joints: The indices of the continuous joints in an</span>
+<span class="sd">            (n_continuous_joints,) array.</span>
+<span class="sd">        pos_lim_mask: A mask of which actuated joints have finite position</span>
+<span class="sd">            limits in an (n_joints,) array of booleans.</span>
+<span class="sd">        link_parent_joint: A map from each link to the parent joint. The base</span>
+<span class="sd">            link has a parent joint of None. This is a map from the link name</span>
+<span class="sd">            to the joint object.</span>
+<span class="sd">        link_child_joints: A map from each link to the child joints. This is a</span>
+<span class="sd">            map from the link name to a set of joint objects. The set is empty</span>
+<span class="sd">            if there are no child joints.</span>
+<span class="sd">        joint_data: A map from each joint to a ZonoArmRobotJoint object. This</span>
+<span class="sd">            is a map from the joint object to the ZonoArmRobotJoint object.</span>
+<span class="sd">        link_data: A map from each link to a ZonoArmRobotLink object. This is a</span>
+<span class="sd">            map from the link object to the ZonoArmRobotLink object.</span>
+<span class="sd">        is_single_chain: True if the robot is a single kinematic chain.</span>
+<span class="sd">        has_closed_loop: True if the robot has a closed loop in the kinematic</span>
+<span class="sd">            chain.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;urdf&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;dof&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tensor&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;device&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;dtype&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;joint_axis&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;joint_origins&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;joint_origins_all&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;actuated_mask&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_lim&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;vel_lim&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;eff_lim&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;continuous_joints&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pos_lim_mask&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;link_parent_joint&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;link_child_joints&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;joint_data&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;link_data&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;is_single_chain&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;has_closed_loop&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__joint_axis&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__joint_origins&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__joint_origins_all&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__actuated_mask&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__pos_lim&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__vel_lim&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__eff_lim&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__continuous_joints&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__pos_lim_mask&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__joint_axis_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__joint_origins_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__joint_origins_all_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__actuated_mask_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__pos_lim_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__vel_lim_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__eff_lim_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__continuous_joints_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__pos_lim_mask_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__basetype&#39;</span>
+        <span class="p">]</span>
+    
+<div class="viewcode-block" id="ZonoArmRobot.__init__"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ZonoArmRobot.load"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.load">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">robot</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">URDF</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">itype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">create_joint_occupancy</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Load a robot from a URDF file or URDF object </span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            robot: The URDF file or URDF object to load</span>
+<span class="sd">            device: The device to put the tensors on. None for pytorch default.</span>
+<span class="sd">            dtype: The data type to use for the zonotopes. None for pytorch default.</span>
+<span class="sd">            itype: The index type to use for the zonotopes. None for pytorch default.</span>
+<span class="sd">            create_joint_occupancy: If true, create the joint occupancy zonotopes</span>
+<span class="sd">                for each joint. This is useful for later occupancy computations.</span>
+<span class="sd">                If false, those values are not populated.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            A ZonoArmRobot object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Resolve the dtype and device to use</span>
+        <span class="n">temp_device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">temp_device</span><span class="o">.</span><span class="n">device</span>
+        <span class="n">temp_dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="n">dtype</span> <span class="o">=</span> <span class="n">temp_dtype</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="n">np_dtype</span> <span class="o">=</span> <span class="n">temp_dtype</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="k">if</span> <span class="n">itype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">temp_itype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">temp_itype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+        <span class="n">itype</span> <span class="o">=</span> <span class="n">temp_itype</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="n">np_itype</span> <span class="o">=</span> <span class="n">temp_itype</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">dtype</span>
+        
+        <span class="c1"># Prepare the robot</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">robot</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">robot</span> <span class="o">=</span> <span class="n">URDF</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">robot</span><span class="p">)</span>
+        <span class="n">constructed</span> <span class="o">=</span> <span class="n">ZonoArmRobot</span><span class="p">()</span>
+        <span class="n">constructed</span><span class="o">.</span><span class="n">urdf</span> <span class="o">=</span> <span class="n">robot</span>
+        <span class="n">constructed</span><span class="o">.</span><span class="n">dof</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">robot</span><span class="o">.</span><span class="n">actuated_joints</span><span class="p">)</span>
+        <span class="c1"># robot._G is from end effector to base</span>
+        <span class="n">constructed</span><span class="o">.</span><span class="n">is_single_chain</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_branching</span><span class="p">(</span><span class="n">robot</span><span class="o">.</span><span class="n">_G</span><span class="p">)</span>
+        <span class="n">constructed</span><span class="o">.</span><span class="n">_setup_robot_actuated_joint_data</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">np_dtype</span><span class="p">,</span> <span class="n">np_itype</span><span class="p">)</span>
+        <span class="n">constructed</span><span class="o">.</span><span class="n">_setup_robot_joint_data</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">create_joint_occupancy</span><span class="p">)</span>
+        <span class="n">constructed</span><span class="o">.</span><span class="n">_setup_robot_link_data</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+        <span class="n">constructed</span><span class="o">.</span><span class="n">__basetype</span> <span class="o">=</span> <span class="n">temp_dtype</span>
+        <span class="n">constructed</span><span class="o">.</span><span class="n">np</span> <span class="o">=</span> <span class="n">constructed</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="n">constructed</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="n">constructed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+        <span class="n">constructed</span> <span class="o">=</span> <span class="n">constructed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">constructed</span></div>
+
+    <span class="k">def</span> <span class="nf">_setup_robot_actuated_joint_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">robot</span><span class="p">,</span> <span class="n">np_dtype</span><span class="p">,</span> <span class="n">np_itype</span><span class="p">):</span>
+        <span class="n">continuous_joints</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">pos_lim</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">]]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dof</span>
+        <span class="n">vel_lim</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dof</span>
+        <span class="n">eff_lim</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dof</span>
+        <span class="n">joint_axis</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">joint_origins</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">actuated_idxs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">sorted_joints</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">_sort_joints</span><span class="p">(</span><span class="n">robot</span><span class="o">.</span><span class="n">joints</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">joint</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sorted_joints</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">joint</span><span class="o">.</span><span class="n">joint_type</span> <span class="o">==</span> <span class="s1">&#39;continuous&#39;</span><span class="p">:</span>
+                <span class="n">continuous_joints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">offset</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">joint</span><span class="o">.</span><span class="n">joint_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;floating&#39;</span><span class="p">,</span> <span class="s1">&#39;planar&#39;</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+            <span class="k">if</span> <span class="n">joint</span><span class="o">.</span><span class="n">limit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">lower</span> <span class="o">=</span> <span class="n">joint</span><span class="o">.</span><span class="n">limit</span><span class="o">.</span><span class="n">lower</span> <span class="k">if</span> <span class="n">joint</span><span class="o">.</span><span class="n">limit</span><span class="o">.</span><span class="n">lower</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span>
+                <span class="n">upper</span> <span class="o">=</span> <span class="n">joint</span><span class="o">.</span><span class="n">limit</span><span class="o">.</span><span class="n">upper</span> <span class="k">if</span> <span class="n">joint</span><span class="o">.</span><span class="n">limit</span><span class="o">.</span><span class="n">upper</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">Inf</span>
+                <span class="n">pos_lim</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">offset</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">]</span>
+                <span class="n">vel_lim</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">offset</span><span class="p">]</span> <span class="o">=</span> <span class="n">joint</span><span class="o">.</span><span class="n">limit</span><span class="o">.</span><span class="n">velocity</span>
+                <span class="n">eff_lim</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">offset</span><span class="p">]</span> <span class="o">=</span> <span class="n">joint</span><span class="o">.</span><span class="n">limit</span><span class="o">.</span><span class="n">effort</span>
+            <span class="n">joint_origins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">joint</span><span class="o">.</span><span class="n">origin</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">joint</span><span class="o">.</span><span class="n">joint_type</span> <span class="o">!=</span> <span class="s2">&quot;fixed&quot;</span><span class="p">:</span>
+                <span class="n">joint_axis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">joint</span><span class="o">.</span><span class="n">axis</span><span class="p">)</span>
+                <span class="n">actuated_idxs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">offset</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+        <span class="c1"># initial numpy conversion</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__actuated_mask_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">robot</span><span class="o">.</span><span class="n">joints</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__actuated_mask_np</span><span class="p">[</span><span class="n">actuated_idxs</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__joint_axis_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">joint_axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np_dtype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins_all_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">joint_origins</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np_dtype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins_np</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins_all_np</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__actuated_mask_np</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos_lim</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np_dtype</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__vel_lim_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vel_lim</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np_dtype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__eff_lim_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">eff_lim</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np_dtype</span><span class="p">)</span> <span class="c1"># Unused for now</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__continuous_joints_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">continuous_joints</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np_itype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim_mask_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim_np</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># Create tensor references to that memory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__actuated_mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__actuated_mask_np</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__joint_axis</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joint_axis_np</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins_np</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins_all</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins_all_np</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim_np</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__vel_lim</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__vel_lim_np</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__eff_lim</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__eff_lim_np</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__continuous_joints</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__continuous_joints_np</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim_mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim_mask_np</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">_setup_robot_joint_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">robot</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">create_joint_occupancy</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="c1"># Map from each link to the parent joint</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">link_parent_joint</span> <span class="o">=</span> <span class="p">{</span><span class="n">robot</span><span class="o">.</span><span class="n">base_link</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">link_child_joints</span> <span class="o">=</span> <span class="p">{</span><span class="n">el</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">robot</span><span class="o">.</span><span class="n">end_links</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">joint_data</span> <span class="o">=</span> <span class="p">{}</span>
+        
+        <span class="k">for</span> <span class="n">joint</span> <span class="ow">in</span> <span class="n">robot</span><span class="o">.</span><span class="n">joints</span><span class="p">:</span>
+            <span class="c1"># Joint must have parent or child</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">link_parent_joint</span><span class="p">[</span><span class="n">joint</span><span class="o">.</span><span class="n">child</span><span class="p">]</span> <span class="o">=</span> <span class="n">joint</span>
+            <span class="n">child_joint_set</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">link_child_joints</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">joint</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+            <span class="n">child_joint_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">joint</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">link_child_joints</span><span class="p">[</span><span class="n">joint</span><span class="o">.</span><span class="n">parent</span><span class="p">]</span> <span class="o">=</span> <span class="n">child_joint_set</span>
+            
+            <span class="c1"># Get the index</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">actuated_joints</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">joint</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="kc">None</span>
+        
+            <span class="c1"># create the object</span>
+            <span class="n">single_joint_data</span> <span class="o">=</span> <span class="n">ZonoArmRobotJoint</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">create_joint_occupancy</span><span class="p">)</span>
+            <span class="c1"># Create a joint occupancy by rotating stuff</span>
+            <span class="c1"># Only do this if we want it</span>
+            <span class="k">if</span> <span class="n">create_joint_occupancy</span><span class="p">:</span>
+                <span class="n">radius_np</span><span class="p">,</span> <span class="n">aabb_np</span> <span class="o">=</span> <span class="n">_generate_joint_occupancy</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">joint</span><span class="p">)</span>
+                <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_radius</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">radius_np</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+                <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_aabb</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">aabb_np</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+                <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_radius_np</span> <span class="o">=</span> <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_radius</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+                <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_aabb_np</span> <span class="o">=</span> <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_aabb</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+                <span class="n">outer_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">radius_np</span><span class="p">)</span>
+                <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_outer_pz</span> <span class="o">=</span> <span class="n">zp</span><span class="o">.</span><span class="n">polyZonotope</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">outer_rad</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span> <span class="c1"># TODO consider bringing back itype?</span>
+                <span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">aabb_np</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+                <span class="n">gens</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">aabb_np</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">center</span><span class="p">)</span>
+                <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_bounding_pz</span> <span class="o">=</span> <span class="n">zp</span><span class="o">.</span><span class="n">polyZonotope</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">center</span><span class="p">,</span><span class="n">gens</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+
+            <span class="c1"># save origin and axis as tensors</span>
+            <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_axis</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">joint</span><span class="o">.</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+            <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_origin</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">joint</span><span class="o">.</span><span class="n">origin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+            <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_axis_np</span> <span class="o">=</span> <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_axis</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+            <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_origin_np</span> <span class="o">=</span> <span class="n">single_joint_data</span><span class="o">.</span><span class="n">_origin</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+            
+            <span class="n">single_joint_data</span><span class="o">.</span><span class="n">np</span> <span class="o">=</span> <span class="n">single_joint_data</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+            <span class="n">single_joint_data</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="n">single_joint_data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">joint_data</span><span class="p">[</span><span class="n">joint</span><span class="p">]</span> <span class="o">=</span> <span class="n">single_joint_data</span>
+
+        
+    <span class="k">def</span> <span class="nf">_setup_robot_link_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">robot</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
+        <span class="c1"># Create pz bounding boxes for each link</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">link_data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">robot</span><span class="o">.</span><span class="n">links</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">trimesh_bb</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">collision_mesh</span><span class="o">.</span><span class="n">bounding_box</span>
+                <span class="n">bounds</span> <span class="o">=</span> <span class="n">trimesh_bb</span><span class="o">.</span><span class="n">vertices</span>
+                <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)])</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="c1"># If there&#39;s no collision mesh, then make it just a 5cm square cube.</span>
+                <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mf">0.05</span>
+                <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="o">-</span><span class="n">bounds</span><span class="p">,</span> <span class="n">bounds</span><span class="p">])</span>
+            <span class="c1"># Create the zonotope</span>
+            <span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">gens</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">bounds</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">center</span><span class="p">)</span>
+            <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">center</span><span class="p">,</span><span class="n">gens</span><span class="p">])</span>
+
+            <span class="n">single_link_data</span> <span class="o">=</span> <span class="n">ZonoArmRobotLink</span><span class="p">()</span>
+            <span class="n">single_link_data</span><span class="o">.</span><span class="n">_bounding_pz</span> <span class="o">=</span> <span class="n">zp</span><span class="o">.</span><span class="n">polyZonotope</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+
+            <span class="n">single_link_data</span><span class="o">.</span><span class="n">_mass</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">inertial</span><span class="o">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+            <span class="n">single_link_data</span><span class="o">.</span><span class="n">_center_mass</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">inertial</span><span class="o">.</span><span class="n">origin</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+            <span class="n">single_link_data</span><span class="o">.</span><span class="n">_inertia</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">inertial</span><span class="o">.</span><span class="n">inertia</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+            <span class="n">single_link_data</span><span class="o">.</span><span class="n">_mass_np</span> <span class="o">=</span> <span class="n">single_link_data</span><span class="o">.</span><span class="n">_mass</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+            <span class="n">single_link_data</span><span class="o">.</span><span class="n">_center_mass_np</span> <span class="o">=</span> <span class="n">single_link_data</span><span class="o">.</span><span class="n">_center_mass</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+            <span class="n">single_link_data</span><span class="o">.</span><span class="n">_inertia_np</span> <span class="o">=</span> <span class="n">single_link_data</span><span class="o">.</span><span class="n">_inertia</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+            
+            <span class="n">single_link_data</span><span class="o">.</span><span class="n">np</span> <span class="o">=</span> <span class="n">single_link_data</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+            <span class="n">single_link_data</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="n">single_link_data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">link_data</span><span class="p">[</span><span class="n">link</span><span class="p">]</span> <span class="o">=</span> <span class="n">single_link_data</span>
+
+<div class="viewcode-block" id="ZonoArmRobot.numpy"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.numpy">[docs]</a>    <span class="k">def</span> <span class="nf">numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Convert and return a numpy version of the object. Does not copy data. &quot;&quot;&quot;</span>
+        <span class="c1"># create a shallow copy of self</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># update references to all the properties we care about</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">joint_axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_axis_np</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">joint_origins</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins_np</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">joint_origins_all</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins_all_np</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">actuated_mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actuated_mask_np</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">pos_lim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim_np</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">vel_lim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__vel_lim_np</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">eff_lim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__eff_lim_np</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">continuous_joints</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__continuous_joints_np</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">pos_lim_mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim_mask_np</span>
+
+        <span class="c1"># update joint and link data</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">joint_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">link_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">link_data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="c1"># save the device parameter</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__basetype</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+    
+<div class="viewcode-block" id="ZonoArmRobot.to"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.to">[docs]</a>    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Convert and return a torch version of the object. Does not copy data. &quot;&quot;&quot;</span>
+        <span class="c1"># create a shallow copy of self</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># update references to all the properties we care about</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">joint_axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_axis</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">joint_origins</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">joint_origins_all</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins_all</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">actuated_mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actuated_mask</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">pos_lim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">vel_lim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__vel_lim</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">eff_lim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__eff_lim</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">continuous_joints</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__continuous_joints</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">pos_lim_mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim_mask</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># update joint and link data</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">joint_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">link_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">link_data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="c1"># save the device parameter</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__basetype</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="k">return</span> <span class="n">ret</span></div></div>
+
+
+<div class="viewcode-block" id="ZonoArmRobotJoint"><a class="viewcode-back" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.ZonoArmRobotJoint">[docs]</a><span class="k">class</span> <span class="nc">ZonoArmRobotJoint</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Arm Robot Joint definition for use with zonopy</span>
+<span class="sd">    </span>
+<span class="sd">    This class provides additional information about the joint that is useful</span>
+<span class="sd">    for zonotopes. This includes the joint axis, joint origin, joint radius,</span>
+<span class="sd">    and joint bounding box. It also includes the zonotope for the joint</span>
+<span class="sd">    occupancy and the zonotope for the bounding box of the joint (if it is</span>
+<span class="sd">    specified).</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        np: A numpy version of the object</span>
+<span class="sd">        tensor: A torch version of the object</span>
+<span class="sd">        device: The device the primary data is on. None if numpy.</span>
+<span class="sd">        idx: The index of the actuated joint in the robot. None if fixed.</span>
+<span class="sd">        axis: The axis of the joint</span>
+<span class="sd">        origin: The origin of the joint</span>
+<span class="sd">        radius: The l_inf norm radius of the joint if computed</span>
+<span class="sd">        aabb: The axis aligned bounding box of the joint if computed</span>
+<span class="sd">        outer_pz: The zonotope for the outer bounding box of the joint if computed</span>
+<span class="sd">        bounding_pz: The zonotope for the bounding box of the joint if computed</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;device&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tensor&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;axis&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;origin&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;radius&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;aabb&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;outer_pz&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;bounding_pz&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_actuated_idx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_joint_occupancy&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_axis&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_origin&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_radius&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_aabb&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_axis_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_origin_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_radius_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_aabb_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_outer_pz&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_bounding_pz&#39;</span><span class="p">,</span>
+        <span class="p">]</span>
+    
+<div class="viewcode-block" id="ZonoArmRobotJoint.__init__"><a class="viewcode-back" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.ZonoArmRobotJoint.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">actuated_idx</span><span class="p">,</span> <span class="n">joint_occupancy</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_actuated_idx</span> <span class="o">=</span> <span class="n">actuated_idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_joint_occupancy</span> <span class="o">=</span> <span class="n">joint_occupancy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aabb</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outer_pz</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bounding_pz</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ZonoArmRobotJoint.numpy"><a class="viewcode-back" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.ZonoArmRobotJoint.numpy">[docs]</a>    <span class="k">def</span> <span class="nf">numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Convert and return a numpy version of the object. Does not copy data. &quot;&quot;&quot;</span>
+        <span class="c1"># create a shallow copy of self</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># update references to all the properties we care about</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axis_np</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_origin_np</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_joint_occupancy</span><span class="p">:</span>
+            <span class="n">ret</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_radius_np</span>
+            <span class="n">ret</span><span class="o">.</span><span class="n">aabb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aabb_np</span>
+            <span class="n">ret</span><span class="o">.</span><span class="n">outer_pz</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">ret</span><span class="o">.</span><span class="n">bounding_pz</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Save the device</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+<div class="viewcode-block" id="ZonoArmRobotJoint.to"><a class="viewcode-back" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.ZonoArmRobotJoint.to">[docs]</a>    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Convert and return a torch version of the object. Does not copy data. &quot;&quot;&quot;</span>
+        <span class="c1"># create a shallow copy of self</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># update references to all the properties we care about</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axis</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_origin</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_joint_occupancy</span><span class="p">:</span>
+            <span class="n">ret</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">ret</span><span class="o">.</span><span class="n">aabb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aabb</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">ret</span><span class="o">.</span><span class="n">outer_pz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outer_pz</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">ret</span><span class="o">.</span><span class="n">bounding_pz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bounding_pz</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># Save the device</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">idx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_actuated_idx</span></div>
+    
+
+<div class="viewcode-block" id="ZonoArmRobotLink"><a class="viewcode-back" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.ZonoArmRobotLink">[docs]</a><span class="k">class</span> <span class="nc">ZonoArmRobotLink</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Arm Robot Link definition for use with zonopy</span>
+
+<span class="sd">    This class provides additional information about the link that is useful</span>
+<span class="sd">    for zonotopes. This includes the link mass, center of mass, and inertia</span>
+<span class="sd">    tensor. It also includes the zonotope for the bounding box of the link.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        np: A numpy version of the object</span>
+<span class="sd">        tensor: A torch version of the object</span>
+<span class="sd">        device: The device the primary data is on. None if numpy.</span>
+<span class="sd">        bounding_pz: The zonotope for the bounding box of the link</span>
+<span class="sd">        mass: The mass of the link</span>
+<span class="sd">        center_mass: The center of mass of the link in the link frame</span>
+<span class="sd">        inertia: The inertia tensor of the link in the link frame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;device&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tensor&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;bounding_pz&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;mass&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;center_mass&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;inertia&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_bounding_pz&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_mass&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_center_mass&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_inertia&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_mass_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_center_mass_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_inertia_np&#39;</span><span class="p">,</span>
+        <span class="p">]</span>
+    
+<div class="viewcode-block" id="ZonoArmRobotLink.__init__"><a class="viewcode-back" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.ZonoArmRobotLink.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bounding_pz</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ZonoArmRobotLink.numpy"><a class="viewcode-back" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.ZonoArmRobotLink.numpy">[docs]</a>    <span class="k">def</span> <span class="nf">numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Convert and return a numpy version of the object. Does not copy data. &quot;&quot;&quot;</span>
+        <span class="c1"># create a shallow copy of self</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># update references to all the properties we care about</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">bounding_pz</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">mass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mass_np</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">center_mass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_center_mass_np</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">inertia</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inertia_np</span>
+
+        <span class="c1"># Save the device</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+<div class="viewcode-block" id="ZonoArmRobotLink.to"><a class="viewcode-back" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.ZonoArmRobotLink.to">[docs]</a>    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Convert and return a torch version of the object. Does not copy data. &quot;&quot;&quot;</span>
+        <span class="c1"># create a shallow copy of self</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># update references to all the properties we care about</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">bounding_pz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bounding_pz</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">mass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mass</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">center_mass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_center_mass</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">inertia</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inertia</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># Save the device</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="k">return</span> <span class="n">ret</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_generate_joint_occupancy</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">joint</span><span class="p">):</span>
+    <span class="c1"># This assumes the home position is aligned.</span>
+    <span class="c1"># This assumes simple chain kinematics, no branching has been considered</span>
+    <span class="c1"># Iterate all joints</span>
+    <span class="c1"># This only returns the interval, but could be modified to get a ball or similar.</span>
+    <span class="c1"># Get the trimesh and transform for the collision for multiple configurations</span>
+    <span class="k">if</span> <span class="n">joint</span><span class="o">.</span><span class="n">joint_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;prismatic&#39;</span><span class="p">,</span> <span class="s1">&#39;floating&#39;</span><span class="p">,</span> <span class="s1">&#39;planar&#39;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+    <span class="c1"># Get the links we care about too</span>
+    <span class="n">parent_link</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">link_map</span><span class="p">[</span><span class="n">joint</span><span class="o">.</span><span class="n">parent</span><span class="p">]</span>
+    <span class="n">child_link</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">link_map</span><span class="p">[</span><span class="n">joint</span><span class="o">.</span><span class="n">child</span><span class="p">]</span>
+    
+    <span class="c1"># FLag if we are going to treat it as a fixed joint</span>
+    <span class="c1"># For the fixed joint, we want intersections of three orthogonal rotations.</span>
+    <span class="c1"># So to acheive that, we just add one more orthogonal rotation.</span>
+    <span class="n">treat_fixed</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Do an initial union and bounding box.</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">collision_trimesh_fk</span><span class="p">(</span><span class="n">links</span><span class="o">=</span><span class="p">[</span><span class="n">parent_link</span><span class="p">,</span> <span class="n">child_link</span><span class="p">])</span>
+    <span class="c1"># if we only have one mesh, rotate 180 and then treat it as fixed</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">basis</span> <span class="o">=</span> <span class="n">normal_vec_to_basis</span><span class="p">(</span><span class="n">joint</span><span class="o">.</span><span class="n">axis</span><span class="p">)</span>
+        <span class="n">rotmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">basis</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+        <span class="n">rotmat</span> <span class="o">=</span> <span class="n">xyz_rpy_to_matrix</span><span class="p">(</span><span class="n">rotmat</span><span class="p">)</span>
+        <span class="n">first_el</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">items</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">first_el</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">apply_transform</span><span class="p">(</span><span class="n">rotmat</span><span class="p">)]</span> <span class="o">=</span> <span class="n">first_el</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">child_volume</span> <span class="o">=</span> <span class="n">first_el</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">volume</span>
+        <span class="n">treat_fixed</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">child_volume</span> <span class="o">=</span> <span class="n">child_link</span><span class="o">.</span><span class="n">collision_mesh</span><span class="o">.</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">volume</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">mesh</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">apply_transform</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span> <span class="k">for</span> <span class="n">mesh</span><span class="p">,</span> <span class="n">transform</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+    <span class="n">combined_mesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bounding_box</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bounding_box</span><span class="p">)</span>
+    <span class="n">combined_mesh_debug</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">DEBUG_VIZ</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">base_volume</span> <span class="o">=</span> <span class="n">combined_mesh</span><span class="o">.</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">volume</span>
+    <span class="n">child_volume_ratio</span> <span class="o">=</span> <span class="n">child_volume</span> <span class="o">/</span> <span class="n">base_volume</span>
+
+    <span class="c1"># Move and union the bounding boxes for links in the joint if it&#39;s moveable</span>
+    <span class="k">if</span> <span class="n">joint</span><span class="o">.</span><span class="n">joint_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;revolute&#39;</span><span class="p">,</span> <span class="s1">&#39;continuous&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">treat_fixed</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">ang</span> <span class="ow">in</span> <span class="n">JOINT_MOTION_UNION_ANGLES</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">collision_trimesh_fk</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="p">{</span><span class="n">joint</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">ang</span><span class="p">},</span> <span class="n">links</span><span class="o">=</span><span class="p">[</span><span class="n">child_link</span><span class="p">])</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">mesh</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">apply_transform</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span> <span class="k">for</span> <span class="n">mesh</span><span class="p">,</span> <span class="n">transform</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+            <span class="n">combined_mesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">combined_mesh</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bounding_box</span><span class="p">)</span>
+        <span class="c1"># Check if it was mostly inline by taking the ratio of added volume to that of a child link</span>
+        <span class="n">added_ratio</span> <span class="o">=</span> <span class="n">combined_mesh</span><span class="o">.</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">volume</span> <span class="o">/</span> <span class="n">base_volume</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">ratio</span> <span class="o">=</span> <span class="n">added_ratio</span> <span class="o">/</span> <span class="n">child_volume_ratio</span>
+        <span class="n">treat_fixed</span> <span class="o">=</span> <span class="p">(</span><span class="n">ratio</span> <span class="o">&lt;</span> <span class="n">INLINE_RATIO_CUTOFF</span><span class="p">)</span>
+    
+    <span class="c1"># Get the child base transform, and invert to get the joint at the origin</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">link_fk</span><span class="p">(</span><span class="n">links</span><span class="o">=</span><span class="p">[</span><span class="n">child_link</span><span class="p">])</span>
+    <span class="n">base_transform</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">combined_mesh</span><span class="o">.</span><span class="n">apply_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">base_transform</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">DEBUG_VIZ</span><span class="p">:</span>
+        <span class="n">combined_mesh_debug</span><span class="o">.</span><span class="n">apply_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">base_transform</span><span class="p">))</span>
+
+    <span class="c1">###</span>
+    <span class="c1"># This section didn&#39;t work right, and was unreliable.</span>
+    <span class="c1">###</span>
+    <span class="c1"># Do the rotations (create a transform for 90 degree rotations)</span>
+    <span class="c1"># trimmed_mesh = combined_mesh.copy().bounding_box</span>
+    <span class="c1"># rot_transform = np.hstack(([0,0,0], joint.axis)) * np.pi * 0.5</span>
+    <span class="c1"># rot_transform = xyz_rpy_to_matrix(rot_transform)</span>
+    <span class="c1"># for _ in range(JOINT_INTERSECT_COUNT):</span>
+    <span class="c1">#     rot_mesh = trimmed_mesh.copy().apply_transform(rot_transform)</span>
+    <span class="c1">#     trimmed_mesh = trimesh.boolean.boolean_automatic([trimmed_mesh, rot_mesh], &#39;intersection&#39;).bounding_box</span>
+
+    <span class="c1"># # Do additional orthogonal rotations of the trimed mesh if it is fixed, or we are treating it as fixed</span>
+    <span class="c1"># if joint.joint_type == &#39;fixed&#39; or treat_fixed:</span>
+    <span class="c1">#     basis = normal_vec_to_basis(joint.axis)</span>
+    <span class="c1">#     xyzrpy = np.hstack((np.zeros((2, 3)), basis[:,:2].T)) * np.pi * 0.5</span>
+    <span class="c1">#     for transform in xyzrpy:</span>
+    <span class="c1">#         rot_transform = xyz_rpy_to_matrix(transform)</span>
+    <span class="c1">#         # Adding bounding_box here addresses a nefarious bug where it doesn&#39;t actually create</span>
+    <span class="c1">#         # valid geometry for blender to work with.</span>
+    <span class="c1">#         rot_mesh = trimmed_mesh.copy().apply_transform(rot_transform).bounding_box</span>
+    <span class="c1">#         trimmed_mesh = trimesh.boolean.boolean_automatic([trimmed_mesh, rot_mesh], &#39;intersection&#39;).bounding_box</span>
+
+    <span class="c1"># Instead, since we&#39;re now centered on the joint, just obtain the min and max of the</span>
+    <span class="c1"># absolute values of each vector element</span>
+    <span class="n">aabb_verts</span> <span class="o">=</span> <span class="n">combined_mesh</span><span class="o">.</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">vertices</span>
+    <span class="n">extents</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">aabb_verts</span><span class="p">)</span>
+    <span class="n">extents</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">extents</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">extents</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)])</span>
+
+    <span class="c1"># For the dimensions coplaner to the plane described by the axis normal, we take the min of the extends</span>
+    <span class="n">basis</span> <span class="o">=</span> <span class="n">normal_vec_to_basis</span><span class="p">(</span><span class="n">joint</span><span class="o">.</span><span class="n">axis</span><span class="p">)</span>
+    <span class="c1"># Right now I only consider axis aligned situations, so throw for other cases.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">basis</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+    <span class="c1"># Isolate the off axis components &amp; take the combined min of the absolute extents</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">basis_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">basis</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">joint_bb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">joint_bb</span><span class="p">[</span><span class="n">basis_order</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">extents</span><span class="p">[</span><span class="n">basis_order</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">joint_bb</span><span class="p">[</span><span class="n">basis_order</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">joint_bb</span><span class="p">[</span><span class="n">basis_order</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># If it&#39;s something we treat as fixed, compare to the min of the on-axis components</span>
+    <span class="c1"># and make that it</span>
+    <span class="k">if</span> <span class="n">joint</span><span class="o">.</span><span class="n">joint_type</span> <span class="o">==</span> <span class="s1">&#39;fixed&#39;</span> <span class="ow">or</span> <span class="n">treat_fixed</span><span class="p">:</span>
+        <span class="n">on_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">extents</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">joint_bb</span><span class="p">[</span><span class="n">basis_order</span><span class="p">[</span><span class="mi">2</span><span class="p">],:]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">on_axis</span><span class="p">,</span> <span class="n">on_axis</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># For the on-axis component, take the aabb_bounds</span>
+        <span class="n">aabb_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">aabb_verts</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">aabb_verts</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)])</span>
+        <span class="n">joint_bb</span><span class="p">[</span><span class="n">basis_order</span><span class="p">[</span><span class="mi">2</span><span class="p">],:]</span> <span class="o">=</span> <span class="n">aabb_bounds</span><span class="p">[</span><span class="n">basis_order</span><span class="p">[</span><span class="mi">2</span><span class="p">],:]</span>
+
+    <span class="k">if</span> <span class="n">DEBUG_VIZ</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Treat Fixed: &quot;</span><span class="p">,</span> <span class="n">treat_fixed</span><span class="p">)</span>
+        <span class="n">mesh</span> <span class="o">=</span> <span class="n">combined_mesh_debug</span>
+        <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">triangles</span><span class="o">=</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
+        <span class="n">mesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">primitives</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="n">joint_bb</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">triangles</span><span class="o">=</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="n">interval_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">joint_bb</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">mesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">primitives</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="n">interval_size</span><span class="p">,</span> <span class="n">interval_size</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">triangles</span><span class="o">=</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="c1"># This doesn&#39;t create the right bounds for the last one, but that&#39;s okay for now.</span>
+    <span class="c1"># out_dict = {}</span>
+    <span class="c1"># out_dict[&#39;radius&#39;] = joint_bb[:,1]</span>
+    <span class="c1"># out_dict[&#39;aabb&#39;] = joint_bb</span>
+
+    <span class="c1"># Store zonotopes for the outer_bb and the aabb</span>
+    <span class="c1"># outer_rad = np.max(out_dict[&#39;radius&#39;])</span>
+    <span class="c1"># out_dict[&#39;outer_pz&#39;] = zp.polyZonotope(torch.vstack([torch.zeros(3), torch.eye(3)*outer_rad]))</span>
+    <span class="c1"># center = np.sum(out_dict[&#39;aabb&#39;], axis=1) / 2</span>
+    <span class="c1"># gens = np.diag(out_dict[&#39;aabb&#39;][:,1] - center)</span>
+    <span class="c1"># out_dict[&#39;bounding_pz&#39;] = zp.polyZonotope(torch.as_tensor(np.vstack([center,gens]), dtype=torch.get_default_dtype()))</span>
+    <span class="c1"># return out_dict</span>
+
+    <span class="n">radius</span> <span class="o">=</span> <span class="n">joint_bb</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">aabb</span> <span class="o">=</span> <span class="n">joint_bb</span>
+    <span class="k">return</span> <span class="n">radius</span><span class="p">,</span> <span class="n">aabb</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">import</span> <span class="nn">zonopyrobots</span> <span class="k">as</span> <span class="nn">zpr</span>
+    <span class="n">DEBUG_VIZ</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">basedirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">zpr</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">ZonoArmRobot</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedirname</span><span class="p">,</span> <span class="s1">&#39;robots/assets/robots/kinova_arm/gen3.urdf&#39;</span><span class="p">),</span> <span class="n">create_joint_occupancy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">urdf</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="n">link</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">urdf</span><span class="o">.</span><span class="n">links</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">collision_mesh</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+    <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">triangles</span><span class="o">=</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
+
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">collision_mesh</span><span class="o">.</span><span class="n">bounding_box</span>
+    <span class="c1"># fig=plt.figure()</span>
+    <span class="c1"># ax = fig.add_subplot(projection=&#39;3d&#39;)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">triangles</span><span class="o">=</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">collision_mesh</span><span class="o">.</span><span class="n">bounding_box_oriented</span>
+    <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">triangles</span><span class="o">=</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
+
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">collision_mesh</span><span class="o">.</span><span class="n">bounding_cylinder</span>
+    <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">triangles</span><span class="o">=</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+    <span class="n">test</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">urdf</span><span class="o">.</span><span class="n">collision_trimesh_fk</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;joint_4&#39;</span><span class="p">:</span><span class="mf">3.14</span><span class="o">/</span><span class="mf">2.0</span><span class="p">},</span><span class="n">links</span><span class="o">=</span><span class="p">[</span><span class="n">link</span><span class="p">])</span>
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">collision_mesh</span>
+    <span class="kn">from</span> <span class="nn">trimesh</span> <span class="kn">import</span> <span class="n">transformations</span>
+    <span class="n">mesh</span><span class="o">.</span><span class="n">apply_transform</span><span class="p">(</span><span class="n">transformations</span><span class="o">.</span><span class="n">random_rotation_matrix</span><span class="p">())</span>
+    <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">triangles</span><span class="o">=</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
+
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">collision_mesh</span><span class="o">.</span><span class="n">bounding_box</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+    <span class="c1"># fig=plt.figure()</span>
+    <span class="c1"># ax = fig.add_subplot(projection=&#39;3d&#39;)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">triangles</span><span class="o">=</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">)</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ROAHM Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, ROAHM Lab.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
