@@ -11,13 +11,5 @@ from zonopyrobots.joint_reachable_set.jrs_trig.process_jrs_trig import *
 
 import zonopy.internal as internal
 
-__version__ = "0.0.1"
-__logo__ = """
-*** ZONO-PY ROBOTS ***
-  _____         _____
- |     |__    __//
- |_____|  |__//‾‾
-    |_____|  |
-       |_____|
-"""
+
 
