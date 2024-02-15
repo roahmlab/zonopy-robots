@@ -71,7 +71,7 @@ release = version
 html_title = f"{project} v{version}"
 
 # Version switcher code
-json_url = "https://roahmlab.github.io/zonopy/versions.json"
+json_url = "https://roahmlab.github.io/zonopy-robots/versions.json"
 
 html_theme_options = {
     "path_to_docs": version_match,
