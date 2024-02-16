@@ -397,10 +397,25 @@ document.write(`
 <dt class="sig sig-object py" id="zonopyrobots.OfflineJRS">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zonopyrobots.</span></span><span class="sig-name descname"><span class="pre">OfflineJRS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensor_attributes.html#torch.device" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.device</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensor_attributes.html#torch.dtype" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.dtype</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">torch.float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/joint_reachable_set/offline_jrs.html#OfflineJRS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.OfflineJRS" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Wrapper for preloading and processing ARMTD style JRS tensors generated offline</p>
+<p>These tensors are generated offline using the MATLAB scripts in the jrs_trig/gen_jrs_trig folder.
+This provides a wrapper for some of the jrs_trig.load_jrs_trig and jrs_trig.process_jrs_trig functions
+to make it easier to use the JRS tensors. The JRS tensors are preloaded and processed in the __init__ function
+and then the __call__ function can be used to get the JRS and the corresponding rotatotopes for a given configuration
+and velocity.</p>
+<p>This specifically loads the tensors from the jrs_trig/jrs_trig_tensor_saved folder</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="zonopyrobots.OfflineJRS.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensor_attributes.html#torch.device" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.device</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pytorch.org/docs/master/tensor_attributes.html#torch.dtype" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><span class="pre">torch.dtype</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">torch.float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/joint_reachable_set/offline_jrs.html#OfflineJRS.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.OfflineJRS.__init__" title="Permalink to this definition">#</a></dt>
 <dd><p>Wrapper for preloading and processing JRS tensors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensor_attributes.html#torch.device" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.device</em></a><em>, </em><em>optional</em>) – The device to use for the JRS tensors. Defaults to ‘cpu’.</p></li>
+<li><p><strong>dtype</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensor_attributes.html#torch.dtype" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.dtype</em></a><em>, </em><em>optional</em>) – The dtype to use for the JRS tensors. Defaults to torch.float.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Methods</p>

@@ -343,12 +343,27 @@ document.write(`
     <span class="n">Array</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 
 <div class="viewcode-block" id="OfflineJRS"><a class="viewcode-back" href="../../../generated/zonopyrobots.OfflineJRS.html#zonopyrobots.OfflineJRS">[docs]</a><span class="k">class</span> <span class="nc">OfflineJRS</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Wrapper for preloading and processing ARMTD style JRS tensors generated offline</span>
+<span class="sd">    </span>
+<span class="sd">    These tensors are generated offline using the MATLAB scripts in the jrs_trig/gen_jrs_trig folder.</span>
+<span class="sd">    This provides a wrapper for some of the jrs_trig.load_jrs_trig and jrs_trig.process_jrs_trig functions</span>
+<span class="sd">    to make it easier to use the JRS tensors. The JRS tensors are preloaded and processed in the __init__ function</span>
+<span class="sd">    and then the __call__ function can be used to get the JRS and the corresponding rotatotopes for a given configuration</span>
+<span class="sd">    and velocity.</span>
+
+<span class="sd">    This specifically loads the tensors from the jrs_trig/jrs_trig_tensor_saved folder</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="OfflineJRS.__init__"><a class="viewcode-back" href="../../../generated/zonopyrobots.OfflineJRS.html#zonopyrobots.OfflineJRS.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cpu&#39;</span><span class="p">,</span>
         <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">,</span>
         <span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Wrapper for preloading and processing JRS tensors &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Wrapper for preloading and processing JRS tensors</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            device (torch.device, optional): The device to use for the JRS tensors. Defaults to &#39;cpu&#39;.</span>
+<span class="sd">            dtype (torch.dtype, optional): The dtype to use for the JRS tensors. Defaults to torch.float.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">from</span> <span class="nn">.jrs_trig.load_jrs_trig</span> <span class="kn">import</span> <span class="n">g_ka</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">jrs_tensor</span> <span class="o">=</span> <span class="n">_preload_batch_JRS_trig</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">g_ka</span> <span class="o">=</span> <span class="n">g_ka</span>
