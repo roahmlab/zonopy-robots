@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zonopyrobots.joint_reachable_set.gen_jrs &#8212; zonopy-robots v0.0.1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/katex-math.css?v=91adb8b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=64fd42a1" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=8fa999b9"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/zonopyrobots/joint_reachable_set/gen_jrs';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://roahmlab.github.io/zonopy-robots/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'v0.0.1';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">zonopy-robots v0.0.1</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../robots.html">Robots Module</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.ZonoArmRobot.html">zonopyrobots.ZonoArmRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html">zonopyrobots.robots.armrobot.ZonoArmRobotLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html">zonopyrobots.robots.armrobot.ZonoArmRobotJoint</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../trajectories.html">Common Trajectory Types</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.trajectory.PiecewiseArmTrajectory.html">zonopyrobots.trajectory.PiecewiseArmTrajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.trajectory.BernsteinArmTrajectory.html">zonopyrobots.trajectory.BernsteinArmTrajectory</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../reachablesets.html">Reachable Sets</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.JrsGenerator.html">zonopyrobots.JrsGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.OfflineJRS.html">zonopyrobots.OfflineJRS</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../kinematics.html">Kinematics Module</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.kinematics.forward_kinematics.html">zonopyrobots.kinematics.forward_kinematics</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../dynamics.html">Dynamics Module</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.dynamics.pzrnea.html">zonopyrobots.dynamics.pzrnea</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../utils.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.make_cfg_dict.html">zonopyrobots.make_cfg_dict</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/roahmlab/zonopy-robots" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for zonopyrobots.joint_reachable_set.gen_jrs</h1><div class="highlight"><pre>
+<span></span><span class="c1"># TODO IMPLEMENT PRISMATIC, DOCUMENT, &amp; CLEAN IMPORTS</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">zonopy</span> <span class="k">as</span> <span class="nn">zp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="kn">from</span> <span class="nn">zonopyrobots.trajectory</span> <span class="kn">import</span> <span class="n">BernsteinArmTrajectory</span>
+
+<div class="viewcode-block" id="JrsGenerator"><a class="viewcode-back" href="../../../generated/zonopyrobots.JrsGenerator.html#zonopyrobots.JrsGenerator">[docs]</a><span class="k">class</span> <span class="nc">JrsGenerator</span><span class="p">:</span>
+<div class="viewcode-block" id="JrsGenerator.__init__"><a class="viewcode-back" href="../../../generated/zonopyrobots.JrsGenerator.html#zonopyrobots.JrsGenerator.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">robot</span><span class="p">,</span>
+                 <span class="n">traj_class</span><span class="o">=</span><span class="n">BernsteinArmTrajectory</span><span class="p">,</span>
+                 <span class="n">param_center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">param_range</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span>
+                 <span class="n">tplan</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                 <span class="n">tfinal</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+                 <span class="n">tdiscretization</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+                 <span class="n">ultimate_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">k_r</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">batched</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">unique_tid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">robot</span> <span class="o">=</span> <span class="n">robot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">traj</span> <span class="o">=</span> <span class="n">traj_class</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_q</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">dof</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_q</span><span class="p">)</span> <span class="o">*</span> <span class="n">param_range</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">param_center</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_range</span><span class="p">,</span> <span class="n">param_center</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_range</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tplan</span> <span class="o">=</span> <span class="n">tplan</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tfinal</span> <span class="o">=</span> <span class="n">tfinal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tdiscretization</span> <span class="o">=</span> <span class="n">tdiscretization</span>
+        <span class="n">num_t</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tfinal</span><span class="o">/</span><span class="n">tdiscretization</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_t</span> <span class="o">=</span> <span class="n">num_t</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">id_map</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ultimate</span> <span class="o">=</span> <span class="p">(</span><span class="n">ultimate_bound</span><span class="p">,</span> <span class="n">k_r</span><span class="p">)</span> <span class="k">if</span> <span class="n">ultimate_bound</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">k_r</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+
+        <span class="c1"># Create base PZ&#39;s for parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_q</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_q</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_q</span><span class="p">):</span>
+            <span class="nb">id</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_map</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id_map</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;k</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">id</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">base_params</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">zp</span><span class="o">.</span><span class="n">polyZonotope</span><span class="p">(</span>
+                <span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">]],</span>
+                <span class="mi">1</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">k_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">id</span>
+
+        <span class="c1"># Create base PZ&#39;s for time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batched</span> <span class="o">=</span> <span class="n">batched</span>
+        <span class="k">if</span> <span class="n">batched</span> <span class="ow">and</span> <span class="n">unique_tid</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">warnings</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Using batched online JRS generation with unique_tid isn&#39;t recommended and may be slower. Consider setting unique_tid=False.&quot;</span><span class="p">)</span>
+        <span class="c1"># batched = False</span>
+        <span class="c1"># So time id&#39;s do not need to be unique</span>
+        <span class="k">if</span> <span class="n">batched</span><span class="p">:</span>
+            <span class="n">i_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_t</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">unique_tid</span><span class="p">:</span>
+                <span class="n">ids</span> <span class="o">=</span> <span class="n">i_s</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_map</span><span class="p">)</span>
+                <span class="n">expMat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">num_t</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+                <span class="n">gens</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">num_t</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdiscretization</span><span class="o">/</span><span class="mi">2</span>
+                <span class="n">n_dep_gens</span> <span class="o">=</span> <span class="n">num_t</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_map</span><span class="p">)]</span>
+                <span class="n">expMat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+                <span class="n">gens</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">num_t</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdiscretization</span><span class="o">/</span><span class="mi">2</span>
+                <span class="n">n_dep_gens</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="c1"># Some tricks to make it into a batched poly zono</span>
+            <span class="n">centers</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tdiscretization</span><span class="o">*</span><span class="n">i_s</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">tdiscretization</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> 
+                <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">get_default_dtype</span><span class="p">()</span>
+                <span class="p">)</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">centers</span><span class="p">,</span> <span class="n">gens</span><span class="p">])</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">times</span> <span class="o">=</span> <span class="n">zp</span><span class="o">.</span><span class="n">batchPolyZonotope</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">n_dep_gens</span><span class="p">,</span> <span class="n">expMat</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="c1"># Make sure to update the id map (fixes slicing bug)!</span>
+            <span class="n">idmap</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">((</span><span class="sa">f</span><span class="s1">&#39;t</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="nb">id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ids</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id_map</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">idmap</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">num_t</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">unique_tid</span><span class="p">:</span>
+                <span class="nb">id</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_map</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">id_map</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;t0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">id</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_t</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">unique_tid</span><span class="p">:</span>
+                    <span class="nb">id</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_map</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">id_map</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;t</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">id</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">zp</span><span class="o">.</span><span class="n">polyZonotope</span><span class="p">(</span>
+                    <span class="p">[[</span><span class="bp">self</span><span class="o">.</span><span class="n">tdiscretization</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">tdiscretization</span><span class="o">/</span><span class="mi">2</span><span class="p">],[</span><span class="bp">self</span><span class="o">.</span><span class="n">tdiscretization</span><span class="o">/</span><span class="mi">2</span><span class="p">]],</span>
+                    <span class="mi">1</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span>
+                <span class="p">)</span>
+        
+        <span class="c1"># Create PZ&#39;s for error</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error_vel</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error_pos</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ultimate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">error_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_q</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">error_vel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_q</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_q</span><span class="p">):</span>
+                <span class="nb">id</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_map</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">id_map</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;e_pos</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">id</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">error_pos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">zp</span><span class="o">.</span><span class="n">polyZonotope</span><span class="p">(</span>
+                    <span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="n">ultimate_bound</span><span class="o">/</span><span class="n">k_r</span><span class="p">]],</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span>
+                <span class="p">)</span>
+
+                <span class="nb">id</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_map</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">id_map</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;e_vel</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">id</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">error_vel</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">zp</span><span class="o">.</span><span class="n">polyZonotope</span><span class="p">(</span>
+                    <span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="o">*</span><span class="n">ultimate_bound</span><span class="p">]],</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span>
+                <span class="p">)</span></div>
+    
+<div class="viewcode-block" id="JrsGenerator.gen_JRS"><a class="viewcode-back" href="../../../generated/zonopyrobots.JrsGenerator.html#zonopyrobots.JrsGenerator.gen_JRS">[docs]</a>    <span class="k">def</span> <span class="nf">gen_JRS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q_in</span><span class="p">,</span> <span class="n">qd_in</span><span class="p">,</span> <span class="n">qdd_in</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">taylor_degree</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">make_gens_independent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">only_R</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">q_in</span> <span class="o">=</span> <span class="n">q_in</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">qd_in</span> <span class="o">=</span> <span class="n">qd_in</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">qdd_in</span> <span class="o">=</span> <span class="n">qdd_in</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span> <span class="k">if</span> <span class="n">qdd_in</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+
+        <span class="c1"># create the trajectory generator</span>
+        <span class="n">gen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">traj</span><span class="p">(</span>
+            <span class="n">q_in</span><span class="p">,</span> <span class="n">qd_in</span><span class="p">,</span> <span class="n">qdd_in</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">base_params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_range</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tplan</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tfinal</span>
+        <span class="p">)</span>
+
+        <span class="c1"># If only R, do a mini version</span>
+        <span class="k">if</span> <span class="n">only_R</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gen_JRS_only_R</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span> <span class="n">taylor_degree</span><span class="p">,</span> <span class="n">make_gens_independent</span><span class="p">)</span>
+
+        <span class="c1"># Get the reference trajectory</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Creating Reference Trajectory&#39;</span><span class="p">)</span>
+        <span class="n">q_ref</span><span class="p">,</span> <span class="n">qd_ref</span><span class="p">,</span> <span class="n">qdd_ref</span> <span class="o">=</span> <span class="n">gen</span><span class="o">.</span><span class="n">getReference</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">batched</span><span class="p">:</span>
+            <span class="c1"># Chose the right function</span>
+            <span class="n">rot_from_q</span> <span class="o">=</span> <span class="n">zp</span><span class="o">.</span><span class="n">rot_mat</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Vectorize over q</span>
+            <span class="n">rot_from_q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">zp</span><span class="o">.</span><span class="n">rot_mat</span><span class="p">,</span> <span class="n">excluded</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;taylor_deg&#39;</span><span class="p">])</span>
+            <span class="n">q_ref</span><span class="p">,</span> <span class="n">qd_ref</span><span class="p">,</span> <span class="n">qdd_ref</span> <span class="o">=</span> <span class="n">q_ref</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">qd_ref</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">qdd_ref</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Creating Reference Rotatotopes&#39;</span><span class="p">)</span>
+        <span class="n">R_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">q_ref</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_q</span><span class="p">):</span>
+            <span class="n">R_ref</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rot_from_q</span><span class="p">(</span><span class="n">q_ref</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot</span><span class="o">.</span><span class="n">joint_axis</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">taylor_deg</span><span class="o">=</span><span class="n">taylor_degree</span><span class="p">)</span>
+
+        <span class="c1"># Add tracking error if provided</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ultimate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Adding tracking error to make tracked trajectory&#39;</span><span class="p">)</span>
+            <span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="n">q_ref</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_pos</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">qd</span> <span class="o">=</span> <span class="p">(</span><span class="n">qd_ref</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_vel</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">qd_aux</span> <span class="o">=</span> <span class="p">(</span><span class="n">qd_ref</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ultimate</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_pos</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">qdd_aux</span> <span class="o">=</span> <span class="p">(</span><span class="n">qdd_ref</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ultimate</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_vel</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Creating Output Rotatotopes&#39;</span><span class="p">)</span>
+            <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_q</span><span class="p">):</span>
+                <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rot_from_q</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot</span><span class="o">.</span><span class="n">joint_axis</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">taylor_deg</span><span class="o">=</span><span class="n">taylor_degree</span><span class="p">)</span>
+
+        <span class="c1"># Make independence if requested</span>
+        <span class="k">if</span> <span class="n">make_gens_independent</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Making non-k generators independent&quot;</span><span class="p">)</span>
+            <span class="n">rem_dep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">zp</span><span class="o">.</span><span class="n">remove_dependence_and_compress</span><span class="p">,</span> <span class="n">excluded</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">q_ref</span> <span class="o">=</span> <span class="n">rem_dep</span><span class="p">(</span><span class="n">q_ref</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ids</span><span class="p">)</span>
+            <span class="n">qd_ref</span> <span class="o">=</span> <span class="n">rem_dep</span><span class="p">(</span><span class="n">qd_ref</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ids</span><span class="p">)</span>
+            <span class="n">qdd_ref</span> <span class="o">=</span> <span class="n">rem_dep</span><span class="p">(</span><span class="n">qdd_ref</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ids</span><span class="p">)</span>
+            <span class="n">R_ref</span> <span class="o">=</span> <span class="n">rem_dep</span><span class="p">(</span><span class="n">R_ref</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ids</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ultimate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">q</span> <span class="o">=</span> <span class="n">rem_dep</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ids</span><span class="p">)</span>
+                <span class="n">qd</span> <span class="o">=</span> <span class="n">rem_dep</span><span class="p">(</span><span class="n">qd</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ids</span><span class="p">)</span>
+                <span class="n">qd_aux</span> <span class="o">=</span> <span class="n">rem_dep</span><span class="p">(</span><span class="n">qd_aux</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ids</span><span class="p">)</span>
+                <span class="n">qdd_aux</span> <span class="o">=</span> <span class="n">rem_dep</span><span class="p">(</span><span class="n">qdd_aux</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ids</span><span class="p">)</span>
+                <span class="n">R</span> <span class="o">=</span> <span class="n">rem_dep</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ids</span><span class="p">)</span>
+
+        <span class="c1"># Filler</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ultimate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">q</span><span class="p">,</span> <span class="n">qd</span> <span class="o">=</span> <span class="n">q_ref</span><span class="p">,</span> <span class="n">qd_ref</span>
+            <span class="n">qd_aux</span><span class="p">,</span> <span class="n">qdd_aux</span> <span class="o">=</span> <span class="n">qd_ref</span><span class="p">,</span> <span class="n">qdd_ref</span>
+            <span class="n">R</span> <span class="o">=</span> <span class="n">R_ref</span>
+
+        <span class="c1"># Return as dict</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;q_ref&#39;</span><span class="p">:</span> <span class="n">q_ref</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+            <span class="s1">&#39;qd_ref&#39;</span><span class="p">:</span> <span class="n">qd_ref</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+            <span class="s1">&#39;qdd_ref&#39;</span><span class="p">:</span> <span class="n">qdd_ref</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+            <span class="s1">&#39;R_ref&#39;</span><span class="p">:</span> <span class="n">R_ref</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+            <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="n">q</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+            <span class="s1">&#39;qd&#39;</span><span class="p">:</span> <span class="n">qd</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+            <span class="s1">&#39;qd_aux&#39;</span><span class="p">:</span> <span class="n">qd_aux</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+            <span class="s1">&#39;qdd_aux&#39;</span><span class="p">:</span> <span class="n">qdd_aux</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+            <span class="s1">&#39;R&#39;</span><span class="p">:</span> <span class="n">R</span><span class="o">.</span><span class="n">T</span>
+        <span class="p">}</span></div>
+    
+    <span class="k">def</span> <span class="nf">_gen_JRS_only_R</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">traj_gen</span><span class="p">,</span> <span class="n">taylor_degree</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">make_gens_independent</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Only Generating R, Creating Reference Trajectory&#39;</span><span class="p">)</span>
+        <span class="n">q_ref</span> <span class="o">=</span> <span class="n">traj_gen</span><span class="o">.</span><span class="n">getReference</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">batched</span><span class="p">:</span>
+            <span class="c1"># Chose the right function</span>
+            <span class="n">rot_from_q</span> <span class="o">=</span> <span class="n">zp</span><span class="o">.</span><span class="n">rot_mat</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Vectorize over q</span>
+            <span class="n">rot_from_q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">zp</span><span class="o">.</span><span class="n">rot_mat</span><span class="p">,</span> <span class="n">excluded</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;taylor_deg&#39;</span><span class="p">])</span>
+            <span class="n">q_ref</span> <span class="o">=</span> <span class="n">q_ref</span><span class="o">.</span><span class="n">T</span>
+        
+        <span class="c1"># Add tracking error if provided</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ultimate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Adding tracking error to make tracked trajectory&#39;</span><span class="p">)</span>
+            <span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="n">q_ref</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_pos</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">q</span> <span class="o">=</span> <span class="n">q_ref</span>
+        
+        <span class="c1"># Create the rotatotope</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Creating Output Rotatotopes&#39;</span><span class="p">)</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_q</span><span class="p">):</span>
+            <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rot_from_q</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot</span><span class="o">.</span><span class="n">joint_axis</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">taylor_deg</span><span class="o">=</span><span class="n">taylor_degree</span><span class="p">)</span>
+        
+        <span class="c1"># Make independence if requested</span>
+        <span class="k">if</span> <span class="n">make_gens_independent</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Making non-k generators independent&quot;</span><span class="p">)</span>
+            <span class="n">rem_dep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">zp</span><span class="o">.</span><span class="n">remove_dependence_and_compress</span><span class="p">,</span> <span class="n">excluded</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">R</span> <span class="o">=</span> <span class="n">rem_dep</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ids</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">R</span><span class="o">.</span><span class="n">T</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dtype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot</span><span class="o">.</span><span class="n">dtype</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">device</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot</span><span class="o">.</span><span class="n">device</span>    </div>
+    
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ROAHM Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, ROAHM Lab.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
