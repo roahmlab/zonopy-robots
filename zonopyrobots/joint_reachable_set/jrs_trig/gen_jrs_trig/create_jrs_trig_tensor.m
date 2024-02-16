@@ -15,6 +15,7 @@ dim = 6; % 1 (cos), 2 (sin), 3 (dq), 5 (kvi), 6 (kai), 7 (time)
 t_plan = 0.5;
 t_total = 1;
 dt = 0.01;
+d_kai = pi/24;   % parameter range for acceleration
 
 % generates dynamics parameterized by K
 [dyn_zero_to_t_plan, dyn_t_plan_to_t_total] = ...
@@ -43,6 +44,9 @@ end
 % save vector of initial velocity subinterval centers
 save(fullfile(save_path,'c_kvi.mat'), 'c_kvi');
 
+% save the parameter range
+save(fullfile(save_path,'d_kai.mat'), 'd_kai');
+
 % set options for reachability analysis:
 options.timeStep = dt;
 options.taylorTerms=5; % number of taylor terms for reachable sets
@@ -63,9 +67,6 @@ epsilon = 1e-6;
 for j = 1:n_JRS
     % break JRS computation into two steps...
     tic;
-    %delta_kai = max(pi/24, (abs(c_kvi(j))+delta_kvi)/3);
-    %delta_kai = pi/24; % EXCLUDE heuristic
-    delta_kai = pi/24;
     % first, use dyn_zero_to_t_plan dynamics
     params.tStart = 0; % start time
     params.tFinal = t_plan; % end time for these dynamics
@@ -74,7 +75,7 @@ for j = 1:n_JRS
     % this is described by eqs. (3) and (8)
     params.x0 = [1; 0; c_kvi(j); c_kai; c_kvi(j); 0]; % start at q_i = 0, so cos(q_i) = 1 and sin(q_i) = 0
     % use two generators, one for K^a_i and one for K^v_i (eq. 8)
-    params.R0 = zonotope([params.x0, [0; 0; 0; delta_kai; 0; 0], [0; 0; delta_kvi; 0; delta_kvi+epsilon; 0]]);
+    params.R0 = zonotope([params.x0, [0; 0; 0; d_kai; 0; 0], [0; 0; delta_kvi; 0; delta_kvi+epsilon; 0]]);
 
     % create system for reachability analysis (1 dummy input)
     % CORA 2018:

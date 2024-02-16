@@ -11,12 +11,27 @@ if TYPE_CHECKING:
     Array = Union[Tensor, ndarray]
 
 class OfflineJRS:
+    """ Wrapper for preloading and processing ARMTD style JRS tensors generated offline
+    
+    These tensors are generated offline using the MATLAB scripts in the jrs_trig/gen_jrs_trig folder.
+    This provides a wrapper for some of the jrs_trig.load_jrs_trig and jrs_trig.process_jrs_trig functions
+    to make it easier to use the JRS tensors. The JRS tensors are preloaded and processed in the __init__ function
+    and then the __call__ function can be used to get the JRS and the corresponding rotatotopes for a given configuration
+    and velocity.
+
+    This specifically loads the tensors from the jrs_trig/jrs_trig_tensor_saved folder
+    """
     def __init__(
         self,
         device: torch.device = 'cpu',
         dtype: torch.dtype = torch.float,
         ):
-        """ Wrapper for preloading and processing JRS tensors """
+        """ Wrapper for preloading and processing JRS tensors
+        
+        Args:
+            device (torch.device, optional): The device to use for the JRS tensors. Defaults to 'cpu'.
+            dtype (torch.dtype, optional): The dtype to use for the JRS tensors. Defaults to torch.float.
+        """
         from .jrs_trig.load_jrs_trig import g_ka
         self.jrs_tensor = _preload_batch_JRS_trig(device=device, dtype=dtype)
         self.g_ka = g_ka

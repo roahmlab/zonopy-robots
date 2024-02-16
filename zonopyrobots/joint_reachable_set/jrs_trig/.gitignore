@@ -1,0 +1,4 @@
+*.mat
+jrs_trig_mat_saved*/
+jrs_trig_tensor_saved*/
+gen_jrs_trig/jrs_trig_dynamics/
