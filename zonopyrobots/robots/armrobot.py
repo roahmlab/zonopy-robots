@@ -1,10 +1,14 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
 from urchin import URDF, xyz_rpy_to_matrix
 import numpy as np
 import trimesh
 from typing import Union
 import torch
 import zonopy as zp
-from zonopyrobots.robots.utils import normal_vec_to_basis
+from zonopyrobots.robots.baserobot import BaseZonoRobot
+from zonopyrobots.robots.utils import normal_vec_to_basis, resolve_device_type
 import copy
 import networkx as nx
 
@@ -14,8 +18,14 @@ JOINT_INTERSECT_COUNT = 3
 INLINE_RATIO_CUTOFF = 1.5
 DEBUG_VIZ = False
 
+if TYPE_CHECKING:
+    from typing import Self
+    from torch import device as torch_device, dtype as torch_dtype
+    from numpy import dtype as np_dtype
+    from numpy.typing import ArrayLike
 
-class ZonoArmRobot:
+
+class ZonoArmRobot(BaseZonoRobot):
     """ Arm Robot definition for use with zonopy
     
     This class is a wrapper around the URDF class from urchin. It also computes
@@ -27,15 +37,6 @@ class ZonoArmRobot:
     with later forward kinematic and occupancy computations.
     
     Attributes:
-        urdf: The urchin URDF object
-        dof: The number of actuated joints
-        np: A numpy version of the object
-        tensor: A torch version of the object
-        device: The device the primary data is on. None if numpy.
-        dtype: The pytorch or numpy dtype of the class
-        origin_pos: The origin position of the robot in the world frame
-        origin_rot: The origin rotation of the robot in the world frame as a
-            3x3 rotation matrix
         joint_axis: The axis of each actuated joint in a (dof, 3) array. These
             are in topological order from the base to the end effector.
         joint_origins: The origin of each actuated joint in a topologically
@@ -66,16 +67,24 @@ class ZonoArmRobot:
         is_single_chain: True if the robot is a single kinematic chain.
         has_closed_loop: True if the robot has a closed loop in the kinematic
             chain.
+    
+    Inherited Attributes:
+        name: The name of the robot. The URDF name is used if not specified. If
+            specified, the URDF name is overwritten.
+        urdf: The urchin URDF object for the robot
+        dof: The degrees of freedom of the robot
+        np: A numpy version of the object
+        tensor: A torch version of the object
+        device: The device the primary data is on. None if numpy.
+        dtype: The pytorch or numpy dtype of the class
+        itype: The pytorch or numpy integer type of the class
+        origin_pos: The origin position of the robot in the world frame
+        origin_rot: The origin rotation of the robot in the world frame as a
+            3x3 rotation matrix
+        _basetype: The base type of the robot dtype
+        _baseitype: The base type of the robot itype
     """
     __slots__ = [
-        'urdf',
-        'dof',
-        'np',
-        'tensor',
-        'device',
-        'dtype',
-        'origin_pos',
-        'origin_rot',
         'joint_axis',
         'joint_origins',
         'joint_origins_all',
@@ -91,8 +100,6 @@ class ZonoArmRobot:
         'link_data',
         'is_single_chain',
         'has_closed_loop',
-        '__origin_pos',
-        '__origin_rot',
         '__joint_axis',
         '__joint_origins',
         '__joint_origins_all',
@@ -102,8 +109,6 @@ class ZonoArmRobot:
         '__eff_lim',
         '__continuous_joints',
         '__pos_lim_mask',
-        '__origin_pos_np',
-        '__origin_rot_np',
         '__joint_axis_np',
         '__joint_origins_np',
         '__joint_origins_all_np',
@@ -113,18 +118,112 @@ class ZonoArmRobot:
         '__eff_lim_np',
         '__continuous_joints_np',
         '__pos_lim_mask_np',
-        '__basetype'
         ]
     
-    def __init__(self):
-        pass
+    def __init__(
+            self,
+            urdf: URDF | str,
+            name: str | None = None,
+            origin_pos: ArrayLike | None = None,
+            origin_rot: ArrayLike | None = None,
+            device: torch_device | None = None,
+            dtype: torch_dtype | np_dtype | None = None,
+            itype: torch_dtype | np_dtype | None = None,
+            create_joint_occupancy: bool = False,
+        ):
+        super().__init__(urdf, name, origin_pos, origin_rot, device, dtype, itype)
+
+        device_dtypes = resolve_device_type(device, dtype, itype)
+
+        # robot._G is from end effector to base
+        self.is_single_chain = nx.is_branching(self.urdf._G)
+        # Compute extra data
+        self._setup_robot_actuated_joint_data(self.urdf, device_dtypes.np_dtype, device_dtypes.np_itype)
+        self._setup_robot_joint_data(self.urdf, device_dtypes.dtype, create_joint_occupancy)
+        self._setup_robot_link_data(self.urdf, device_dtypes.dtype)
+
+        # Assign aliases
+        self.np = self.numpy()
+        self.tensor = self.to(device='cpu')
+        self.to(device=device_dtypes.device, inplace=True)
+
+    def copy(
+            self,
+            name: str | None = None,
+            device: torch_device | None = None,
+            dtype: torch_dtype | np_dtype | None = None,
+            itype: torch_dtype | np_dtype | None = None,
+        ) -> Self:
+        """ Create a deep copy of the object """
+        # Call the base copy
+        ret = super().copy(name, device, dtype, itype)
+        device_dtypes = resolve_device_type(device, dtype, itype)
+
+        # Copy the additional data
+        ret.__actuated_mask_np = np.array(self.__actuated_mask_np) # bool
+        ret.__joint_axis_np = np.array(self.__joint_axis_np, dtype=device_dtypes.np_dtype)
+        ret.__joint_origins_all_np = np.array(self.__joint_origins_all_np, dtype=device_dtypes.np_dtype)
+        ret.__joint_origins_np = ret.__joint_origins_all_np[ret.__actuated_mask_np]
+        ret.__pos_lim_np = np.array(self.__pos_lim_np, dtype=device_dtypes.np_dtype).T
+        ret.__vel_lim_np = np.array(self.__vel_lim_np, dtype=device_dtypes.np_dtype)
+        ret.__eff_lim_np = np.array(self.__eff_lim_np, dtype=device_dtypes.np_dtype) # Unused for now
+        ret.__continuous_joints_np = np.array(self.__continuous_joints_np, dtype=device_dtypes.np_itype)
+        ret.__pos_lim_mask_np = np.array(self.__pos_lim_mask_np) # bool
+        ret.__actuated_mask = torch.from_numpy(ret.__actuated_mask_np)
+        ret.__joint_axis = torch.from_numpy(ret.__joint_axis_np)
+        ret.__joint_origins = torch.from_numpy(ret.__joint_origins_np)
+        ret.__joint_origins_all = torch.from_numpy(ret.__joint_origins_all_np)
+        ret.__pos_lim = torch.from_numpy(ret.__pos_lim_np)
+        ret.__vel_lim = torch.from_numpy(ret.__vel_lim_np)
+        ret.__eff_lim = torch.from_numpy(ret.__eff_lim_np)
+        ret.__continuous_joints = torch.from_numpy(ret.__continuous_joints_np)
+        ret.__pos_lim_mask = torch.from_numpy(ret.__pos_lim_mask_np)
+
+        # Recreate the joint and link data
+        ret._setup_robot_joint_data(ret.urdf, device_dtypes.dtype, False)
+        ret._setup_robot_link_data(ret.urdf, device_dtypes.dtype)
+
+        # Manually copy joint occupancy data as needed
+        if any(joint._joint_occupancy for joint in self.joint_data.values()):
+            for joint, joint_data in self.joint_data.items():
+                # get the right joint
+                ret_urdf_joint = ret.urdf._joint_map[joint.name]
+                # apply the data
+                ret_joint_data = ret.joint_data[ret_urdf_joint]
+                ret_joint_data._joint_occupancy = True
+                ret_joint_data._radius = torch.tensor(joint_data._radius_np, dtype=device_dtypes.dtype, device='cpu')
+                ret_joint_data._aabb = torch.tensor(joint_data._aabb_np, dtype=device_dtypes.dtype, device='cpu')
+                ret_joint_data._radius_np = ret_joint_data._radius.numpy()
+                ret_joint_data._aabb_np = ret_joint_data._aabb.numpy()
+                ret_joint_data._outer_pz = copy.copy(joint_data._outer_pz)
+                ret_joint_data._bounding_pz = copy.copy(joint_data._bounding_pz)
+                # update the np and tensor versions
+                ret_joint_data.np = ret_joint_data.numpy()
+                ret_joint_data.tensor = ret_joint_data.to(device='cpu')
+
+        # update aliases, create the np and tensor versions
+        ret.np = ret.numpy()
+        ret.tensor = ret.to(device='cpu')
+        ret.to(device=device_dtypes.device, inplace=True)
+        return ret
 
     @staticmethod
-    def load(robot: Union[URDF, str], device=None, dtype=None, itype=None, create_joint_occupancy=False, origin_pos=None, origin_rot=None):
+    def load(
+            robot: URDF | str,
+            name: str | None = None,
+            origin_pos: ArrayLike | None = None,
+            origin_rot: ArrayLike | None = None,
+            device: torch_device | None = None,
+            dtype: torch_dtype | np_dtype | None = None,
+            itype: torch_dtype | np_dtype | None = None,
+            create_joint_occupancy: bool = False,
+        ):
         """ Load a robot from a URDF file or URDF object 
         
         Args:
             robot: The URDF file or URDF object to load
+            name: The name of the robot. The URDF name is used if not specified. If
+                specified, the URDF name is overwritten.
             device: The device to put the tensors on. None for pytorch default.
             dtype: The data type to use for the zonotopes. None for pytorch default.
             itype: The index type to use for the zonotopes. None for pytorch default.
@@ -135,39 +234,18 @@ class ZonoArmRobot:
         Returns:
             A ZonoArmRobot object
         """
-        # Resolve the dtype and device to use
-        temp_device = torch.empty(0, device=device)
-        device = temp_device.device
-        temp_dtype = torch.empty(0, device='cpu', dtype=dtype)
-        dtype = temp_dtype.dtype
-        np_dtype = temp_dtype.numpy().dtype
-        if itype is not None:
-            temp_itype = torch.empty(0, dtype=dtype, device='cpu')
-        else:
-            temp_itype = torch.tensor([0], device='cpu')
-        itype = temp_itype.dtype
-        np_itype = temp_itype.numpy().dtype
-        
-        # Prepare the robot
-        if type(robot) == str:
-            robot = URDF.load(robot)
-        constructed = ZonoArmRobot()
-        constructed.urdf = robot
-        constructed.dof = len(robot.actuated_joints)
-        # robot._G is from end effector to base
-        constructed.is_single_chain = nx.is_branching(robot._G)
-        constructed._setup_robot_actuated_joint_data(robot, origin_pos, origin_rot, np_dtype, np_itype)
-        constructed._setup_robot_joint_data(robot, dtype, create_joint_occupancy)
-        constructed._setup_robot_link_data(robot, dtype)
-        constructed.__basetype = temp_dtype
-        constructed.np = constructed.numpy()
-        constructed.tensor = constructed.to(device='cpu')
-        constructed = constructed.to(device)
-        return constructed
+        return ZonoArmRobot(
+            robot,
+            name=name,
+            origin_pos=origin_pos,
+            origin_rot=origin_rot,
+            device=device,
+            dtype=dtype,
+            itype=itype,
+            create_joint_occupancy=create_joint_occupancy,
+        )
 
-    def _setup_robot_actuated_joint_data(self, robot, origin_pos, origin_rot, np_dtype, np_itype):
-        origin_pos = np.zeros(3) if origin_pos is None else origin_pos
-        origin_rot = np.eye(3) if origin_rot is None else origin_rot
+    def _setup_robot_actuated_joint_data(self, robot, np_dtype, np_itype):
         continuous_joints = []
         pos_lim = [[-np.inf, np.inf]]*self.dof
         vel_lim = [np.inf]*self.dof
@@ -196,8 +274,6 @@ class ZonoArmRobot:
                 offset += 1
         
         # initial numpy conversion
-        self.__origin_pos_np = np.array(origin_pos, dtype=np_dtype)
-        self.__origin_rot_np = np.array(origin_rot, dtype=np_dtype)
         self.__actuated_mask_np = np.zeros(len(robot.joints), dtype=bool)
         self.__actuated_mask_np[actuated_idxs] = True
         self.__joint_axis_np = np.array(joint_axis, dtype=np_dtype)
@@ -209,13 +285,7 @@ class ZonoArmRobot:
         self.__continuous_joints_np = np.array(continuous_joints, dtype=np_itype)
         self.__pos_lim_mask_np = np.isfinite(self.__pos_lim_np).any(axis=0)
 
-        # checks
-        assert len(self.__origin_pos_np.shape) == 1 and self.__origin_pos_np.shape[0] == 3, "origin_pos must be a 3 element array"
-        assert len(self.__origin_rot_np.shape) == 2 and self.__origin_rot_np.shape[0] == 3 and self.__origin_rot_np.shape[1] == 3, "origin_rot must be a 3x3 matrix"
-
         # Create tensor references to that memory
-        self.__origin_pos = torch.from_numpy(self.__origin_pos_np)
-        self.__origin_rot = torch.from_numpy(self.__origin_rot_np)
         self.__actuated_mask = torch.from_numpy(self.__actuated_mask_np)
         self.__joint_axis = torch.from_numpy(self.__joint_axis_np)
         self.__joint_origins = torch.from_numpy(self.__joint_origins_np)
@@ -308,10 +378,8 @@ class ZonoArmRobot:
     def numpy(self):
         """ Convert and return a numpy version of the object. Does not copy data. """
         # create a shallow copy of self
-        ret = copy.copy(self)
+        ret = super().numpy()
         # update references to all the properties we care about
-        ret.origin_pos = self.__origin_pos_np
-        ret.origin_rot = self.__origin_rot_np
         ret.joint_axis = self.__joint_axis_np
         ret.joint_origins = self.__joint_origins_np
         ret.joint_origins_all = self.__joint_origins_all_np
@@ -325,19 +393,12 @@ class ZonoArmRobot:
         # update joint and link data
         ret.joint_data = {k:v.numpy() for k,v in self.joint_data.items()}
         ret.link_data = {k:v.numpy() for k,v in self.link_data.items()}
-
-        # save the device parameter
-        ret.device = None
-        ret.dtype = self.__basetype.numpy().dtype
         return ret
     
-    def to(self, device=None):
+    def to(self, device=None, inplace=False):
         """ Convert and return a torch version of the object. Does not copy data if device is the same. """
-        # create a shallow copy of self
-        ret = copy.copy(self)
+        ret = super().to(device=device, inplace=inplace)
         # update references to all the properties we care about
-        ret.origin_pos = self.__origin_pos.to(device=device)
-        ret.origin_rot = self.__origin_rot.to(device=device)
         ret.joint_axis = self.__joint_axis.to(device=device)
         ret.joint_origins = self.__joint_origins.to(device=device)
         ret.joint_origins_all = self.__joint_origins_all.to(device=device)
@@ -349,12 +410,8 @@ class ZonoArmRobot:
         ret.pos_lim_mask = self.__pos_lim_mask.to(device=device)
 
         # update joint and link data
-        ret.joint_data = {k:v.to(device=device) for k,v in self.joint_data.items()}
-        ret.link_data = {k:v.to(device=device) for k,v in self.link_data.items()}
-
-        # save the device parameter
-        ret.device = device
-        ret.dtype = self.__basetype.dtype
+        ret.joint_data = {k:v.to(device=device, inplace=inplace) for k,v in self.joint_data.items()}
+        ret.link_data = {k:v.to(device=device, inplace=inplace) for k,v in self.link_data.items()}
         return ret
 
 
@@ -429,10 +486,13 @@ class ZonoArmRobotJoint:
         ret.device = None
         return ret
 
-    def to(self, device=None):
+    def to(self, device=None, inplace=False):
         """ Convert and return a torch version of the object. Does not copy data. """
-        # create a shallow copy of self
-        ret = copy.copy(self)
+        if inplace:
+            ret = self
+        else:
+            # create a shallow copy of self
+            ret = copy.copy(self)
         # update references to all the properties we care about
         ret.axis = self._axis.to(device=device)
         ret.origin = self._origin.to(device=device)
@@ -502,10 +562,13 @@ class ZonoArmRobotLink:
         ret.device = None
         return ret
 
-    def to(self, device=None):
+    def to(self, device=None, inplace=False):
         """ Convert and return a torch version of the object. Does not copy data. """
-        # create a shallow copy of self
-        ret = copy.copy(self)
+        if inplace:
+            ret = self
+        else:
+            # create a shallow copy of self
+            ret = copy.copy(self)
         # update references to all the properties we care about
         ret.bounding_pz = self._bounding_pz.to(device=device)
         ret.mass = self._mass.to(device=device)

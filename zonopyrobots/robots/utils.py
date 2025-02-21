@@ -1,5 +1,33 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
 
+import torch
 import numpy as np
+from collections import namedtuple
+from functools import lru_cache
+
+if TYPE_CHECKING:
+    from urchin import URDF
+
+DeviceDtype = namedtuple('DeviceDtype', ['device', 'dtype', 'np_dtype', 'itype', 'np_itype', 'basetype', 'baseitype'])
+@lru_cache()
+def resolve_device_type(device=None, dtype=None, itype=None):
+    # Resolve the dtype and device to use
+    temp_device = torch.empty(0, device=device)
+    device = temp_device.device
+    temp_dtype = torch.empty(0, device='cpu', dtype=dtype)
+    dtype = temp_dtype.dtype
+    np_dtype = temp_dtype.numpy().dtype
+    if itype is not None:
+        temp_itype = torch.empty(0, dtype=itype, device='cpu')
+    else:
+        temp_itype = torch.tensor([0], device='cpu')
+    itype = temp_itype.dtype
+    np_itype = temp_itype.numpy().dtype
+    basetype = temp_dtype
+    baseitype = temp_itype
+    return DeviceDtype(device, dtype, np_dtype, itype, np_itype, basetype, baseitype)
+    
 
 # Function to create a 3D basis for any defining normal vector (to an arbitrary hyperplane)
 # Returns the basis as column vectors
@@ -47,3 +75,11 @@ def normal_vec_to_basis(norm_vec: np.ndarray) -> np.ndarray:
     cross = cross / np.linalg.norm(cross)
     rej = rej / np.linalg.norm(rej)
     return np.column_stack((cross, rej, norm_vec))
+
+
+def make_urdf_fixed(urdf: URDF):
+    """ Convert a given URDF to a fixed joint URDF """
+    urdf = urdf.copy()
+    for joint in urdf.joints:
+        joint.joint_type = 'fixed'
+    return urdf.copy()

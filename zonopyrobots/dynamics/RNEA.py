@@ -50,8 +50,8 @@ def pzrnea(rotatotopes: Union[Dict[str, Union[MPZType, BMPZType]], List[Union[MP
             The robot to use for the RNEA
         zono_order (int, optional): 
             The order of the zonotopes to use. Lower is faster but less accurate. Defaults to 40.
-        gravity (Union[torch.Tensor, np.ndarray], optional):
-            The gravity vector to use. Defaults to [0, 0, -9.81].
+        gravity (Union[torch.Tensor, np.ndarray, None], optional):
+            The gravity vector to use. Defaults to [0, 0, -9.81]. If None, no gravity is used.
         link_mass_override (Dict[str, Any], optional):
             Dictionary of link masses to override the URDF values. Defaults to None.
         link_center_mass_override (Dict[str, Any], optional): [description].
