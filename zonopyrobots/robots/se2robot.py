@@ -11,6 +11,7 @@ if TYPE_CHECKING:
     from numpy import dtype as np_dtype
     from numpy.typing import ArrayLike
 
+
 class SE2ZonoRobot(BaseZonoRobot):
     """ A robot with SE(2) kinematics for use with zonopy
     
@@ -23,34 +24,21 @@ class SE2ZonoRobot(BaseZonoRobot):
 
     Any FK using the SE(2) base frame will be performed with the first joint as
     the x-y position and the second joint as the rotation around the z-axis.
-    
-    Attributes:
-        fixed_urdf: The URDF with all joints set to fixed
-        original_urdf: The original URDF provided
 
-    Inherited Attributes:
-        name: The name of the robot. The URDF name is used if not specified. If
-            specified, the URDF name is overwritten.
-        urdf: The urchin URDF object for the robot
-        dof: The degrees of freedom of the robot
-        np: A numpy version of the object
-        tensor: A torch version of the object
-        device: The device the primary data is on. None if numpy.
-        dtype: The pytorch or numpy dtype of the class
-        itype: The pytorch or numpy integer type of the class
-        origin_pos: The origin position of the robot in the world frame
-        origin_rot: The origin rotation of the robot in the world frame as a
-            3x3 rotation matrix
-        _basetype: The base type of the robot dtype
-        _baseitype: The base type of the robot itype
     """
     __slots__ = [
         "fixed_urdf",
         "original_urdf",
     ]
 
+    urdf: URDF
+    """ The URDF object for the robot with the SE(2) base """
+
     fixed_urdf: URDF | None
+    """ The URDF with all joints set to fixed """
+    
     original_urdf: URDF | None
+    """ The original URDF provided """
 
     def __init__(
             self,
@@ -63,6 +51,21 @@ class SE2ZonoRobot(BaseZonoRobot):
             dtype: torch_dtype | np_dtype | None = None,
             itype: torch_dtype | np_dtype | None = None,
         ):
+        """ Create a new SE(2) robot with the provided URDF
+
+        Args:
+            urdf: The URDF file or URDF object to load and lock. If not provided,
+                a default SE(2) robot with no geometry is created.
+            name: The name of the robot. ``"se2_robot"`` is used if not specified.
+            se2_prefix: The prefix to use for the SE(2) base URDF. ``"se2_"`` is used
+                if not specified.
+            origin_pos: The origin position of the robot in the world frame
+            origin_rot: The origin rotation of the robot in the world frame as a
+                3x3 rotation matrix
+            device: The device to put the tensors on. None for pytorch default.
+            dtype: The data type to use for the zonotopes. None for pytorch default.
+            itype: The index type to use for the zonotopes. None for pytorch default.
+        """
         
         # Create a se2 base urdf programatically, then attach and lock the provided URDF
         base_urdf = _create_se2_base_urdf(name=name, prefix=se2_prefix)
@@ -109,8 +112,8 @@ class SE2ZonoRobot(BaseZonoRobot):
         Args:
             urdf: The URDF file or URDF object to load and lock. If not provided,
                 a default SE(2) robot with no geometry is created.
-            name: The name of the robot. "se2_robot" is used if not specified.
-            se2_prefix: The prefix to use for the SE(2) base URDF. "se2_" is used
+            name: The name of the robot. ``"se2_robot"`` is used if not specified.
+            se2_prefix: The prefix to use for the SE(2) base URDF. ``"se2_"`` is used
                 if not specified.
             origin_pos: The origin position of the robot in the world frame
             origin_rot: The origin rotation of the robot in the world frame as a
@@ -131,14 +134,12 @@ class SE2ZonoRobot(BaseZonoRobot):
         )
     
     def numpy(self) -> Self:
-        """ Convert the robot to a numpy version """
         ret = super().numpy()
         ret.fixed_urdf = self.fixed_urdf
         ret.original_urdf = self.original_urdf
         return ret
     
     def to(self, device: torch_device = None, inplace: bool = False) -> Self:
-        """ Convert the robot to a torch version """
         ret = super().to(device=device, inplace=inplace)
         ret.fixed_urdf = self.fixed_urdf
         ret.original_urdf = self.original_urdf
@@ -162,6 +163,7 @@ def _create_se2_base_urdf(name: str | None = None, prefix: str | None = None):
         joints = [se2_planar_joint, se2_rot_joint],
     )
     return base_urdf
+
 
 if __name__ == '__main__':
     import os

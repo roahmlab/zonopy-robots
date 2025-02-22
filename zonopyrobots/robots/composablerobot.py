@@ -24,31 +24,6 @@ class ComposedZonoRobot(BaseZonoRobot):
     used as the base of the composed robot, and then additional robots which will be
     merged together with the base robot at specific links. It also helps manage which
     device various values are on.
-
-    Attributes:
-        base_robot: The base robot
-        robots: Dictionary of all the robots in the composed robot as {robot_object: (link_obj, link_frame)}
-        robot_map: Dictionary of robot names to robot objects
-
-    Inherited Attributes:
-        name: The name of the robot. The URDF name is used if not specified. If
-            specified, the URDF name is overwritten.
-        urdf: The urchin URDF object for the whole robot (subrobot URDF's are preserved)
-        dof: The degrees of freedom of the robot
-        np: A numpy version of the object
-        tensor: A torch version of the object
-        device: The device the primary data is on. None if numpy.
-        dtype: The pytorch or numpy dtype of the class
-        itype: The pytorch or numpy integer type of the class
-        origin_pos: The origin position of the robot in the world frame
-        origin_rot: The origin rotation of the robot in the world frame as a
-            3x3 rotation matrix
-        _basetype: The base type of the robot dtype
-        _baseitype: The base type of the robot itype
-
-    Methods:
-        add_robot: Add a robot to the composed robot
-        __getitem__: Get a robot by name
     """
     __slots__ = [
         'base_robot',
@@ -60,9 +35,18 @@ class ComposedZonoRobot(BaseZonoRobot):
         '__robot_map_np',
     ]
 
+    urdf: URDF
+    """The urchin URDF object for the whole robot (subrobot URDF's are preserved)"""
+
     base_robot: BaseZonoRobot
+    """The base robot"""
+
     robots: dict[BaseZonoRobot, tuple[str, ArrayLike]]
+    """Dictionary of all the robots in the composed robot as ``{robot_object: (link_obj, link_frame)}``"""
+
     robot_map: dict[str, BaseZonoRobot]
+    """Dictionary of robot names to robot objects"""
+    
     __robots: dict[BaseZonoRobot, tuple[str, Tensor]]
     __robot_map: dict[str, BaseZonoRobot]
     __robots_np: dict[BaseZonoRobot, tuple[str, ndarray]]
@@ -79,6 +63,21 @@ class ComposedZonoRobot(BaseZonoRobot):
             dtype: torch_dtype | np_dtype | None = None,
             itype: torch_dtype | np_dtype | None = None,
         ):
+        """ Initialize the composed robot
+
+        Args:
+            base_robot: The base robot to use
+            robots: The robots to merge with the base robot. This should be a dictionary
+                of the form ``{robot_object: (link_obj, link_frame)}`` where the link_obj
+                is a link object or a string of the link name to attach the robot to, and
+                the link_frame is the frame of the robot in the link.
+            name: The name of the composed robot
+            origin_pos: The origin position of the composed robot
+            origin_rot: The origin rotation of the composed robot
+            device: The device to put the tensors on. None for pytorch default.
+            dtype: The data type to use for the zonotopes. None for pytorch default.
+            itype: The index type to use for the zonotopes. None for pytorch default.
+        """
 
         # Resolve the device and types
         device_dtypes = resolve_device_type(device, dtype, itype)
@@ -137,7 +136,23 @@ class ComposedZonoRobot(BaseZonoRobot):
         self.to(device=device_dtypes.device, inplace=True)
     
     def copy(self, name=None, device=None, dtype=None, itype=None):
-        """ Copy the robot """
+        """ Copy the robot
+        
+        Args:
+            name: The name of the copied robot. None to keep the same name.
+            device: The device to put the tensors on. None to keep the same device.
+            dtype: The data type to use for the zonotopes. None to keep the same data type.
+            itype: The index type to use for the zonotopes. None to keep the same index type.
+        
+        Returns:
+            The copied robot
+        """
+        if device is None:
+            device = self.device
+        if dtype is None:
+            dtype = self.dtype
+        if itype is None:
+            itype = self.itype
         robots_in = copy.copy(self.np.robots)
         robots_in.pop(self.base_robot.np)
         return ComposedZonoRobot(
@@ -150,14 +165,6 @@ class ComposedZonoRobot(BaseZonoRobot):
             dtype=dtype,
             itype=itype,
         )
-
-    @property
-    def name(self):
-        return self.urdf.name
-
-    @name.setter
-    def name(self, value):
-        self.urdf.name = str(value)
     
     @staticmethod
     def load(
@@ -170,6 +177,24 @@ class ComposedZonoRobot(BaseZonoRobot):
             dtype: torch_dtype | np_dtype | None = None,
             itype: torch_dtype | np_dtype | None = None,
         ):
+        """ Load a composed robot. Alias for the constructor.
+
+        Args:
+            base_robot: The base robot to use
+            robots: The robots to merge with the base robot. This should be a dictionary
+                of the form ``{robot_object: (link_obj, link_frame)}`` where the link_obj
+                is a link object or a string of the link name to attach the robot to, and
+                the link_frame is the frame of the robot in the link.
+            name: The name of the composed robot
+            origin_pos: The origin position of the composed robot
+            origin_rot: The origin rotation of the composed robot
+            device: The device to put the tensors on. None for pytorch default.
+            dtype: The data type to use for the zonotopes. None for pytorch default.
+            itype: The index type to use for the zonotopes. None for pytorch default.
+        
+        Returns:
+            The composed robot
+        """
         return ComposedZonoRobot(
             base_robot,
             robots,
@@ -182,7 +207,13 @@ class ComposedZonoRobot(BaseZonoRobot):
         )
     
     def add_robot(self, robot: BaseZonoRobot, link: Link | str, link_frame: ArrayLike | None = None):
-        """ Add a robot to the composed robot """
+        """ Add a robot to the composed robot
+        
+        Args:
+            robot: The robot to add
+            link: The link to add the robot to
+            link_frame: The frame of the robot in the link
+        """
         # get a 4x4 pose matrix from None, a 6x1 pose vector of xyzrpy, or a 4x4 pose matrix
         from urchin.utils import configure_origin
         np_dtype = self._basetype.numpy().dtype
@@ -218,14 +249,26 @@ class ComposedZonoRobot(BaseZonoRobot):
         self.tensor.dof = self.dof
 
     def numpy(self) -> Self:
-        """ Convert the robot to numpy """
+        """ Convert and return a numpy version of the object. Does not copy underlying array data.
+        
+        Returns:
+            The numpy casted version of the robots
+        """
         ret = super().numpy()
         ret.robots = self.__robots_np
         ret.robot_map = self.__robot_map_np
         return ret
     
-    def to(self, device=None, inplace=False):
-        """ Convert the robot to a specific device """
+    def to(self, device=None, inplace=False) -> Self:
+        """ Convert and return a torch version of the object. Does not copy data if device is the same.
+        
+        Args:
+            device: The device to put the tensors on. None for pytorch default.
+            inplace: Whether to do the operation in place or not
+        
+        Returns:
+            The robot on the new device
+        """
         ret = super().to(device=device, inplace=inplace)
         if inplace:
             ret.robots = self.__robots
@@ -242,6 +285,14 @@ class ComposedZonoRobot(BaseZonoRobot):
         return ret
 
     def __getitem__(self, key: str) -> BaseZonoRobot:
+        """ Get a robot by name
+        
+        Args:
+            key: The name of the robot to get
+        
+        Returns:
+            The robot object
+        """
         return self.robot_map[key]
 
 if __name__ == '__main__':

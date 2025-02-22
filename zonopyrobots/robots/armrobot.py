@@ -35,54 +35,7 @@ class ZonoArmRobot(BaseZonoRobot):
     bounding box of the link, the mass, center of mass, and inertia tensor.
     This class also includes the joint occupancy for each joint. This helps
     with later forward kinematic and occupancy computations.
-    
-    Attributes:
-        joint_axis: The axis of each actuated joint in a (dof, 3) array. These
-            are in topological order from the base to the end effector.
-        joint_origins: The origin of each actuated joint in a topologically
-            ordered (dof, 3) array.
-        joint_origins_all: The origin of each joint including fixed joints in a
-            topologically ordered (n_joints, 3) array.
-        actuated_mask: A mask of which joints are actuated in an (n_joints,)
-            array of booleans.
-        pos_lim: The position limits of each actuatedjoint in a (2, dof) array
-            where the first row is the lower limit and the second row is the
-            upper limit. Continuous joints have [-Inf, Inf].
-        vel_lim: The velocity limits of each actuated joint in a (dof,) array.
-        eff_lim: The effort limits of each actuated joint in a (dof,) array.
-        continuous_joints: The indices of the continuous joints in an
-            (n_continuous_joints,) array.
-        pos_lim_mask: A mask of which actuated joints have finite position
-            limits in an (n_joints,) array of booleans.
-        link_parent_joint: A map from each link to the parent joint. The base
-            link has a parent joint of None. This is a map from the link name
-            to the joint object.
-        link_child_joints: A map from each link to the child joints. This is a
-            map from the link name to a set of joint objects. The set is empty
-            if there are no child joints.
-        joint_data: A map from each joint to a ZonoArmRobotJoint object. This
-            is a map from the joint object to the ZonoArmRobotJoint object.
-        link_data: A map from each link to a ZonoArmRobotLink object. This is a
-            map from the link object to the ZonoArmRobotLink object.
-        is_single_chain: True if the robot is a single kinematic chain.
-        has_closed_loop: True if the robot has a closed loop in the kinematic
-            chain.
-    
-    Inherited Attributes:
-        name: The name of the robot. The URDF name is used if not specified. If
-            specified, the URDF name is overwritten.
-        urdf: The urchin URDF object for the robot
-        dof: The degrees of freedom of the robot
-        np: A numpy version of the object
-        tensor: A torch version of the object
-        device: The device the primary data is on. None if numpy.
-        dtype: The pytorch or numpy dtype of the class
-        itype: The pytorch or numpy integer type of the class
-        origin_pos: The origin position of the robot in the world frame
-        origin_rot: The origin rotation of the robot in the world frame as a
-            3x3 rotation matrix
-        _basetype: The base type of the robot dtype
-        _baseitype: The base type of the robot itype
+
     """
     __slots__ = [
         'joint_axis',
@@ -120,6 +73,64 @@ class ZonoArmRobot(BaseZonoRobot):
         '__pos_lim_mask_np',
         ]
     
+    joint_axis: torch.Tensor | np.ndarray
+    """ The axis of each actuated joint in a (dof, 3) array. These are in
+    topological order from the base to the end effector. """
+
+    joint_origins: torch.Tensor | np.ndarray
+    """ The origin of each actuated joint in a topologically ordered (dof, 3)
+    array. """
+
+    joint_origins_all: torch.Tensor | np.ndarray
+    """ The origin of each joint including fixed joints in a topologically
+    ordered (n_joints, 3) array. """
+
+    actuated_mask: torch.Tensor | np.ndarray
+    """ A mask of which joints are actuated in an (n_joints,) array of
+    booleans. """
+
+    pos_lim: torch.Tensor | np.ndarray
+    """ The position limits of each actuatedjoint in a (2, dof) array where the
+    first row is the lower limit and the second row is the upper limit.
+    Continuous joints have [-Inf, Inf]. """
+
+    vel_lim: torch.Tensor | np.ndarray
+    """ The velocity limits of each actuated joint in a (dof,) array. """
+
+    eff_lim: torch.Tensor | np.ndarray
+    """ The effort limits of each actuated joint in a (dof,) array. """
+
+    continuous_joints: torch.Tensor | np.ndarray
+    """ The indices of the continuous joints in an (n_continuous_joints,)
+    array. """
+
+    pos_lim_mask: torch.Tensor | np.ndarray
+    """ A mask of which actuated joints have finite position limits in an
+    (n_joints,) array of booleans. """
+
+    link_parent_joint: dict[str, URDF.Joint | None]
+    """ A map from each link to the parent joint. The base link has a parent
+    joint of None. This is a map from the link name to the joint object. """
+
+    link_child_joints: dict[str, set[URDF.Joint]]
+    """ A map from each link to the child joints. This is a map from the link
+    name to a set of joint objects. The set is empty if there are no child
+    joints. """
+
+    joint_data: dict[URDF.Joint, ZonoArmRobotJoint]
+    """ A map from each joint to a ZonoArmRobotJoint object. This is a map from
+    the joint object to the ZonoArmRobotJoint object. """
+
+    link_data: dict[URDF.Link, ZonoArmRobotLink]
+    """ A map from each link to a ZonoArmRobotLink object. This is a map from
+    the link object to the ZonoArmRobotLink object. """
+
+    is_single_chain: bool
+    """ True if the robot is a single kinematic chain. """
+
+    has_closed_loop: bool
+    """ True if the robot has a closed loop in the kinematic chain. """
+
     def __init__(
             self,
             urdf: URDF | str,
@@ -131,6 +142,22 @@ class ZonoArmRobot(BaseZonoRobot):
             itype: torch_dtype | np_dtype | None = None,
             create_joint_occupancy: bool = False,
         ):
+        """ Load a robot from a URDF file or URDF object 
+        
+        Args:
+            robot: The URDF file or URDF object to load
+            name: The name of the robot. The URDF name is used if not specified. If
+                specified, the URDF name is overwritten.
+            origin_pos: The origin position of the robot in the world frame
+            origin_rot: The origin rotation of the robot in the world frame as a
+                3x3 rotation matrix
+            device: The device to put the tensors on. None for pytorch default.
+            dtype: The data type to use for the zonotopes. None for pytorch default.
+            itype: The index type to use for the zonotopes. None for pytorch default.
+            create_joint_occupancy: If true, create the joint occupancy zonotopes
+                for each joint. This is useful for later occupancy computations.
+                If false, those values are not populated.
+        """
         super().__init__(urdf, name, origin_pos, origin_rot, device, dtype, itype)
 
         device_dtypes = resolve_device_type(device, dtype, itype)
@@ -154,8 +181,13 @@ class ZonoArmRobot(BaseZonoRobot):
             dtype: torch_dtype | np_dtype | None = None,
             itype: torch_dtype | np_dtype | None = None,
         ) -> Self:
-        """ Create a deep copy of the object """
         # Call the base copy
+        if device is None:
+            device = self.device
+        if dtype is None:
+            dtype = self.dtype
+        if itype is None:
+            itype = self.itype
         ret = super().copy(name, device, dtype, itype)
         device_dtypes = resolve_device_type(device, dtype, itype)
 
@@ -224,6 +256,9 @@ class ZonoArmRobot(BaseZonoRobot):
             robot: The URDF file or URDF object to load
             name: The name of the robot. The URDF name is used if not specified. If
                 specified, the URDF name is overwritten.
+            origin_pos: The origin position of the robot in the world frame
+            origin_rot: The origin rotation of the robot in the world frame as a
+                3x3 rotation matrix
             device: The device to put the tensors on. None for pytorch default.
             dtype: The data type to use for the zonotopes. None for pytorch default.
             itype: The index type to use for the zonotopes. None for pytorch default.
@@ -376,7 +411,6 @@ class ZonoArmRobot(BaseZonoRobot):
             self.link_data[link] = single_link_data
 
     def numpy(self):
-        """ Convert and return a numpy version of the object. Does not copy data. """
         # create a shallow copy of self
         ret = super().numpy()
         # update references to all the properties we care about
@@ -396,7 +430,6 @@ class ZonoArmRobot(BaseZonoRobot):
         return ret
     
     def to(self, device=None, inplace=False):
-        """ Convert and return a torch version of the object. Does not copy data if device is the same. """
         ret = super().to(device=device, inplace=inplace)
         # update references to all the properties we care about
         ret.joint_axis = self.__joint_axis.to(device=device)
