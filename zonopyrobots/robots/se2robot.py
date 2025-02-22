@@ -155,7 +155,7 @@ def _create_se2_base_urdf(name: str | None = None, prefix: str | None = None):
     se2_rot = urchin.Link(f"{prefix}rot", None, [], [])
     se2_link = urchin.Link(f"{prefix}link", None, [], [])
     se2_planar_joint = urchin.Joint(f"{prefix}planar_joint", 'planar', se2_base.name, se2_rot.name)
-    se2_rot_joint = urchin.Joint(f"{prefix}rot_joint", 'continuous', se2_rot.name, se2_link.name)
+    se2_rot_joint = urchin.Joint(f"{prefix}rot_joint", 'continuous', se2_rot.name, se2_link.name, axis=[0,0,1])
     base_urdf = urchin.URDF(
         name = name,
         links = [se2_base, se2_rot, se2_link],

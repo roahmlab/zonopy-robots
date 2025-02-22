@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     FKOriginType = Union[str, FKOrigin, Tuple[PZType, MPZType], Tuple[BPZType, BMPZType], Tuple[torch.Tensor, torch.Tensor]]
 
 
-# This is based on the Urchin's FK source
+# This is based on the Urchin's FK source. This version is only written to handle continuous and revolute joints.
 def forward_kinematics(
         rotatotopes: Union[Dict[str, Union[MPZType, BMPZType]],
                            List[Union[MPZType, BMPZType]]],

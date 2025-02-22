@@ -13,4 +13,5 @@ from zonopyrobots.joint_reachable_set.jrs_trig.process_jrs_trig import *
 import zonopy.internal as internal
 
 
+from .properties import __version__, __logo__
 
