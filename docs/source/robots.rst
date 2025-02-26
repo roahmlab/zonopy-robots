@@ -39,3 +39,21 @@ Composable Robots
 
     ComposedZonoRobot
 
+Robot Base Class
+----------------
+.. autosummary::
+    :toctree: generated
+    :nosignatures:
+
+    BaseZonoRobot
+
+Robot Utility Functions
+-----------------------
+.. currentmodule:: zonopyrobots.robots
+.. autosummary::
+    :toctree: generated
+    :nosignatures:
+
+    make_urdf_fixed
+    make_baselink_urdf
+

@@ -93,7 +93,7 @@ html_css_files = [
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "numpy": ("https://numpy.org/doc/stable", None),
-    "torch": ('https://pytorch.org/docs/master/', None),
+    "torch": ('https://pytorch.org/docs/main/', None),
     "zonopy": ('https://roahmlab.github.io/zonopy/latest/', None),
     "trimesh": ('https://trimesh.org/', None),
 }

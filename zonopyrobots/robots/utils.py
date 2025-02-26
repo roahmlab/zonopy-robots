@@ -15,15 +15,23 @@ def resolve_device_type(device=None, dtype=None, itype=None):
     # Resolve the dtype and device to use
     temp_device = torch.empty(0, device=device)
     device = temp_device.device
-    temp_dtype = torch.empty(0, device='cpu', dtype=dtype)
+    if isinstance(dtype, np.dtype):
+        temp_dtype = torch.from_numpy(np.empty(0, dtype=dtype))
+    else:
+        temp_dtype = torch.empty(0, device='cpu', dtype=dtype)
+        temp_dtype = torch.empty(0, device='cpu', dtype=dtype)
     dtype = temp_dtype.dtype
     np_dtype = temp_dtype.numpy().dtype
     if itype is not None:
-        temp_itype = torch.empty(0, dtype=itype, device='cpu')
+        if isinstance(itype, np.dtype):
+            temp_itype = torch.from_numpy(np.empty(0, dtype=itype))
+        else:
+            temp_itype = torch.empty(0, dtype=itype, device='cpu')
     else:
         temp_itype = torch.tensor([0], device='cpu')
     itype = temp_itype.dtype
     np_itype = temp_itype.numpy().dtype
+    assert np.issubdtype(np_itype, np.integer), "Index type must be an integer type"
     basetype = temp_dtype
     baseitype = temp_itype
     return DeviceDtype(device, dtype, np_dtype, itype, np_itype, basetype, baseitype)
