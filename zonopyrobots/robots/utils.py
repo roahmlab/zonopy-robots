@@ -83,3 +83,18 @@ def make_urdf_fixed(urdf: URDF):
     for joint in urdf.joints:
         joint.joint_type = 'fixed'
     return urdf.copy()
+
+
+def make_baselink_urdf(name: str = None, link_name: str = None) -> URDF:
+    """ Create a URDF with a single base link """
+    import urchin
+    if name is None:
+        name = "robot"
+    if link_name is None:
+        link_name = "base_link"
+    base_link = urchin.Link(link_name, None, [], [])
+    base_urdf = urchin.URDF(
+        name = name,
+        links = [base_link],
+    )
+    return base_urdf

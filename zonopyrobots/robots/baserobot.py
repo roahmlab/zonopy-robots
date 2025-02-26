@@ -303,6 +303,7 @@ class BaseZonoRobot:
         ret.itype = self._baseitype.dtype
         return ret
 
+
 if __name__ == '__main__':
     import os
     import zonopyrobots as zpr
