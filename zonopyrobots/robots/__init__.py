@@ -6,6 +6,8 @@ from .composablerobot import ComposedZonoRobot
 
 from .utils import make_urdf_fixed, make_baselink_urdf
 
+from .assets import files, urdfs
+
 __all__ = [
     "BaseZonoRobot",
     "ZonoArmRobot",

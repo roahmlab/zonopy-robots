@@ -1,3 +1,4 @@
+import zonopyrobots.robots as robots
 from zonopyrobots.robots import *
 from zonopyrobots.util import *
 
