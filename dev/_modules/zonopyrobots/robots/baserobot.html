@@ -1,0 +1,710 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zonopyrobots.robots.baserobot &#8212; zonopy-robots (development) v0.0.2-dev</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/katex-math.css?v=91adb8b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=64fd42a1" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=087e09ff"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/zonopyrobots/robots/baserobot';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://roahmlab.github.io/zonopy-robots/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.0.2-dev" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">zonopy-robots (development) v0.0.2-dev</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../robots.html">Robots Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.files.html">zonopyrobots.robots.files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.urdfs.html">zonopyrobots.robots.urdfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.ZonoArmRobot.html">zonopyrobots.ZonoArmRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html">zonopyrobots.robots.armrobot.ZonoArmRobotLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html">zonopyrobots.robots.armrobot.ZonoArmRobotJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.SE2ZonoRobot.html">zonopyrobots.SE2ZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.SE3ZonoRobot.html">zonopyrobots.SE3ZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.ComposedZonoRobot.html">zonopyrobots.ComposedZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.BaseZonoRobot.html">zonopyrobots.BaseZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.make_urdf_fixed.html">zonopyrobots.robots.make_urdf_fixed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.make_baselink_urdf.html">zonopyrobots.robots.make_baselink_urdf</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../trajectories.html">Common Trajectory Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.trajectory.PiecewiseArmTrajectory.html">zonopyrobots.trajectory.PiecewiseArmTrajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.trajectory.BernsteinArmTrajectory.html">zonopyrobots.trajectory.BernsteinArmTrajectory</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../reachablesets.html">Reachable Sets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.JrsGenerator.html">zonopyrobots.JrsGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.OfflineJRS.html">zonopyrobots.OfflineJRS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../kinematics.html">Kinematics Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.kinematics.forward_kinematics.html">zonopyrobots.kinematics.forward_kinematics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../dynamics.html">Dynamics Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.dynamics.pzrnea.html">zonopyrobots.dynamics.pzrnea</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../utils.html">Utility Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.make_cfg_dict.html">zonopyrobots.make_cfg_dict</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/roahmlab/zonopy-robots" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for zonopyrobots.robots.baserobot</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="kn">from</span> <span class="nn">urchin</span> <span class="kn">import</span> <span class="n">URDF</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">zonopyrobots.robots.utils</span> <span class="kn">import</span> <span class="n">resolve_device_type</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Self</span>
+    <span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">device</span> <span class="k">as</span> <span class="n">torch_device</span><span class="p">,</span> <span class="n">dtype</span> <span class="k">as</span> <span class="n">torch_dtype</span><span class="p">,</span> <span class="n">Tensor</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">dtype</span> <span class="k">as</span> <span class="n">np_dtype</span><span class="p">,</span> <span class="n">ndarray</span>
+    <span class="kn">from</span> <span class="nn">numpy.typing</span> <span class="kn">import</span> <span class="n">ArrayLike</span>
+
+
+<div class="viewcode-block" id="BaseZonoRobot"><a class="viewcode-back" href="../../../generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot">[docs]</a><span class="k">class</span> <span class="nc">BaseZonoRobot</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Base robot definition for use with zonopy</span>
+<span class="sd">    </span>
+<span class="sd">    This class is meant to be subclassed and extended to provide</span>
+<span class="sd">    the extra caching functionality useful for zonopy. It provides</span>
+<span class="sd">    the basic structure and slots for the robot.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;urdf&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;dof&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tensor&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;device&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;dtype&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;itype&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;origin_pos&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;origin_rot&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_basetype&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_baseitype&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__origin_pos&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__origin_rot&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__origin_pos_np&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;__origin_rot_np&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="n">urdf</span><span class="p">:</span> <span class="n">URDF</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The urchin URDF object for the robot&quot;&quot;&quot;</span>
+
+    <span class="n">dof</span><span class="p">:</span> <span class="nb">int</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The degrees of freedom of the robot&quot;&quot;&quot;</span>
+
+    <span class="n">np</span><span class="p">:</span> <span class="n">Self</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A numpy version of the object&quot;&quot;&quot;</span>
+
+    <span class="n">tensor</span><span class="p">:</span> <span class="n">Self</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A CPU torch version of the object&quot;&quot;&quot;</span>
+
+    <span class="n">device</span><span class="p">:</span> <span class="n">torch_device</span> <span class="o">|</span> <span class="kc">None</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The device the primary data is on. None if numpy.&quot;&quot;&quot;</span>
+    
+    <span class="n">dtype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The pytorch or numpy dtype of the class&quot;&quot;&quot;</span>
+
+    <span class="n">itype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The pytorch or numpy integer dtype of the class&quot;&quot;&quot;</span>
+
+    <span class="n">origin_pos</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The origin position of the robot in the world frame&quot;&quot;&quot;</span>
+
+    <span class="n">origin_rot</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The origin rotation of the robot in the world frame as a 3x3 rotation matrix&quot;&quot;&quot;</span>
+
+    <span class="n">_basetype</span><span class="p">:</span> <span class="n">Tensor</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The base type of the robot dtype&quot;&quot;&quot;</span>
+
+    <span class="n">_baseitype</span><span class="p">:</span> <span class="n">Tensor</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The base type of the robot itype&quot;&quot;&quot;</span>
+
+    <span class="n">__origin_pos</span><span class="p">:</span> <span class="n">Tensor</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The underlying origin position cpu tensor reference&quot;&quot;&quot;</span>
+
+    <span class="n">__origin_rot</span><span class="p">:</span> <span class="n">Tensor</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The underlying origin rotation cpu tensor reference&quot;&quot;&quot;</span>
+
+    <span class="n">__origin_pos_np</span><span class="p">:</span> <span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The underlying origin position numpy reference and data&quot;&quot;&quot;</span>
+
+    <span class="n">__origin_rot_np</span><span class="p">:</span> <span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The underlying origin rotation numpy reference and data&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="BaseZonoRobot.__init__"><a class="viewcode-back" href="../../../generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">urdf</span><span class="p">:</span> <span class="n">URDF</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">origin_pos</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">origin_rot</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">device</span><span class="p">:</span> <span class="n">torch_device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">itype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Create a new BaseZonoRobot object</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            urdf: The URDF file or URDF object to load</span>
+<span class="sd">            name: The name of the robot</span>
+<span class="sd">            origin_pos: The origin position of the robot in the world frame</span>
+<span class="sd">            origin_rot: The origin rotation of the robot in the world frame as a 3x3 rotation matrix</span>
+<span class="sd">            device: The device to put the tensors on. None for pytorch default.</span>
+<span class="sd">            dtype: The data type to use for the zonotopes. None for pytorch default.</span>
+<span class="sd">            itype: The index type to use for the zonotopes. None for pytorch default.</span>
+<span class="sd">        </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            AssertionError: If the origin position is not a 3D vector or the origin rotation is not a 3x3 matrix</span>
+<span class="sd">            AssertionError: If the device is not a torch device or the dtype is not a torch or numpy dtype</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Resolve the device and dtype to use</span>
+        <span class="n">device_dtypes</span> <span class="o">=</span> <span class="n">resolve_device_type</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">itype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_basetype</span> <span class="o">=</span> <span class="n">device_dtypes</span><span class="o">.</span><span class="n">basetype</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_baseitype</span> <span class="o">=</span> <span class="n">device_dtypes</span><span class="o">.</span><span class="n">baseitype</span>
+
+        <span class="c1"># Save the URDF and DOF</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">urdf</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">robot</span> <span class="o">=</span> <span class="n">URDF</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">urdf</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">robot</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">robot</span> <span class="o">=</span> <span class="n">urdf</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">urdf</span> <span class="o">=</span> <span class="n">robot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dof</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">urdf</span><span class="o">.</span><span class="n">actuated_joints</span><span class="p">))</span>
+
+        <span class="c1"># Save the origin position and rotation</span>
+        <span class="n">origin_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">if</span> <span class="n">origin_pos</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">origin_pos</span>
+        <span class="n">origin_rot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">if</span> <span class="n">origin_rot</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">origin_rot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__origin_pos_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">origin_pos</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">np_dtype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__origin_rot_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">origin_rot</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">np_dtype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__origin_pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__origin_pos_np</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__origin_rot</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__origin_rot_np</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">__origin_pos</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3</span><span class="p">,),</span> <span class="s2">&quot;Origin position must be a 3D vector&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">__origin_rot</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;Origin rotation must be a 3x3 matrix&quot;</span>
+
+        <span class="c1"># Create the np and tensor versions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">np</span> <span class="o">=</span> <span class="n">BaseZonoRobot</span><span class="o">.</span><span class="n">numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="n">BaseZonoRobot</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+        <span class="n">BaseZonoRobot</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; The name of the robot. The URDF name is used if not specified. If</span>
+<span class="sd">        specified, the URDF name is overwritten.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">urdf</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="nd">@name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">urdf</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    
+<div class="viewcode-block" id="BaseZonoRobot.update_origin"><a class="viewcode-back" href="../../../generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.update_origin">[docs]</a>    <span class="k">def</span> <span class="nf">update_origin</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">origin_pos</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">origin_rot</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Update the origin position and rotation of the robot &quot;&quot;&quot;</span>
+        <span class="c1"># update origin_pos</span>
+        <span class="k">if</span> <span class="n">origin_pos</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__origin_pos_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">origin_pos</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_basetype</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__origin_pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__origin_pos_np</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">__origin_pos</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3</span><span class="p">,),</span> <span class="s2">&quot;Origin position must be a 3D vector&quot;</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">origin_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__origin_pos</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>    
+                <span class="bp">self</span><span class="o">.</span><span class="n">origin_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__origin_pos_np</span>
+        <span class="c1"># update origin_rot</span>
+        <span class="k">if</span> <span class="n">origin_rot</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__origin_rot_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">origin_rot</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_basetype</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__origin_rot</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__origin_rot_np</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">__origin_rot</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;Origin rotation must be a 3x3 matrix&quot;</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">origin_rot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__origin_rot</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">origin_rot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__origin_rot_np</span>
+        <span class="c1"># refresh np and tensor versions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">np</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseZonoRobot.copy"><a class="viewcode-back" href="../../../generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">device</span><span class="p">:</span> <span class="n">torch_device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">itype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Create a deep copy of the robot by copying all data while respecting overlapping memory</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            name: The name of the robot. None to keep the same name.</span>
+<span class="sd">            device: The device to put the tensors on. None to keep the same device.</span>
+<span class="sd">            dtype: The data type to use for the zonotopes. None to keep the same dtype.</span>
+<span class="sd">            itype: The index type to use for the zonotopes. None to keep the same itype.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># create a shallow copy of self for the base container</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1"># Resolve the device and dtype to use</span>
+        <span class="k">if</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span>
+        <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="k">if</span> <span class="n">itype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">itype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">itype</span>
+        <span class="n">device_dtypes</span> <span class="o">=</span> <span class="n">resolve_device_type</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">itype</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">_basetype</span> <span class="o">=</span> <span class="n">device_dtypes</span><span class="o">.</span><span class="n">basetype</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">_baseitype</span> <span class="o">=</span> <span class="n">device_dtypes</span><span class="o">.</span><span class="n">baseitype</span>
+
+        <span class="c1"># Copy what needs to be copied</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">urdf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">urdf</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__origin_pos_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__origin_pos_np</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">np_dtype</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__origin_rot_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__origin_rot_np</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">np_dtype</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__origin_pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">__origin_pos_np</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__origin_rot</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">__origin_rot_np</span><span class="p">)</span>
+
+        <span class="c1"># Update associations</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">np</span> <span class="o">=</span> <span class="n">BaseZonoRobot</span><span class="o">.</span><span class="n">numpy</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="n">BaseZonoRobot</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+        <span class="n">BaseZonoRobot</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+    
+<div class="viewcode-block" id="BaseZonoRobot.load"><a class="viewcode-back" href="../../../generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.load">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span>
+            <span class="n">robot</span><span class="p">:</span> <span class="n">URDF</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">origin_pos</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">origin_rot</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">device</span><span class="p">:</span> <span class="n">torch_device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">itype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Load a robot from a URDF file or URDF object</span>
+
+<span class="sd">        Alias for the constructor for backwards compatibility and to allow for</span>
+<span class="sd">        a more consistent API with urchin.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            robot: The URDF file or URDF object to load</span>
+<span class="sd">            name: The name of the robot</span>
+<span class="sd">            origin_pos: The origin position of the robot in the world frame</span>
+<span class="sd">            origin_rot: The origin rotation of the robot in the world frame as a 3x3 rotation matrix</span>
+<span class="sd">            device: The device to put the tensors on. None for pytorch default.</span>
+<span class="sd">            dtype: The data type to use for the zonotopes. None for pytorch default.</span>
+<span class="sd">            itype: The index type to use for the zonotopes. None for pytorch default.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A BaseZonoRobot object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">BaseZonoRobot</span><span class="p">(</span>
+            <span class="n">robot</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">origin_pos</span><span class="o">=</span><span class="n">origin_pos</span><span class="p">,</span>
+            <span class="n">origin_rot</span><span class="o">=</span><span class="n">origin_rot</span><span class="p">,</span>
+            <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+            <span class="n">itype</span><span class="o">=</span><span class="n">itype</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseZonoRobot.numpy"><a class="viewcode-back" href="../../../generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.numpy">[docs]</a>    <span class="k">def</span> <span class="nf">numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Convert and return a numpy version of the object. Does not copy underlying array data.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            A numpy version of the object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># create a shallow copy of self</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># update references to the origin data</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">origin_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__origin_pos_np</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">origin_rot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__origin_rot_np</span>
+
+        <span class="c1"># save the device parameter</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basetype</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">itype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseitype</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+<div class="viewcode-block" id="BaseZonoRobot.to"><a class="viewcode-back" href="../../../generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.to">[docs]</a>    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch_device</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Convert and return a torch version of the object. Does not copy data if device is the same.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            device: The device to put the tensors on. None for pytorch default.</span>
+<span class="sd">            inplace: If true, update the current object in place. If false, return a new object.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            A torch version of the object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># create a shallow copy of self</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># update references to the origin data</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">origin_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__origin_pos</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">origin_rot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__origin_rot</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># save the device parameter</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basetype</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">itype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseitype</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="k">return</span> <span class="n">ret</span></div></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">import</span> <span class="nn">zonopyrobots</span> <span class="k">as</span> <span class="nn">zpr</span>
+    <span class="n">basedirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">zpr</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">BaseZonoRobot</span><span class="p">(</span><span class="n">URDF</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedirname</span><span class="p">,</span> <span class="s1">&#39;robots/assets/robots/kinova_arm/gen3.urdf&#39;</span><span class="p">)))</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">b</span><span class="o">.</span><span class="n">update_origin</span><span class="p">(</span><span class="n">origin_pos</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">origin_rot</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+    <span class="k">pass</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ROAHM Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, ROAHM Lab.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

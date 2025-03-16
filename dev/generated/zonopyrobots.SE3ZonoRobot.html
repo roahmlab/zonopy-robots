@@ -1,0 +1,778 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>zonopyrobots.SE3ZonoRobot &#8212; zonopy-robots (development) v0.0.2-dev</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/katex-math.css?v=91adb8b6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=64fd42a1" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=087e09ff"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/zonopyrobots.SE3ZonoRobot';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://roahmlab.github.io/zonopy-robots/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="zonopyrobots.ComposedZonoRobot" href="zonopyrobots.ComposedZonoRobot.html" />
+    <link rel="prev" title="zonopyrobots.SE2ZonoRobot" href="zonopyrobots.SE2ZonoRobot.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.0.2-dev" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">zonopy-robots (development) v0.0.2-dev</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../robots.html">Robots Module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.robots.files.html">zonopyrobots.robots.files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.robots.urdfs.html">zonopyrobots.robots.urdfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.ZonoArmRobot.html">zonopyrobots.ZonoArmRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.robots.armrobot.ZonoArmRobotLink.html">zonopyrobots.robots.armrobot.ZonoArmRobotLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html">zonopyrobots.robots.armrobot.ZonoArmRobotJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.SE2ZonoRobot.html">zonopyrobots.SE2ZonoRobot</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">zonopyrobots.SE3ZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.ComposedZonoRobot.html">zonopyrobots.ComposedZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.BaseZonoRobot.html">zonopyrobots.BaseZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.robots.make_urdf_fixed.html">zonopyrobots.robots.make_urdf_fixed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.robots.make_baselink_urdf.html">zonopyrobots.robots.make_baselink_urdf</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../trajectories.html">Common Trajectory Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.trajectory.PiecewiseArmTrajectory.html">zonopyrobots.trajectory.PiecewiseArmTrajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.trajectory.BernsteinArmTrajectory.html">zonopyrobots.trajectory.BernsteinArmTrajectory</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reachablesets.html">Reachable Sets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.JrsGenerator.html">zonopyrobots.JrsGenerator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.OfflineJRS.html">zonopyrobots.OfflineJRS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../kinematics.html">Kinematics Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.kinematics.forward_kinematics.html">zonopyrobots.kinematics.forward_kinematics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dynamics.html">Dynamics Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.dynamics.pzrnea.html">zonopyrobots.dynamics.pzrnea</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../utils.html">Utility Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="zonopyrobots.make_cfg_dict.html">zonopyrobots.make_cfg_dict</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/roahmlab/zonopy-robots" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/generated/zonopyrobots.SE3ZonoRobot.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>zonopyrobots.SE3ZonoRobot</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.__init__"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.copy"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.copy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.device"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.device</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.dof"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.dof</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.dtype"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.fixed_urdf"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.fixed_urdf</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.itype"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.itype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.load"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.name"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.np"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.np</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.numpy"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.numpy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.origin_pos"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.origin_pos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.origin_rot"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.origin_rot</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.original_urdf"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.original_urdf</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.tensor"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.tensor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.to"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.to()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.update_origin"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.update_origin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.urdf"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.urdf</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="zonopyrobots-se3zonorobot">
+<h1>zonopyrobots.SE3ZonoRobot<a class="headerlink" href="#zonopyrobots-se3zonorobot" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zonopyrobots.</span></span><span class="sig-name descname"><span class="pre">SE3ZonoRobot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">urdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">URDF</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">se3_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArrayLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_rot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArrayLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch_device</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">np_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">np_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/robots/se3robot.html#SE3ZonoRobot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot" title="zonopyrobots.robots.baserobot.BaseZonoRobot"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseZonoRobot</span></code></a></p>
+<p>A robot with SE(3) kinematics for use with zonopy</p>
+<p>This robot is a 6 DOF robot using the floating joint type. The robot is
+placed in an SE(3) base frame. A URDF can be provided for geometry or
+collision checking. All joints will be converted to fixed joints.</p>
+<p>Any FK using the SE(3) base frame will be performed with a single joint
+with either a 6D pose vector as xyz-rpy or a 4x4 homogeneous transformation
+matrix.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">urdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">URDF</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">se3_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArrayLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_rot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArrayLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch_device</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">np_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">np_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/robots/se3robot.html#SE3ZonoRobot.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Create a new SE(3) robot with the provided URDF</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>urdf</strong> – The URDF file or URDF object to load and lock. If not provided,
+a default SE(3) robot with no geometry is created.</p></li>
+<li><p><strong>name</strong> – The name of the robot. <code class="docutils literal notranslate"><span class="pre">&quot;se3_robot&quot;</span></code> is used if not specified.</p></li>
+<li><p><strong>se3_prefix</strong> – The prefix to use for the SE(3) base URDF. <code class="docutils literal notranslate"><span class="pre">&quot;se3_&quot;</span></code> is used
+if not specified.</p></li>
+<li><p><strong>origin_pos</strong> – The origin position of the robot in the world frame</p></li>
+<li><p><strong>origin_rot</strong> – The origin rotation of the robot in the world frame as a
+3x3 rotation matrix</p></li>
+<li><p><strong>device</strong> – The device to put the tensors on. None for pytorch default.</p></li>
+<li><p><strong>dtype</strong> – The data type to use for the zonotopes. None for pytorch default.</p></li>
+<li><p><strong>itype</strong> – The index type to use for the zonotopes. None for pytorch default.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.__init__" title="zonopyrobots.SE3ZonoRobot.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([urdf, name, se3_prefix, ...])</p></td>
+<td><p>Create a new SE(3) robot with the provided URDF</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.copy" title="zonopyrobots.SE3ZonoRobot.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>([name, device, dtype, itype])</p></td>
+<td><p>Create a deep copy of the robot by copying all data while respecting overlapping memory</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.load" title="zonopyrobots.SE3ZonoRobot.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>([urdf, name, se3_prefix, origin_pos, ...])</p></td>
+<td><p>Load a robot from a URDF file or URDF object</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.numpy" title="zonopyrobots.SE3ZonoRobot.numpy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy</span></code></a>()</p></td>
+<td><p>Convert and return a numpy version of the object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.to" title="zonopyrobots.SE3ZonoRobot.to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to</span></code></a>([device, inplace])</p></td>
+<td><p>Convert and return a torch version of the object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.update_origin" title="zonopyrobots.SE3ZonoRobot.update_origin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_origin</span></code></a>([origin_pos, origin_rot])</p></td>
+<td><p>Update the origin position and rotation of the robot</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Attributes</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.fixed_urdf" title="zonopyrobots.SE3ZonoRobot.fixed_urdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fixed_urdf</span></code></a></p></td>
+<td><p>The URDF with all joints set to fixed</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.original_urdf" title="zonopyrobots.SE3ZonoRobot.original_urdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">original_urdf</span></code></a></p></td>
+<td><p>The original URDF provided</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.device" title="zonopyrobots.SE3ZonoRobot.device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code></a></p></td>
+<td><p>The device the primary data is on.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.dof" title="zonopyrobots.SE3ZonoRobot.dof"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dof</span></code></a></p></td>
+<td><p>The degrees of freedom of the robot</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.dtype" title="zonopyrobots.SE3ZonoRobot.dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype</span></code></a></p></td>
+<td><p>The pytorch or numpy dtype of the class</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.itype" title="zonopyrobots.SE3ZonoRobot.itype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">itype</span></code></a></p></td>
+<td><p>The pytorch or numpy integer dtype of the class</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.name" title="zonopyrobots.SE3ZonoRobot.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a></p></td>
+<td><p>The name of the robot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.np" title="zonopyrobots.SE3ZonoRobot.np"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np</span></code></a></p></td>
+<td><p>A numpy version of the object</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.origin_pos" title="zonopyrobots.SE3ZonoRobot.origin_pos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">origin_pos</span></code></a></p></td>
+<td><p>The origin position of the robot in the world frame</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.origin_rot" title="zonopyrobots.SE3ZonoRobot.origin_rot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">origin_rot</span></code></a></p></td>
+<td><p>The origin rotation of the robot in the world frame as a 3x3 rotation matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.tensor" title="zonopyrobots.SE3ZonoRobot.tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tensor</span></code></a></p></td>
+<td><p>A CPU torch version of the object</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#zonopyrobots.SE3ZonoRobot.urdf" title="zonopyrobots.SE3ZonoRobot.urdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">urdf</span></code></a></p></td>
+<td><p>The URDF object for the robot with the SE(3) base</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch_device</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">np_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">np_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.copy" title="Permalink to this definition">#</a></dt>
+<dd><p>Create a deep copy of the robot by copying all data while respecting overlapping memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name of the robot. None to keep the same name.</p></li>
+<li><p><strong>device</strong> – The device to put the tensors on. None to keep the same device.</p></li>
+<li><p><strong>dtype</strong> – The data type to use for the zonotopes. None to keep the same dtype.</p></li>
+<li><p><strong>itype</strong> – The index type to use for the zonotopes. None to keep the same itype.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.device">
+<span class="sig-name descname"><span class="pre">device</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch_device</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.device" title="Permalink to this definition">#</a></dt>
+<dd><p>The device the primary data is on. None if numpy.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.dof">
+<span class="sig-name descname"><span class="pre">dof</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.dof" title="Permalink to this definition">#</a></dt>
+<dd><p>The degrees of freedom of the robot</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.dtype">
+<span class="sig-name descname"><span class="pre">dtype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">np_dtype</span></em><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.dtype" title="Permalink to this definition">#</a></dt>
+<dd><p>The pytorch or numpy dtype of the class</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.fixed_urdf">
+<span class="sig-name descname"><span class="pre">fixed_urdf</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">URDF</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.fixed_urdf" title="Permalink to this definition">#</a></dt>
+<dd><p>The URDF with all joints set to fixed</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.itype">
+<span class="sig-name descname"><span class="pre">itype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">np_dtype</span></em><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.itype" title="Permalink to this definition">#</a></dt>
+<dd><p>The pytorch or numpy integer dtype of the class</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.load">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">urdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">URDF</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">se3_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArrayLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_rot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArrayLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch_device</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">np_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">np_dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/zonopyrobots/robots/se3robot.html#SE3ZonoRobot.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.load" title="Permalink to this definition">#</a></dt>
+<dd><p>Load a robot from a URDF file or URDF object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>urdf</strong> – The URDF file or URDF object to load and lock. If not provided,
+a default SE(3) robot with no geometry is created.</p></li>
+<li><p><strong>name</strong> – The name of the robot. <code class="docutils literal notranslate"><span class="pre">&quot;se3_robot&quot;</span></code> is used if not specified.</p></li>
+<li><p><strong>se3_prefix</strong> – The prefix to use for the SE(3) base URDF. <code class="docutils literal notranslate"><span class="pre">&quot;se3_&quot;</span></code> is used
+if not specified.</p></li>
+<li><p><strong>origin_pos</strong> – The origin position of the robot in the world frame</p></li>
+<li><p><strong>origin_rot</strong> – The origin rotation of the robot in the world frame as a
+3x3 rotation matrix</p></li>
+<li><p><strong>device</strong> – The device to put the tensors on. None for pytorch default.</p></li>
+<li><p><strong>dtype</strong> – The data type to use for the zonotopes. None for pytorch default.</p></li>
+<li><p><strong>itype</strong> – The index type to use for the zonotopes. None for pytorch default.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.name" title="Permalink to this definition">#</a></dt>
+<dd><p>The name of the robot. The URDF name is used if not specified. If
+specified, the URDF name is overwritten.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.np">
+<span class="sig-name descname"><span class="pre">np</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Self</span></em><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.np" title="Permalink to this definition">#</a></dt>
+<dd><p>A numpy version of the object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.numpy">
+<span class="sig-name descname"><span class="pre">numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/zonopyrobots/robots/se3robot.html#SE3ZonoRobot.numpy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.numpy" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert and return a numpy version of the object. Does not copy underlying array data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A numpy version of the object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.origin_pos">
+<span class="sig-name descname"><span class="pre">origin_pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.origin_pos" title="Permalink to this definition">#</a></dt>
+<dd><p>The origin position of the robot in the world frame</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.origin_rot">
+<span class="sig-name descname"><span class="pre">origin_rot</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.origin_rot" title="Permalink to this definition">#</a></dt>
+<dd><p>The origin rotation of the robot in the world frame as a 3x3 rotation matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.original_urdf">
+<span class="sig-name descname"><span class="pre">original_urdf</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">URDF</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.original_urdf" title="Permalink to this definition">#</a></dt>
+<dd><p>The original URDF provided</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.tensor">
+<span class="sig-name descname"><span class="pre">tensor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Self</span></em><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.tensor" title="Permalink to this definition">#</a></dt>
+<dd><p>A CPU torch version of the object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.to">
+<span class="sig-name descname"><span class="pre">to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch_device</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/zonopyrobots/robots/se3robot.html#SE3ZonoRobot.to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.to" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert and return a torch version of the object. Does not copy data if device is the same.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> – The device to put the tensors on. None for pytorch default.</p></li>
+<li><p><strong>inplace</strong> – If true, update the current object in place. If false, return a new object.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A torch version of the object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.update_origin">
+<span class="sig-name descname"><span class="pre">update_origin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArrayLike</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_rot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArrayLike</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.update_origin" title="Permalink to this definition">#</a></dt>
+<dd><p>Update the origin position and rotation of the robot</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zonopyrobots.SE3ZonoRobot.urdf">
+<span class="sig-name descname"><span class="pre">urdf</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">URDF</span></em><a class="headerlink" href="#zonopyrobots.SE3ZonoRobot.urdf" title="Permalink to this definition">#</a></dt>
+<dd><p>The URDF object for the robot with the SE(3) base</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="zonopyrobots.SE2ZonoRobot.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">zonopyrobots.SE2ZonoRobot</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="zonopyrobots.ComposedZonoRobot.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">zonopyrobots.ComposedZonoRobot</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.__init__"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.copy"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.copy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.device"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.device</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.dof"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.dof</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.dtype"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.fixed_urdf"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.fixed_urdf</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.itype"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.itype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.load"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.name"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.np"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.np</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.numpy"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.numpy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.origin_pos"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.origin_pos</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.origin_rot"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.origin_rot</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.original_urdf"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.original_urdf</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.tensor"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.tensor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.to"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.to()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.update_origin"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.update_origin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zonopyrobots.SE3ZonoRobot.urdf"><code class="docutils literal notranslate"><span class="pre">SE3ZonoRobot.urdf</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ROAHM Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, ROAHM Lab.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

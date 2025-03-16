@@ -7,25 +7,27 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>zonopyrobots.robots.armrobot &#8212; zonopy-robots (development) v0.0.1-dev</title>
+    <title>zonopyrobots.robots.armrobot &#8212; zonopy-robots (development) v0.0.2-dev</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-
-  
-  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -35,12 +37,13 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=64fd42a1" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=3f868395"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=087e09ff"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
     <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -49,15 +52,17 @@
     <script src="../../../_static/design-tabs.js?v=36754332"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/zonopyrobots/robots/armrobot';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://roahmlab.github.io/zonopy-robots/versions.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
-        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
         </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.0.2-dev" />
   </head>
   
   
@@ -65,31 +70,16 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../search.html"
       method="get">
@@ -97,7 +87,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -105,10 +94,15 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -119,7 +113,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -134,6 +129,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../../index.html">
   
@@ -142,52 +139,56 @@
   
   
   
-    <p class="title logo__title">zonopy-robots (development) v0.0.1-dev</p>
+    <p class="title logo__title">zonopy-robots (development) v0.0.2-dev</p>
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../robots.html">Robots Module</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../robots.html">Robots Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.files.html">zonopyrobots.robots.files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.urdfs.html">zonopyrobots.robots.urdfs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.ZonoArmRobot.html">zonopyrobots.ZonoArmRobot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html">zonopyrobots.robots.armrobot.ZonoArmRobotLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html">zonopyrobots.robots.armrobot.ZonoArmRobotJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.SE2ZonoRobot.html">zonopyrobots.SE2ZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.SE3ZonoRobot.html">zonopyrobots.SE3ZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.ComposedZonoRobot.html">zonopyrobots.ComposedZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.BaseZonoRobot.html">zonopyrobots.BaseZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.make_urdf_fixed.html">zonopyrobots.robots.make_urdf_fixed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.robots.make_baselink_urdf.html">zonopyrobots.robots.make_baselink_urdf</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../trajectories.html">Common Trajectory Types</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../trajectories.html">Common Trajectory Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.trajectory.PiecewiseArmTrajectory.html">zonopyrobots.trajectory.PiecewiseArmTrajectory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.trajectory.BernsteinArmTrajectory.html">zonopyrobots.trajectory.BernsteinArmTrajectory</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../reachablesets.html">Reachable Sets</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../reachablesets.html">Reachable Sets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.JrsGenerator.html">zonopyrobots.JrsGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.OfflineJRS.html">zonopyrobots.OfflineJRS</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../kinematics.html">Kinematics Module</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../kinematics.html">Kinematics Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.kinematics.forward_kinematics.html">zonopyrobots.kinematics.forward_kinematics</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../dynamics.html">Dynamics Module</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../dynamics.html">Dynamics Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.dynamics.pzrnea.html">zonopyrobots.dynamics.pzrnea</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../utils.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../utils.html">Utility Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../generated/zonopyrobots.make_cfg_dict.html">zonopyrobots.make_cfg_dict</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -196,14 +197,19 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -212,7 +218,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -227,28 +233,24 @@
     <div class="header-article-items__end">
       
         <div class="header-article-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
         <div class="header-article-item">
 
@@ -286,24 +288,16 @@ document.write(`
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -330,13 +324,17 @@ document.write(`
                 <article class="bd-article">
                   
   <h1>Source code for zonopyrobots.robots.armrobot</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">urchin</span> <span class="kn">import</span> <span class="n">URDF</span><span class="p">,</span> <span class="n">xyz_rpy_to_matrix</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="kn">from</span> <span class="nn">urchin</span> <span class="kn">import</span> <span class="n">URDF</span><span class="p">,</span> <span class="n">xyz_rpy_to_matrix</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">trimesh</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">zonopy</span> <span class="k">as</span> <span class="nn">zp</span>
-<span class="kn">from</span> <span class="nn">zonopyrobots.robots.utils</span> <span class="kn">import</span> <span class="n">normal_vec_to_basis</span>
+<span class="kn">from</span> <span class="nn">zonopyrobots.robots.baserobot</span> <span class="kn">import</span> <span class="n">BaseZonoRobot</span>
+<span class="kn">from</span> <span class="nn">zonopyrobots.robots.utils</span> <span class="kn">import</span> <span class="n">normal_vec_to_basis</span><span class="p">,</span> <span class="n">resolve_device_type</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 
@@ -346,8 +344,14 @@ document.write(`
 <span class="n">INLINE_RATIO_CUTOFF</span> <span class="o">=</span> <span class="mf">1.5</span>
 <span class="n">DEBUG_VIZ</span> <span class="o">=</span> <span class="kc">False</span>
 
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Self</span>
+    <span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">device</span> <span class="k">as</span> <span class="n">torch_device</span><span class="p">,</span> <span class="n">dtype</span> <span class="k">as</span> <span class="n">torch_dtype</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">dtype</span> <span class="k">as</span> <span class="n">np_dtype</span>
+    <span class="kn">from</span> <span class="nn">numpy.typing</span> <span class="kn">import</span> <span class="n">ArrayLike</span>
 
-<div class="viewcode-block" id="ZonoArmRobot"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot">[docs]</a><span class="k">class</span> <span class="nc">ZonoArmRobot</span><span class="p">:</span>
+
+<div class="viewcode-block" id="ZonoArmRobot"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot">[docs]</a><span class="k">class</span> <span class="nc">ZonoArmRobot</span><span class="p">(</span><span class="n">BaseZonoRobot</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Arm Robot definition for use with zonopy</span>
 <span class="sd">    </span>
 <span class="sd">    This class is a wrapper around the URDF class from urchin. It also computes</span>
@@ -357,52 +361,9 @@ document.write(`
 <span class="sd">    bounding box of the link, the mass, center of mass, and inertia tensor.</span>
 <span class="sd">    This class also includes the joint occupancy for each joint. This helps</span>
 <span class="sd">    with later forward kinematic and occupancy computations.</span>
-<span class="sd">    </span>
-<span class="sd">    Attributes:</span>
-<span class="sd">        urdf: The urchin URDF object</span>
-<span class="sd">        dof: The number of actuated joints</span>
-<span class="sd">        np: A numpy version of the object</span>
-<span class="sd">        tensor: A torch version of the object</span>
-<span class="sd">        device: The device the primary data is on. None if numpy.</span>
-<span class="sd">        dtype: The pytorch or numpy dtype of the class</span>
-<span class="sd">        joint_axis: The axis of each actuated joint in a (dof, 3) array. These</span>
-<span class="sd">            are in topological order from the base to the end effector.</span>
-<span class="sd">        joint_origins: The origin of each actuated joint in a topologically</span>
-<span class="sd">            ordered (dof, 3) array.</span>
-<span class="sd">        joint_origins_all: The origin of each joint including fixed joints in a</span>
-<span class="sd">            topologically ordered (n_joints, 3) array.</span>
-<span class="sd">        actuated_mask: A mask of which joints are actuated in an (n_joints,)</span>
-<span class="sd">            array of booleans.</span>
-<span class="sd">        pos_lim: The position limits of each actuatedjoint in a (2, dof) array</span>
-<span class="sd">            where the first row is the lower limit and the second row is the</span>
-<span class="sd">            upper limit. Continuous joints have [-Inf, Inf].</span>
-<span class="sd">        vel_lim: The velocity limits of each actuated joint in a (dof,) array.</span>
-<span class="sd">        eff_lim: The effort limits of each actuated joint in a (dof,) array.</span>
-<span class="sd">        continuous_joints: The indices of the continuous joints in an</span>
-<span class="sd">            (n_continuous_joints,) array.</span>
-<span class="sd">        pos_lim_mask: A mask of which actuated joints have finite position</span>
-<span class="sd">            limits in an (n_joints,) array of booleans.</span>
-<span class="sd">        link_parent_joint: A map from each link to the parent joint. The base</span>
-<span class="sd">            link has a parent joint of None. This is a map from the link name</span>
-<span class="sd">            to the joint object.</span>
-<span class="sd">        link_child_joints: A map from each link to the child joints. This is a</span>
-<span class="sd">            map from the link name to a set of joint objects. The set is empty</span>
-<span class="sd">            if there are no child joints.</span>
-<span class="sd">        joint_data: A map from each joint to a ZonoArmRobotJoint object. This</span>
-<span class="sd">            is a map from the joint object to the ZonoArmRobotJoint object.</span>
-<span class="sd">        link_data: A map from each link to a ZonoArmRobotLink object. This is a</span>
-<span class="sd">            map from the link object to the ZonoArmRobotLink object.</span>
-<span class="sd">        is_single_chain: True if the robot is a single kinematic chain.</span>
-<span class="sd">        has_closed_loop: True if the robot has a closed loop in the kinematic</span>
-<span class="sd">            chain.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s1">&#39;urdf&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;dof&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;np&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;tensor&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;device&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;dtype&#39;</span><span class="p">,</span>
         <span class="s1">&#39;joint_axis&#39;</span><span class="p">,</span>
         <span class="s1">&#39;joint_origins&#39;</span><span class="p">,</span>
         <span class="s1">&#39;joint_origins_all&#39;</span><span class="p">,</span>
@@ -436,18 +397,194 @@ document.write(`
         <span class="s1">&#39;__eff_lim_np&#39;</span><span class="p">,</span>
         <span class="s1">&#39;__continuous_joints_np&#39;</span><span class="p">,</span>
         <span class="s1">&#39;__pos_lim_mask_np&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;__basetype&#39;</span>
         <span class="p">]</span>
     
-<div class="viewcode-block" id="ZonoArmRobot.__init__"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span></div>
+    <span class="n">joint_axis</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; The axis of each actuated joint in a (dof, 3) array. These are in</span>
+<span class="sd">    topological order from the base to the end effector. &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="ZonoArmRobot.load"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.load">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">robot</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">URDF</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">itype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">create_joint_occupancy</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">joint_origins</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; The origin of each actuated joint in a topologically ordered (dof, 3)</span>
+<span class="sd">    array. &quot;&quot;&quot;</span>
+
+    <span class="n">joint_origins_all</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; The origin of each joint including fixed joints in a topologically</span>
+<span class="sd">    ordered (n_joints, 3) array. &quot;&quot;&quot;</span>
+
+    <span class="n">actuated_mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; A mask of which joints are actuated in an (n_joints,) array of</span>
+<span class="sd">    booleans. &quot;&quot;&quot;</span>
+
+    <span class="n">pos_lim</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; The position limits of each actuatedjoint in a (2, dof) array where the</span>
+<span class="sd">    first row is the lower limit and the second row is the upper limit.</span>
+<span class="sd">    Continuous joints have [-Inf, Inf]. &quot;&quot;&quot;</span>
+
+    <span class="n">vel_lim</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; The velocity limits of each actuated joint in a (dof,) array. &quot;&quot;&quot;</span>
+
+    <span class="n">eff_lim</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; The effort limits of each actuated joint in a (dof,) array. &quot;&quot;&quot;</span>
+
+    <span class="n">continuous_joints</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; The indices of the continuous joints in an (n_continuous_joints,)</span>
+<span class="sd">    array. &quot;&quot;&quot;</span>
+
+    <span class="n">pos_lim_mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; A mask of which actuated joints have finite position limits in an</span>
+<span class="sd">    (n_joints,) array of booleans. &quot;&quot;&quot;</span>
+
+    <span class="n">link_parent_joint</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">URDF</span><span class="o">.</span><span class="n">Joint</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; A map from each link to the parent joint. The base link has a parent</span>
+<span class="sd">    joint of None. This is a map from the link name to the joint object. &quot;&quot;&quot;</span>
+
+    <span class="n">link_child_joints</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="n">URDF</span><span class="o">.</span><span class="n">Joint</span><span class="p">]]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; A map from each link to the child joints. This is a map from the link</span>
+<span class="sd">    name to a set of joint objects. The set is empty if there are no child</span>
+<span class="sd">    joints. &quot;&quot;&quot;</span>
+
+    <span class="n">joint_data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">URDF</span><span class="o">.</span><span class="n">Joint</span><span class="p">,</span> <span class="n">ZonoArmRobotJoint</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; A map from each joint to a ZonoArmRobotJoint object. This is a map from</span>
+<span class="sd">    the joint object to the ZonoArmRobotJoint object. &quot;&quot;&quot;</span>
+
+    <span class="n">link_data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">URDF</span><span class="o">.</span><span class="n">Link</span><span class="p">,</span> <span class="n">ZonoArmRobotLink</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; A map from each link to a ZonoArmRobotLink object. This is a map from</span>
+<span class="sd">    the link object to the ZonoArmRobotLink object. &quot;&quot;&quot;</span>
+
+    <span class="n">is_single_chain</span><span class="p">:</span> <span class="nb">bool</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; True if the robot is a single kinematic chain. &quot;&quot;&quot;</span>
+
+    <span class="n">has_closed_loop</span><span class="p">:</span> <span class="nb">bool</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; True if the robot has a closed loop in the kinematic chain. &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ZonoArmRobot.__init__"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">urdf</span><span class="p">:</span> <span class="n">URDF</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">origin_pos</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">origin_rot</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">device</span><span class="p">:</span> <span class="n">torch_device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">itype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">create_joint_occupancy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Load a robot from a URDF file or URDF object </span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
 <span class="sd">            robot: The URDF file or URDF object to load</span>
+<span class="sd">            name: The name of the robot. The URDF name is used if not specified. If</span>
+<span class="sd">                specified, the URDF name is overwritten.</span>
+<span class="sd">            origin_pos: The origin position of the robot in the world frame</span>
+<span class="sd">            origin_rot: The origin rotation of the robot in the world frame as a</span>
+<span class="sd">                3x3 rotation matrix</span>
+<span class="sd">            device: The device to put the tensors on. None for pytorch default.</span>
+<span class="sd">            dtype: The data type to use for the zonotopes. None for pytorch default.</span>
+<span class="sd">            itype: The index type to use for the zonotopes. None for pytorch default.</span>
+<span class="sd">            create_joint_occupancy: If true, create the joint occupancy zonotopes</span>
+<span class="sd">                for each joint. This is useful for later occupancy computations.</span>
+<span class="sd">                If false, those values are not populated.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">urdf</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">origin_pos</span><span class="p">,</span> <span class="n">origin_rot</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">itype</span><span class="p">)</span>
+
+        <span class="n">device_dtypes</span> <span class="o">=</span> <span class="n">resolve_device_type</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">itype</span><span class="p">)</span>
+
+        <span class="c1"># robot._G is from end effector to base</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_single_chain</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_branching</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">urdf</span><span class="o">.</span><span class="n">_G</span><span class="p">)</span>
+        <span class="c1"># Compute extra data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setup_robot_actuated_joint_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">urdf</span><span class="p">,</span> <span class="n">device_dtypes</span><span class="o">.</span><span class="n">np_dtype</span><span class="p">,</span> <span class="n">device_dtypes</span><span class="o">.</span><span class="n">np_itype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setup_robot_joint_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">urdf</span><span class="p">,</span> <span class="n">device_dtypes</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">create_joint_occupancy</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setup_robot_link_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">urdf</span><span class="p">,</span> <span class="n">device_dtypes</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+        <span class="c1"># Assign aliases</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">np</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ZonoArmRobot.copy"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">device</span><span class="p">:</span> <span class="n">torch_device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">itype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+        <span class="c1"># Call the base copy</span>
+        <span class="k">if</span> <span class="n">device</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span>
+        <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="k">if</span> <span class="n">itype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">itype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">itype</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">itype</span><span class="p">)</span>
+        <span class="n">device_dtypes</span> <span class="o">=</span> <span class="n">resolve_device_type</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">itype</span><span class="p">)</span>
+
+        <span class="c1"># Copy the additional data</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__actuated_mask_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__actuated_mask_np</span><span class="p">)</span> <span class="c1"># bool</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__joint_axis_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joint_axis_np</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">np_dtype</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__joint_origins_all_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins_all_np</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">np_dtype</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__joint_origins_np</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">__joint_origins_all_np</span><span class="p">[</span><span class="n">ret</span><span class="o">.</span><span class="n">__actuated_mask_np</span><span class="p">]</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__pos_lim_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim_np</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">np_dtype</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__vel_lim_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__vel_lim_np</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">np_dtype</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__eff_lim_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__eff_lim_np</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">np_dtype</span><span class="p">)</span> <span class="c1"># Unused for now</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__continuous_joints_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__continuous_joints_np</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">np_itype</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__pos_lim_mask_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim_mask_np</span><span class="p">)</span> <span class="c1"># bool</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__actuated_mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">__actuated_mask_np</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__joint_axis</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">__joint_axis_np</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__joint_origins</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">__joint_origins_np</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__joint_origins_all</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">__joint_origins_all_np</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__pos_lim</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">__pos_lim_np</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__vel_lim</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">__vel_lim_np</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__eff_lim</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">__eff_lim_np</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__continuous_joints</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">__continuous_joints_np</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">__pos_lim_mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">__pos_lim_mask_np</span><span class="p">)</span>
+
+        <span class="c1"># Recreate the joint and link data</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">_setup_robot_joint_data</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">urdf</span><span class="p">,</span> <span class="n">device_dtypes</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">_setup_robot_link_data</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">urdf</span><span class="p">,</span> <span class="n">device_dtypes</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+        <span class="c1"># Manually copy joint occupancy data as needed</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">joint</span><span class="o">.</span><span class="n">_joint_occupancy</span> <span class="k">for</span> <span class="n">joint</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_data</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+            <span class="k">for</span> <span class="n">joint</span><span class="p">,</span> <span class="n">joint_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="c1"># get the right joint</span>
+                <span class="n">ret_urdf_joint</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">urdf</span><span class="o">.</span><span class="n">_joint_map</span><span class="p">[</span><span class="n">joint</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+                <span class="c1"># apply the data</span>
+                <span class="n">ret_joint_data</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">joint_data</span><span class="p">[</span><span class="n">ret_urdf_joint</span><span class="p">]</span>
+                <span class="n">ret_joint_data</span><span class="o">.</span><span class="n">_joint_occupancy</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">ret_joint_data</span><span class="o">.</span><span class="n">_radius</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">joint_data</span><span class="o">.</span><span class="n">_radius_np</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+                <span class="n">ret_joint_data</span><span class="o">.</span><span class="n">_aabb</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">joint_data</span><span class="o">.</span><span class="n">_aabb_np</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+                <span class="n">ret_joint_data</span><span class="o">.</span><span class="n">_radius_np</span> <span class="o">=</span> <span class="n">ret_joint_data</span><span class="o">.</span><span class="n">_radius</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+                <span class="n">ret_joint_data</span><span class="o">.</span><span class="n">_aabb_np</span> <span class="o">=</span> <span class="n">ret_joint_data</span><span class="o">.</span><span class="n">_aabb</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+                <span class="n">ret_joint_data</span><span class="o">.</span><span class="n">_outer_pz</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">joint_data</span><span class="o">.</span><span class="n">_outer_pz</span><span class="p">)</span>
+                <span class="n">ret_joint_data</span><span class="o">.</span><span class="n">_bounding_pz</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">joint_data</span><span class="o">.</span><span class="n">_bounding_pz</span><span class="p">)</span>
+                <span class="c1"># update the np and tensor versions</span>
+                <span class="n">ret_joint_data</span><span class="o">.</span><span class="n">np</span> <span class="o">=</span> <span class="n">ret_joint_data</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+                <span class="n">ret_joint_data</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="n">ret_joint_data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+
+        <span class="c1"># update aliases, create the np and tensor versions</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">np</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device_dtypes</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span></div>
+
+<div class="viewcode-block" id="ZonoArmRobot.load"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.load">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span>
+            <span class="n">robot</span><span class="p">:</span> <span class="n">URDF</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">origin_pos</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">origin_rot</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">device</span><span class="p">:</span> <span class="n">torch_device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">itype</span><span class="p">:</span> <span class="n">torch_dtype</span> <span class="o">|</span> <span class="n">np_dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">create_joint_occupancy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Load a robot from a URDF file or URDF object </span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            robot: The URDF file or URDF object to load</span>
+<span class="sd">            name: The name of the robot. The URDF name is used if not specified. If</span>
+<span class="sd">                specified, the URDF name is overwritten.</span>
+<span class="sd">            origin_pos: The origin position of the robot in the world frame</span>
+<span class="sd">            origin_rot: The origin rotation of the robot in the world frame as a</span>
+<span class="sd">                3x3 rotation matrix</span>
 <span class="sd">            device: The device to put the tensors on. None for pytorch default.</span>
 <span class="sd">            dtype: The data type to use for the zonotopes. None for pytorch default.</span>
 <span class="sd">            itype: The index type to use for the zonotopes. None for pytorch default.</span>
@@ -458,41 +595,22 @@ document.write(`
 <span class="sd">        Returns:</span>
 <span class="sd">            A ZonoArmRobot object</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Resolve the dtype and device to use</span>
-        <span class="n">temp_device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">device</span> <span class="o">=</span> <span class="n">temp_device</span><span class="o">.</span><span class="n">device</span>
-        <span class="n">temp_dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-        <span class="n">dtype</span> <span class="o">=</span> <span class="n">temp_dtype</span><span class="o">.</span><span class="n">dtype</span>
-        <span class="n">np_dtype</span> <span class="o">=</span> <span class="n">temp_dtype</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">dtype</span>
-        <span class="k">if</span> <span class="n">itype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">temp_itype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">temp_itype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
-        <span class="n">itype</span> <span class="o">=</span> <span class="n">temp_itype</span><span class="o">.</span><span class="n">dtype</span>
-        <span class="n">np_itype</span> <span class="o">=</span> <span class="n">temp_itype</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">dtype</span>
-        
-        <span class="c1"># Prepare the robot</span>
-        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">robot</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
-            <span class="n">robot</span> <span class="o">=</span> <span class="n">URDF</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">robot</span><span class="p">)</span>
-        <span class="n">constructed</span> <span class="o">=</span> <span class="n">ZonoArmRobot</span><span class="p">()</span>
-        <span class="n">constructed</span><span class="o">.</span><span class="n">urdf</span> <span class="o">=</span> <span class="n">robot</span>
-        <span class="n">constructed</span><span class="o">.</span><span class="n">dof</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">robot</span><span class="o">.</span><span class="n">actuated_joints</span><span class="p">)</span>
-        <span class="c1"># robot._G is from end effector to base</span>
-        <span class="n">constructed</span><span class="o">.</span><span class="n">is_single_chain</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_branching</span><span class="p">(</span><span class="n">robot</span><span class="o">.</span><span class="n">_G</span><span class="p">)</span>
-        <span class="n">constructed</span><span class="o">.</span><span class="n">_setup_robot_actuated_joint_data</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">np_dtype</span><span class="p">,</span> <span class="n">np_itype</span><span class="p">)</span>
-        <span class="n">constructed</span><span class="o">.</span><span class="n">_setup_robot_joint_data</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">create_joint_occupancy</span><span class="p">)</span>
-        <span class="n">constructed</span><span class="o">.</span><span class="n">_setup_robot_link_data</span><span class="p">(</span><span class="n">robot</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
-        <span class="n">constructed</span><span class="o">.</span><span class="n">__basetype</span> <span class="o">=</span> <span class="n">temp_dtype</span>
-        <span class="n">constructed</span><span class="o">.</span><span class="n">np</span> <span class="o">=</span> <span class="n">constructed</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-        <span class="n">constructed</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="n">constructed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
-        <span class="n">constructed</span> <span class="o">=</span> <span class="n">constructed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">constructed</span></div>
+        <span class="k">return</span> <span class="n">ZonoArmRobot</span><span class="p">(</span>
+            <span class="n">robot</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">origin_pos</span><span class="o">=</span><span class="n">origin_pos</span><span class="p">,</span>
+            <span class="n">origin_rot</span><span class="o">=</span><span class="n">origin_rot</span><span class="p">,</span>
+            <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+            <span class="n">itype</span><span class="o">=</span><span class="n">itype</span><span class="p">,</span>
+            <span class="n">create_joint_occupancy</span><span class="o">=</span><span class="n">create_joint_occupancy</span><span class="p">,</span>
+        <span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_setup_robot_actuated_joint_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">robot</span><span class="p">,</span> <span class="n">np_dtype</span><span class="p">,</span> <span class="n">np_itype</span><span class="p">):</span>
         <span class="n">continuous_joints</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">pos_lim</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">]]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dof</span>
-        <span class="n">vel_lim</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dof</span>
-        <span class="n">eff_lim</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dof</span>
+        <span class="n">pos_lim</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dof</span>
+        <span class="n">vel_lim</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dof</span>
+        <span class="n">eff_lim</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dof</span>
         <span class="n">joint_axis</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">joint_origins</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">actuated_idxs</span> <span class="o">=</span> <span class="p">[]</span>
@@ -619,9 +737,8 @@ document.write(`
             <span class="bp">self</span><span class="o">.</span><span class="n">link_data</span><span class="p">[</span><span class="n">link</span><span class="p">]</span> <span class="o">=</span> <span class="n">single_link_data</span>
 
 <div class="viewcode-block" id="ZonoArmRobot.numpy"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.numpy">[docs]</a>    <span class="k">def</span> <span class="nf">numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Convert and return a numpy version of the object. Does not copy data. &quot;&quot;&quot;</span>
         <span class="c1"># create a shallow copy of self</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
         <span class="c1"># update references to all the properties we care about</span>
         <span class="n">ret</span><span class="o">.</span><span class="n">joint_axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_axis_np</span>
         <span class="n">ret</span><span class="o">.</span><span class="n">joint_origins</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins_np</span>
@@ -636,16 +753,10 @@ document.write(`
         <span class="c1"># update joint and link data</span>
         <span class="n">ret</span><span class="o">.</span><span class="n">joint_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
         <span class="n">ret</span><span class="o">.</span><span class="n">link_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">link_data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-
-        <span class="c1"># save the device parameter</span>
-        <span class="n">ret</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">ret</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__basetype</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">dtype</span>
         <span class="k">return</span> <span class="n">ret</span></div>
     
-<div class="viewcode-block" id="ZonoArmRobot.to"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.to">[docs]</a>    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Convert and return a torch version of the object. Does not copy data. &quot;&quot;&quot;</span>
-        <span class="c1"># create a shallow copy of self</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<div class="viewcode-block" id="ZonoArmRobot.to"><a class="viewcode-back" href="../../../generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.to">[docs]</a>    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span><span class="p">)</span>
         <span class="c1"># update references to all the properties we care about</span>
         <span class="n">ret</span><span class="o">.</span><span class="n">joint_axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_axis</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
         <span class="n">ret</span><span class="o">.</span><span class="n">joint_origins</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__joint_origins</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
@@ -658,12 +769,8 @@ document.write(`
         <span class="n">ret</span><span class="o">.</span><span class="n">pos_lim_mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pos_lim_mask</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 
         <span class="c1"># update joint and link data</span>
-        <span class="n">ret</span><span class="o">.</span><span class="n">joint_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-        <span class="n">ret</span><span class="o">.</span><span class="n">link_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">link_data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-
-        <span class="c1"># save the device parameter</span>
-        <span class="n">ret</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
-        <span class="n">ret</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__basetype</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">joint_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">joint_data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">ret</span><span class="o">.</span><span class="n">link_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">link_data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
         <span class="k">return</span> <span class="n">ret</span></div></div>
 
 
@@ -738,10 +845,13 @@ document.write(`
         <span class="n">ret</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">return</span> <span class="n">ret</span></div>
 
-<div class="viewcode-block" id="ZonoArmRobotJoint.to"><a class="viewcode-back" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.ZonoArmRobotJoint.to">[docs]</a>    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="ZonoArmRobotJoint.to"><a class="viewcode-back" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.ZonoArmRobotJoint.to">[docs]</a>    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Convert and return a torch version of the object. Does not copy data. &quot;&quot;&quot;</span>
-        <span class="c1"># create a shallow copy of self</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># create a shallow copy of self</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="c1"># update references to all the properties we care about</span>
         <span class="n">ret</span><span class="o">.</span><span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axis</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
         <span class="n">ret</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_origin</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
@@ -811,10 +921,13 @@ document.write(`
         <span class="n">ret</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">return</span> <span class="n">ret</span></div>
 
-<div class="viewcode-block" id="ZonoArmRobotLink.to"><a class="viewcode-back" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.ZonoArmRobotLink.to">[docs]</a>    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="ZonoArmRobotLink.to"><a class="viewcode-back" href="../../../generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.ZonoArmRobotLink.to">[docs]</a>    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Convert and return a torch version of the object. Does not copy data. &quot;&quot;&quot;</span>
-        <span class="c1"># create a shallow copy of self</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># create a shallow copy of self</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="c1"># update references to all the properties we care about</span>
         <span class="n">ret</span><span class="o">.</span><span class="n">bounding_pz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bounding_pz</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
         <span class="n">ret</span><span class="o">.</span><span class="n">mass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mass</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
@@ -1016,7 +1129,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
 </div>
@@ -1025,8 +1138,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
@@ -1071,8 +1182,8 @@ By ROAHM Lab
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

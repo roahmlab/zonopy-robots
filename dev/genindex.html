@@ -7,25 +7,27 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; zonopy-robots (development) v0.0.1-dev</title>
+    <title>Index &#8212; zonopy-robots (development) v0.0.2-dev</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -35,12 +37,13 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=64fd42a1" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=3f868395"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=087e09ff"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -49,15 +52,17 @@
     <script src="_static/design-tabs.js?v=36754332"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://roahmlab.github.io/zonopy-robots/versions.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
-        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
         </script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.0.2-dev" />
   </head>
   
   
@@ -65,31 +70,16 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -97,7 +87,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -105,10 +94,15 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -119,7 +113,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -134,6 +129,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="index.html">
   
@@ -142,52 +139,56 @@
   
   
   
-    <p class="title logo__title">zonopy-robots (development) v0.0.1-dev</p>
+    <p class="title logo__title">zonopy-robots (development) v0.0.2-dev</p>
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="robots.html">Robots Module</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="robots.html">Robots Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.robots.files.html">zonopyrobots.robots.files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.robots.urdfs.html">zonopyrobots.robots.urdfs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.ZonoArmRobot.html">zonopyrobots.ZonoArmRobot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html">zonopyrobots.robots.armrobot.ZonoArmRobotLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html">zonopyrobots.robots.armrobot.ZonoArmRobotJoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.SE2ZonoRobot.html">zonopyrobots.SE2ZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.SE3ZonoRobot.html">zonopyrobots.SE3ZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.ComposedZonoRobot.html">zonopyrobots.ComposedZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.BaseZonoRobot.html">zonopyrobots.BaseZonoRobot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.robots.make_urdf_fixed.html">zonopyrobots.robots.make_urdf_fixed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.robots.make_baselink_urdf.html">zonopyrobots.robots.make_baselink_urdf</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="trajectories.html">Common Trajectory Types</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="trajectories.html">Common Trajectory Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.trajectory.PiecewiseArmTrajectory.html">zonopyrobots.trajectory.PiecewiseArmTrajectory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.trajectory.BernsteinArmTrajectory.html">zonopyrobots.trajectory.BernsteinArmTrajectory</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="reachablesets.html">Reachable Sets</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="reachablesets.html">Reachable Sets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.JrsGenerator.html">zonopyrobots.JrsGenerator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.OfflineJRS.html">zonopyrobots.OfflineJRS</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">Kinematics Module</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">Kinematics Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.kinematics.forward_kinematics.html">zonopyrobots.kinematics.forward_kinematics</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dynamics.html">Dynamics Module</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dynamics.html">Dynamics Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.dynamics.pzrnea.html">zonopyrobots.dynamics.pzrnea</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="utils.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="utils.html">Utility Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="generated/zonopyrobots.make_cfg_dict.html">zonopyrobots.make_cfg_dict</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -196,14 +197,19 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -212,7 +218,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -227,28 +233,24 @@
     <div class="header-article-items__end">
       
         <div class="header-article-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
   </div>
-`);
-</script></div>
+</div></div>
       
         <div class="header-article-item">
 
@@ -286,24 +288,16 @@ document.write(`
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -344,12 +338,14 @@ document.write(`
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#J"><strong>J</strong></a>
+ | <a href="#K"><strong>K</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
@@ -359,14 +355,26 @@ document.write(`
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.JrsGenerator.html#zonopyrobots.JrsGenerator.__init__">__init__() (zonopyrobots.JrsGenerator method)</a>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.__init__">__init__() (zonopyrobots.BaseZonoRobot method)</a>
 
       <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.__init__">(zonopyrobots.ComposedZonoRobot method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.JrsGenerator.html#zonopyrobots.JrsGenerator.__init__">(zonopyrobots.JrsGenerator method)</a>
+</li>
         <li><a href="generated/zonopyrobots.OfflineJRS.html#zonopyrobots.OfflineJRS.__init__">(zonopyrobots.OfflineJRS method)</a>
 </li>
         <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.__init__">(zonopyrobots.robots.armrobot.ZonoArmRobotJoint method)</a>
 </li>
         <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.robots.armrobot.ZonoArmRobotLink.__init__">(zonopyrobots.robots.armrobot.ZonoArmRobotLink method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.robots.files.html#zonopyrobots.robots.files.__init__">(zonopyrobots.robots.files method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.robots.urdfs.html#zonopyrobots.robots.urdfs.__init__">(zonopyrobots.robots.urdfs method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.__init__">(zonopyrobots.SE2ZonoRobot method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.__init__">(zonopyrobots.SE3ZonoRobot method)</a>
 </li>
         <li><a href="generated/zonopyrobots.trajectory.BernsteinArmTrajectory.html#zonopyrobots.trajectory.BernsteinArmTrajectory.__init__">(zonopyrobots.trajectory.BernsteinArmTrajectory method)</a>
 </li>
@@ -383,9 +391,11 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#id0">aabb (zonopyrobots.robots.armrobot.ZonoArmRobotJoint attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.aabb">[1]</a>
 </li>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.actuated_mask">actuated_mask (zonopyrobots.ZonoArmRobot attribute)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id0">actuated_mask (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.actuated_mask">[1]</a>
+      <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.add_robot">add_robot() (zonopyrobots.ComposedZonoRobot method)</a>
 </li>
       <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#id1">axis (zonopyrobots.robots.armrobot.ZonoArmRobotJoint attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.axis">[1]</a>
 </li>
@@ -395,10 +405,14 @@ document.write(`
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.trajectory.BernsteinArmTrajectory.html#zonopyrobots.trajectory.BernsteinArmTrajectory">BernsteinArmTrajectory (class in zonopyrobots.trajectory)</a>
+      <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.base_robot">base_robot (zonopyrobots.ComposedZonoRobot attribute)</a>
+</li>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot">BaseZonoRobot (class in zonopyrobots)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/zonopyrobots.trajectory.BernsteinArmTrajectory.html#zonopyrobots.trajectory.BernsteinArmTrajectory">BernsteinArmTrajectory (class in zonopyrobots.trajectory)</a>
+</li>
       <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#id2">bounding_pz (zonopyrobots.robots.armrobot.ZonoArmRobotJoint attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.bounding_pz">[1]</a>
 
       <ul>
@@ -413,34 +427,72 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#id1">center_mass (zonopyrobots.robots.armrobot.ZonoArmRobotLink attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.robots.armrobot.ZonoArmRobotLink.center_mass">[1]</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id1">continuous_joints (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.continuous_joints">[1]</a>
+      <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot">ComposedZonoRobot (class in zonopyrobots)</a>
 </li>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.continuous_joints">continuous_joints (zonopyrobots.ZonoArmRobot attribute)</a>
+</li>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.copy">copy() (zonopyrobots.BaseZonoRobot method)</a>
+
+      <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.copy">(zonopyrobots.ComposedZonoRobot method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.copy">(zonopyrobots.SE2ZonoRobot method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.copy">(zonopyrobots.SE3ZonoRobot method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.copy">(zonopyrobots.ZonoArmRobot method)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.JrsGenerator.html#zonopyrobots.JrsGenerator.device">device (zonopyrobots.JrsGenerator property)</a>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.device">device (zonopyrobots.BaseZonoRobot attribute)</a>
 
       <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.device">(zonopyrobots.ComposedZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.JrsGenerator.html#zonopyrobots.JrsGenerator.device">(zonopyrobots.JrsGenerator property)</a>
+</li>
         <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#id3">(zonopyrobots.robots.armrobot.ZonoArmRobotJoint attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.device">[1]</a>
 </li>
         <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#id2">(zonopyrobots.robots.armrobot.ZonoArmRobotLink attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.robots.armrobot.ZonoArmRobotLink.device">[1]</a>
 </li>
-        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id2">(zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.device">[1]</a>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.device">(zonopyrobots.SE2ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.device">(zonopyrobots.SE3ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.device">(zonopyrobots.ZonoArmRobot attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.dof">dof (zonopyrobots.BaseZonoRobot attribute)</a>
+
+      <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.dof">(zonopyrobots.ComposedZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.dof">(zonopyrobots.SE2ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.dof">(zonopyrobots.SE3ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.dof">(zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id3">dof (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.dof">[1]</a>
-</li>
-      <li><a href="generated/zonopyrobots.JrsGenerator.html#zonopyrobots.JrsGenerator.dtype">dtype (zonopyrobots.JrsGenerator property)</a>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.dtype">dtype (zonopyrobots.BaseZonoRobot attribute)</a>
 
       <ul>
-        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id4">(zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.dtype">[1]</a>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.dtype">(zonopyrobots.ComposedZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.JrsGenerator.html#zonopyrobots.JrsGenerator.dtype">(zonopyrobots.JrsGenerator property)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.dtype">(zonopyrobots.SE2ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.dtype">(zonopyrobots.SE3ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.dtype">(zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -449,13 +501,23 @@ document.write(`
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id5">eff_lim (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.eff_lim">[1]</a>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.eff_lim">eff_lim (zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
   </ul></td>
 </tr></table>
 
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/zonopyrobots.robots.files.html#zonopyrobots.robots.files">files (class in zonopyrobots.robots)</a>
+</li>
+      <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.fixed_urdf">fixed_urdf (zonopyrobots.SE2ZonoRobot attribute)</a>
+
+      <ul>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.fixed_urdf">(zonopyrobots.SE3ZonoRobot attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/zonopyrobots.kinematics.forward_kinematics.html#zonopyrobots.kinematics.forward_kinematics">forward_kinematics() (in module zonopyrobots.kinematics)</a>
 </li>
@@ -481,7 +543,7 @@ document.write(`
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id6">has_closed_loop (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.has_closed_loop">[1]</a>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.has_closed_loop">has_closed_loop (zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -495,29 +557,49 @@ document.write(`
         <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#id4">(zonopyrobots.robots.armrobot.ZonoArmRobotJoint property)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#id3">inertia (zonopyrobots.robots.armrobot.ZonoArmRobotLink attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.robots.armrobot.ZonoArmRobotLink.inertia">[1]</a>
 </li>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id7">is_single_chain (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.is_single_chain">[1]</a>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.is_single_chain">is_single_chain (zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.itype">itype (zonopyrobots.BaseZonoRobot attribute)</a>
+
+      <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.itype">(zonopyrobots.ComposedZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.itype">(zonopyrobots.SE2ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.itype">(zonopyrobots.SE3ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.itype">(zonopyrobots.ZonoArmRobot attribute)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="J">J</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id8">joint_axis (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.joint_axis">[1]</a>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.joint_axis">joint_axis (zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id9">joint_data (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.joint_data">[1]</a>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.joint_data">joint_data (zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id10">joint_origins (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.joint_origins">[1]</a>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.joint_origins">joint_origins (zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id11">joint_origins_all (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.joint_origins_all">[1]</a>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.joint_origins_all">joint_origins_all (zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
       <li><a href="generated/zonopyrobots.JrsGenerator.html#zonopyrobots.JrsGenerator">JrsGenerator (class in zonopyrobots)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/zonopyrobots.robots.files.html#zonopyrobots.robots.files.KinovaGen3">KinovaGen3 (zonopyrobots.robots.files attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -525,28 +607,40 @@ document.write(`
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id12">link_child_joints (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.link_child_joints">[1]</a>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.link_child_joints">link_child_joints (zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id13">link_data (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.link_data">[1]</a>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.link_data">link_data (zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id14">link_parent_joint (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.link_parent_joint">[1]</a>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.link_parent_joint">link_parent_joint (zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.load">load() (zonopyrobots.ZonoArmRobot static method)</a>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.load">load() (zonopyrobots.BaseZonoRobot static method)</a>
+
+      <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.load">(zonopyrobots.ComposedZonoRobot static method)</a>
 </li>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.load">(zonopyrobots.SE2ZonoRobot static method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.load">(zonopyrobots.SE3ZonoRobot static method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.load">(zonopyrobots.ZonoArmRobot static method)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/zonopyrobots.robots.make_baselink_urdf.html#zonopyrobots.robots.make_baselink_urdf">make_baselink_urdf() (in module zonopyrobots.robots)</a>
+</li>
       <li><a href="generated/zonopyrobots.make_cfg_dict.html#zonopyrobots.make_cfg_dict">make_cfg_dict() (in module zonopyrobots)</a>
 </li>
-      <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#id4">mass (zonopyrobots.robots.armrobot.ZonoArmRobotLink attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.robots.armrobot.ZonoArmRobotLink.mass">[1]</a>
+      <li><a href="generated/zonopyrobots.robots.make_urdf_fixed.html#zonopyrobots.robots.make_urdf_fixed">make_urdf_fixed() (in module zonopyrobots.robots)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#id4">mass (zonopyrobots.robots.armrobot.ZonoArmRobotLink attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.robots.armrobot.ZonoArmRobotLink.mass">[1]</a>
+</li>
       <li>
     module
 
@@ -560,20 +654,48 @@ document.write(`
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#id5">np (zonopyrobots.robots.armrobot.ZonoArmRobotJoint attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.np">[1]</a>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.name">name (zonopyrobots.BaseZonoRobot property)</a>
 
       <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.name">(zonopyrobots.ComposedZonoRobot property)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.name">(zonopyrobots.SE2ZonoRobot property)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.name">(zonopyrobots.SE3ZonoRobot property)</a>
+</li>
+        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.name">(zonopyrobots.ZonoArmRobot property)</a>
+</li>
+      </ul></li>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.np">np (zonopyrobots.BaseZonoRobot attribute)</a>
+
+      <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.np">(zonopyrobots.ComposedZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#id5">(zonopyrobots.robots.armrobot.ZonoArmRobotJoint attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.np">[1]</a>
+</li>
         <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#id5">(zonopyrobots.robots.armrobot.ZonoArmRobotLink attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.robots.armrobot.ZonoArmRobotLink.np">[1]</a>
 </li>
-        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id15">(zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.np">[1]</a>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.np">(zonopyrobots.SE2ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.np">(zonopyrobots.SE3ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.np">(zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.numpy">numpy() (zonopyrobots.robots.armrobot.ZonoArmRobotJoint method)</a>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.numpy">numpy() (zonopyrobots.BaseZonoRobot method)</a>
 
       <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.numpy">(zonopyrobots.ComposedZonoRobot method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.numpy">(zonopyrobots.robots.armrobot.ZonoArmRobotJoint method)</a>
+</li>
         <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.robots.armrobot.ZonoArmRobotLink.numpy">(zonopyrobots.robots.armrobot.ZonoArmRobotLink method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.numpy">(zonopyrobots.SE2ZonoRobot method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.numpy">(zonopyrobots.SE3ZonoRobot method)</a>
 </li>
         <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.numpy">(zonopyrobots.ZonoArmRobot method)</a>
 </li>
@@ -586,10 +708,40 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/zonopyrobots.OfflineJRS.html#zonopyrobots.OfflineJRS">OfflineJRS (class in zonopyrobots)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#id6">origin (zonopyrobots.robots.armrobot.ZonoArmRobotJoint attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.origin">[1]</a>
 </li>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.origin_pos">origin_pos (zonopyrobots.BaseZonoRobot attribute)</a>
+
+      <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.origin_pos">(zonopyrobots.ComposedZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.origin_pos">(zonopyrobots.SE2ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.origin_pos">(zonopyrobots.SE3ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.origin_pos">(zonopyrobots.ZonoArmRobot attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.origin_rot">origin_rot (zonopyrobots.BaseZonoRobot attribute)</a>
+
+      <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.origin_rot">(zonopyrobots.ComposedZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.origin_rot">(zonopyrobots.SE2ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.origin_rot">(zonopyrobots.SE3ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.origin_rot">(zonopyrobots.ZonoArmRobot attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.original_urdf">original_urdf (zonopyrobots.SE2ZonoRobot attribute)</a>
+
+      <ul>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.original_urdf">(zonopyrobots.SE3ZonoRobot attribute)</a>
+</li>
+      </ul></li>
       <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#id7">outer_pz (zonopyrobots.robots.armrobot.ZonoArmRobotJoint attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.outer_pz">[1]</a>
 </li>
   </ul></td>
@@ -600,11 +752,11 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/zonopyrobots.trajectory.PiecewiseArmTrajectory.html#zonopyrobots.trajectory.PiecewiseArmTrajectory">PiecewiseArmTrajectory (class in zonopyrobots.trajectory)</a>
 </li>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id16">pos_lim (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.pos_lim">[1]</a>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.pos_lim">pos_lim (zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id17">pos_lim_mask (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.pos_lim_mask">[1]</a>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.pos_lim_mask">pos_lim_mask (zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
       <li><a href="generated/zonopyrobots.dynamics.pzrnea.html#zonopyrobots.dynamics.pzrnea">pzrnea() (in module zonopyrobots.dynamics)</a>
 </li>
@@ -616,26 +768,64 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#id8">radius (zonopyrobots.robots.armrobot.ZonoArmRobotJoint attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.radius">[1]</a>
 </li>
+      <li><a href="generated/zonopyrobots.robots.urdfs.html#zonopyrobots.robots.urdfs.refresh_assets">refresh_assets() (zonopyrobots.robots.urdfs class method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/zonopyrobots.robots.urdfs.html#zonopyrobots.robots.urdfs.register_urdf">register_urdf() (zonopyrobots.robots.urdfs class method)</a>
+</li>
+      <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.robot_map">robot_map (zonopyrobots.ComposedZonoRobot attribute)</a>
+</li>
+      <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.robots">robots (zonopyrobots.ComposedZonoRobot attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot">SE2ZonoRobot (class in zonopyrobots)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot">SE3ZonoRobot (class in zonopyrobots)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#id9">tensor (zonopyrobots.robots.armrobot.ZonoArmRobotJoint attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.tensor">[1]</a>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.tensor">tensor (zonopyrobots.BaseZonoRobot attribute)</a>
 
       <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.tensor">(zonopyrobots.ComposedZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#id9">(zonopyrobots.robots.armrobot.ZonoArmRobotJoint attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.tensor">[1]</a>
+</li>
         <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#id6">(zonopyrobots.robots.armrobot.ZonoArmRobotLink attribute)</a>, <a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.robots.armrobot.ZonoArmRobotLink.tensor">[1]</a>
 </li>
-        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id18">(zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.tensor">[1]</a>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.tensor">(zonopyrobots.SE2ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.tensor">(zonopyrobots.SE3ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.tensor">(zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.to">to() (zonopyrobots.robots.armrobot.ZonoArmRobotJoint method)</a>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.to">to() (zonopyrobots.BaseZonoRobot method)</a>
 
       <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.to">(zonopyrobots.ComposedZonoRobot method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotJoint.html#zonopyrobots.robots.armrobot.ZonoArmRobotJoint.to">(zonopyrobots.robots.armrobot.ZonoArmRobotJoint method)</a>
+</li>
         <li><a href="generated/zonopyrobots.robots.armrobot.ZonoArmRobotLink.html#zonopyrobots.robots.armrobot.ZonoArmRobotLink.to">(zonopyrobots.robots.armrobot.ZonoArmRobotLink method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.to">(zonopyrobots.SE2ZonoRobot method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.to">(zonopyrobots.SE3ZonoRobot method)</a>
 </li>
         <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.to">(zonopyrobots.ZonoArmRobot method)</a>
 </li>
@@ -646,7 +836,33 @@ document.write(`
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id19">urdf (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.urdf">[1]</a>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.update_origin">update_origin() (zonopyrobots.BaseZonoRobot method)</a>
+
+      <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.update_origin">(zonopyrobots.ComposedZonoRobot method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.update_origin">(zonopyrobots.SE2ZonoRobot method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.update_origin">(zonopyrobots.SE3ZonoRobot method)</a>
+</li>
+        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.update_origin">(zonopyrobots.ZonoArmRobot method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/zonopyrobots.BaseZonoRobot.html#zonopyrobots.BaseZonoRobot.urdf">urdf (zonopyrobots.BaseZonoRobot attribute)</a>
+
+      <ul>
+        <li><a href="generated/zonopyrobots.ComposedZonoRobot.html#zonopyrobots.ComposedZonoRobot.urdf">(zonopyrobots.ComposedZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE2ZonoRobot.html#zonopyrobots.SE2ZonoRobot.urdf">(zonopyrobots.SE2ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.SE3ZonoRobot.html#zonopyrobots.SE3ZonoRobot.urdf">(zonopyrobots.SE3ZonoRobot attribute)</a>
+</li>
+        <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.urdf">(zonopyrobots.ZonoArmRobot attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="generated/zonopyrobots.robots.urdfs.html#zonopyrobots.robots.urdfs">urdfs (class in zonopyrobots.robots)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -654,7 +870,7 @@ document.write(`
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#id20">vel_lim (zonopyrobots.ZonoArmRobot attribute)</a>, <a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.vel_lim">[1]</a>
+      <li><a href="generated/zonopyrobots.ZonoArmRobot.html#zonopyrobots.ZonoArmRobot.vel_lim">vel_lim (zonopyrobots.ZonoArmRobot attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -689,7 +905,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
 </div>
@@ -698,8 +914,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
@@ -744,8 +958,8 @@ By ROAHM Lab
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

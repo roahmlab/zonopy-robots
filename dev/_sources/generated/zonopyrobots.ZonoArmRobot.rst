@@ -18,9 +18,11 @@
    .. autosummary::
    
       ~ZonoArmRobot.__init__
+      ~ZonoArmRobot.copy
       ~ZonoArmRobot.load
       ~ZonoArmRobot.numpy
       ~ZonoArmRobot.to
+      ~ZonoArmRobot.update_origin
    
    
 
@@ -30,12 +32,6 @@
 
    .. autosummary::
    
-      ~ZonoArmRobot.urdf
-      ~ZonoArmRobot.dof
-      ~ZonoArmRobot.np
-      ~ZonoArmRobot.tensor
-      ~ZonoArmRobot.device
-      ~ZonoArmRobot.dtype
       ~ZonoArmRobot.joint_axis
       ~ZonoArmRobot.joint_origins
       ~ZonoArmRobot.joint_origins_all
@@ -51,5 +47,15 @@
       ~ZonoArmRobot.link_data
       ~ZonoArmRobot.is_single_chain
       ~ZonoArmRobot.has_closed_loop
+      ~ZonoArmRobot.device
+      ~ZonoArmRobot.dof
+      ~ZonoArmRobot.dtype
+      ~ZonoArmRobot.itype
+      ~ZonoArmRobot.name
+      ~ZonoArmRobot.np
+      ~ZonoArmRobot.origin_pos
+      ~ZonoArmRobot.origin_rot
+      ~ZonoArmRobot.tensor
+      ~ZonoArmRobot.urdf
    
    
