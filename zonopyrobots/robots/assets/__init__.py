@@ -2,15 +2,20 @@ import os as _os
 from urchin import URDF as _URDF
 _basedirname = _os.path.dirname(__file__)
 
-class _Files:
+class files:
+    '''Paths to URDF files for the robots included. All paths are absolute.'''
     def __init__(self):
+        '''This class is not meant to be instantiated.'''
         raise Exception("This class is not meant to be instantiated.")
 
     KinovaGen3 = _os.path.join(_basedirname, 'robots/kinova_arm/gen3.urdf')
     '''URDF file for the Kinova Gen3 robot arm.'''
 
-class _Urdfs:
+class urdfs:
+    '''URDF objects for the files included. All URDF objects are loaded lazily and share the same name as in :class:`files`.
+    If any files are added to the files object, call refresh_assets() to update them in the urdfs object.'''
     def __init__(self):
+        '''This class is not meant to be instantiated.'''
         raise Exception("This class is not meant to be instantiated.")
 
     @staticmethod
@@ -30,28 +35,22 @@ class _Urdfs:
     @classmethod
     def register_urdf(cls, name, file, doc=None):
         '''Registers a URDF object for a file.'''
-        setattr(_Urdfs, name, classmethod(cls._get_urdf_property_gen(name, file, doc=doc)))
+        setattr(cls, name, classmethod(cls._get_urdf_property_gen(name, file, doc=doc)))
     
     @classmethod
     def refresh_assets(cls):
         '''Refreshes the URDF objects for the files in the files classobject.'''
-        for key in _Files.__dict__:
-            if not key.startswith('__') and key not in _Urdfs.__dict__:
-                docstring = getattr(_Files, key).__doc__
-                file = getattr(_Files, key)
+        for key in files.__dict__:
+            if not key.startswith('__') and key not in files.__dict__:
+                docstring = getattr(files, key).__doc__
+                file = getattr(files, key)
                 cls.register_urdf(
                     key,
                     file,
                     doc=f"Loaded urchin URDF object from the {docstring}"
                 )
 
-_Urdfs.refresh_assets()
+urdfs.refresh_assets()
 '''Initializes the URDF objects for the files included. This is called automatically when the module is imported.'''
 
-files = _Files
-'''Paths to URDF files for the robots included. All paths are absolute.'''
-urdfs = _Urdfs
-'''URDF objects for the files included. All URDF objects are loaded lazily and share the same name as in files.
-If any files are added to the files object, call refresh_assets() to update them in the urdfs object.'''
-
-__all__ = ["assets", "urdfs"]
+# __all__ = ["assets", "urdfs"]
