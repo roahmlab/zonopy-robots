@@ -633,7 +633,9 @@ def _generate_joint_occupancy(robot, joint):
     # Do an initial union and bounding box.
     res = robot.collision_trimesh_fk(links=[parent_link, child_link])
     # if we only have one mesh, rotate 180 and then treat it as fixed
-    if len(res) != 2:
+    if len(res) == 0:
+        return np.zeros(3), np.zeros((3,2))
+    elif len(res) != 2:
         basis = normal_vec_to_basis(joint.axis)
         rotmat = np.hstack(([0,0,0],basis[:,0])) * np.pi
         rotmat = xyz_rpy_to_matrix(rotmat)
