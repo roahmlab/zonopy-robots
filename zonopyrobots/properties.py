@@ -11,7 +11,7 @@ A collection of internal properties for zonopyrobots.
     A fun little logo for zonopyrobots.
 
 """
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 __logo__ = """
 *** ZONO-PY ROBOTS ***
   _____         _____

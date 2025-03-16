@@ -1,3 +1,4 @@
+import zonopyrobots.robots as robots
 from zonopyrobots.robots import *
 from zonopyrobots.util import *
 
@@ -13,4 +14,5 @@ from zonopyrobots.joint_reachable_set.jrs_trig.process_jrs_trig import *
 import zonopy.internal as internal
 
 
+from .properties import __version__, __logo__
 
