@@ -19,7 +19,7 @@ class TestJrsGenerator(unittest.TestCase):
         tdiscretization = 0.01
         duration = 1.
         # Params
-        params = np.array([zp.polyZonotope([[0],[1]],1,id=0)])
+        params = np.array([zp.polyZonotope([[0],[1]],1,ids=0)])
         param_range = np.ones(3) * np.pi/36
         param_range = np.vstack([-param_range, param_range])
 

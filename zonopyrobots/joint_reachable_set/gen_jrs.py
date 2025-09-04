@@ -52,7 +52,7 @@ class JrsGenerator:
             self.id_map[f'k{i}'] = id
             self.base_params[i] = zp.polyZonotope(
                 [[0],[1]],
-                1, id=id, dtype=self.dtype, device=self.device
+                1, ids=id, dtype=self.dtype, device=self.device
             )
             self.k_ids[i] = id
 
@@ -96,7 +96,7 @@ class JrsGenerator:
                     self.id_map[f't{i}'] = id
                 self.times[i] = zp.polyZonotope(
                     [[self.tdiscretization*i+self.tdiscretization/2],[self.tdiscretization/2]],
-                    1, id=id, dtype=self.dtype, device=self.device
+                    1, ids=id, dtype=self.dtype, device=self.device
                 )
         
         # Create PZ's for error
@@ -109,13 +109,13 @@ class JrsGenerator:
                 id = len(self.id_map)
                 self.id_map[f'e_pos{i}'] = id
                 self.error_pos[i] = zp.polyZonotope(
-                    [[0],[ultimate_bound/k_r]], 1, id=id, dtype=self.dtype, device=self.device
+                    [[0],[ultimate_bound/k_r]], 1, ids=id, dtype=self.dtype, device=self.device
                 )
 
                 id = len(self.id_map)
                 self.id_map[f'e_vel{i}'] = id
                 self.error_vel[i] = zp.polyZonotope(
-                    [[0],[2*ultimate_bound]], 1, id=id, dtype=self.dtype, device=self.device
+                    [[0],[2*ultimate_bound]], 1, ids=id, dtype=self.dtype, device=self.device
                 )
     
     def gen_JRS(self, q_in, qd_in, qdd_in=None, taylor_degree=1, make_gens_independent=True, only_R=False):

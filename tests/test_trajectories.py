@@ -19,9 +19,9 @@ class TestPiecewiseArmTrajectories(unittest.TestCase):
 
         # Params
         self.params = np.array([
-            zp.polyZonotope([[0],[1]],1,id=0),
-            zp.polyZonotope([[0],[1]],1,id=1),
-            zp.polyZonotope([[0],[1]],1,id=2)
+            zp.polyZonotope([[0],[1]],1,ids=0),
+            zp.polyZonotope([[0],[1]],1,ids=1),
+            zp.polyZonotope([[0],[1]],1,ids=2)
             ])
         self.param_range = np.minimum(np.maximum(np.ones(3) * np.pi/24, np.abs(self.dq/3)), np.ones(3) * np.pi/3)
         self.param_range = np.vstack([-self.param_range, self.param_range])
@@ -256,9 +256,9 @@ class TestBernsteinArmTrajectories(unittest.TestCase):
 
         # Params
         self.params = np.array([
-            zp.polyZonotope([[0],[1]],1,id=0),
-            zp.polyZonotope([[0],[1]],1,id=1),
-            zp.polyZonotope([[0],[1]],1,id=2)
+            zp.polyZonotope([[0],[1]],1,ids=0),
+            zp.polyZonotope([[0],[1]],1,ids=1),
+            zp.polyZonotope([[0],[1]],1,ids=2)
             ])
         self.param_range = np.ones(3) * np.pi/36
         self.param_range = np.vstack([-self.param_range, self.param_range])
